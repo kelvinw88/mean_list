@@ -1,10 +1,16 @@
-angular.module('todoController', [])
+var todoController = angular.module('todoController', [])
 
-.controller('mainController', function($scope, $rootScope) {
+todoController.controller('TestController', function($scope, $rootScope) {
   alert("Hello");
   $scope.test = "Hello world";
 
   $scope.testVar = "WTF";
   $rootScope.hello = "HELLO FFFF";
+
+});
+
+
+todoController.controller('GregController', function($scope, $rootScope) {
+  $scope.test = "Youre are awesome";
 
 });
