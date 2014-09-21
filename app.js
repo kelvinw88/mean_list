@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 //SET UP DATABASE
 var mongo = require('mongodb');
@@ -14,6 +15,26 @@ var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
 
 var app = express();
+
+// var projects = require('./app/models/projects')
+//model setup
+var walk    = require('walk');
+var files   = [];
+
+// Walker options
+var walker  = walk.walk('./app/models', { followLinks: false });
+
+walker.on('file', function(root, stat, next) {
+    // Add this file to the list of files
+    files.push(root + '/' + stat.name);
+    next();
+});
+
+walker.on('end', function() {
+  files.forEach(function(filename){
+    require(filename);
+  });
+});
 
 
 // view engine setup
@@ -28,6 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -37,6 +59,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
 
 // error handlers
 
