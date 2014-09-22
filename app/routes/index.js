@@ -18,7 +18,9 @@ router.get('/projects', function(req, res) {
 /* GET Tasks page. */
 router.get('/tasks', function(req, res) {
   mongoose.model('tasks').find(function(err,tasks){
-    res.send(tasks)
+    mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+      res.send(tasks);
+    })
   });
 });
 
