@@ -33,9 +33,9 @@ router.post('/', function(req, res) {
   task.save(function(err) {
     if (err)
       res.send(err);
-    res.json({
-      message: 'Task created!'
-    });
+    mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+      res.send(tasks);
+    })
   });
 });
 
@@ -64,9 +64,7 @@ router.post('/:task_id', function(req, res) {
     task.save(function(err) {
       if (err)
         res.send(err);
-      res.json({
-        message: 'Task updated!'
-      });
+      res.json(task);
     });
   });
 });
@@ -81,9 +79,9 @@ router.delete('/:task_id', function(req, res) {
     if (err)
       res.send(err);
 
-    res.json({
-      message: 'Successfully deleted'
-    });
+    mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+      res.send(tasks);
+    })
   });
 });
 

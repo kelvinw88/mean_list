@@ -18,8 +18,8 @@ router.post('/', function(req, res) {
   project.save(function(err) {
     if (err)
       res.send(err);
-    res.json({
-      message: 'Project created!'
+    mongoose.model('projects').find(function(err, projects) {
+      res.send(projects)
     });
   });
 });
@@ -45,9 +45,7 @@ router.post('/:project_id', function(req, res) {
     project.save(function(err) {
       if (err)
         res.send(err);
-      res.json({
-        message: 'Project updated!'
-      });
+      res.send(project);
     });
   });
 });
@@ -61,9 +59,8 @@ router.delete('/:project_id', function(req, res) {
   }, function(err, project) {
     if (err)
       res.send(err);
-
-    res.json({
-      message: 'Successfully deleted'
+    mongoose.model('projects').find(function(err, projects) {
+      res.send(projects)
     });
   });
 });

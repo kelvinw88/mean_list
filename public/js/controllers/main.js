@@ -12,7 +12,7 @@ todo.controller('GregController', function($scope, todoFactory) {
   todoFactory.get()
     .success(function(data) {
       $scope.names = data
-      console.log(data);
+      // console.log(data);
       // $scope.todos = data;
       // $scope.loading = false;
     });
@@ -29,9 +29,12 @@ todo.controller('GregController', function($scope, todoFactory) {
 
           // if successful creation, call our get function to get all the new todos
           .success(function(data) {
+            console.log("create");
+            console.log(data);
             $scope.loading = false;
             $scope.formData = {}; // clear the form so our user is ready to enter another
-            $scope.todos = data; // assign our new list of todos
+            $scope.names = data; // assign our new list of todos
+
           });
       }
     };
