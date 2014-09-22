@@ -12,11 +12,12 @@ var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost:27017/mean_list');
 
 var routes = require('./app/routes/index');
+var projects = require('./app/routes/projects');
 var users = require('./app/routes/users');
+var tasks = require('./app/routes/tasks');
 
 var app = express();
 
-// var projects = require('./app/models/projects')
 //model setup
 var walk    = require('walk');
 var files   = [];
@@ -52,6 +53,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/projects', projects);
+app.use('/tasks', tasks);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
