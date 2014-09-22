@@ -38,4 +38,17 @@ todo.controller('GregController', function($scope, todoFactory) {
           });
       }
     };
+
+    // DELETE ==================================================================
+    // delete a todo after checking it
+    $scope.deleteTodo = function(id) {
+      $scope.loading = true;
+
+      todoFactory.delete(id)
+        // if successful creation, call our get function to get all the new todos
+        .success(function(data) {
+          $scope.loading = false;
+          $scope.names = data; // assign our new list of todos
+        });
+    };
 });

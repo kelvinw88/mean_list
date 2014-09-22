@@ -4,10 +4,6 @@ var todo = angular.module( 'todo',[
      'ngRoute'
   ]);
 
-todo.run(function (){
-  alert("app bootstrapped");
-});
-
 todo.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
   when('/list', {

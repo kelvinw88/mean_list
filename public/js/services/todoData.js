@@ -11,7 +11,7 @@ todo.factory('todoFactory', ['$http',function($http) {
       return $http.post('/api/projects', todoData);
     },
     delete : function(id) {
-      return $http.delete('/api/todos/' + id);
+      return $http.delete('/api/projects/' + id);
     }
   }
 }]);

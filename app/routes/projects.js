@@ -59,7 +59,7 @@ router.delete('/:project_id', function(req, res) {
   }, function(err, project) {
     if (err)
       res.send(err);
-    mongoose.model('projects').find(function(err, projects) {
+        mongoose.model('projects').find(function(err, projects) {
       res.send(projects)
     });
   });
