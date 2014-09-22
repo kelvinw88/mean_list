@@ -38,10 +38,10 @@ router.get('/:project_id', function(req, res) {
 /* edit a project. */
 router.post('/:project_id', function(req, res) {
   var project = mongoose.model('projects');
-  project.findById(req.params.bear_id, function(err, project) {
+  project.findById(req.params.project_id, function(err, project) {
     if (err)
       res.send(err);
-    project.name = project.body.name;
+    project.name = req.body.name;
     project.save(function(err) {
       if (err)
         res.send(err);

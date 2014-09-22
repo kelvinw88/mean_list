@@ -3,8 +3,8 @@ var Schema = mongoose.Schema;
 
 
 var tasksSchema = new Schema({
-  name: String,
-  description: String,
+  name: {type: String, required: true},
+  description: { type: String, default: null },
   project: {
     type: Schema.Types.ObjectId,
     ref: 'projects'

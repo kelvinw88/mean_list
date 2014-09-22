@@ -23,46 +23,48 @@ router.post('/', function(req, res) {
     if (err)
       res.send(err);
     res.json({
-      message: 'Project created!'
+      message: 'Task created!'
     });
   });
 });
 
-/* get a project. */
-router.get('/:project_id', function(req, res) {
-  var project = mongoose.model('projects');
-  project.findById(req.params.project_id, function(err, project) {
+/* get a task. */
+router.get('/:task_id', function(req, res) {
+  var task = mongoose.model('tasks');
+  task.findById(req.params.task_id, function(err, task) {
     if (err)
       res.send(err);
-    res.json(project);
+    res.json(task);
   });
 });
 
 
-/* edit a project. */
-router.post('/:project_id', function(req, res) {
-  var project = mongoose.model('projects');
-  project.findById(req.params.bear_id, function(err, project) {
+/* edit a task. */
+router.post('/:task_id', function(req, res) {
+  var task = mongoose.model('tasks');
+  task.findById(req.params.task_id, function(err, task) {
     if (err)
       res.send(err);
-    project.name = project.body.name;
-    project.save(function(err) {
+    task.name = req.body.name;
+    task.description = req.body.description;
+    task.project = req.body.project;
+    task.save(function(err) {
       if (err)
         res.send(err);
       res.json({
-        message: 'Project updated!'
+        message: 'Task updated!'
       });
     });
   });
 });
 
 
-/* delete a project. */
-router.delete('/:project_id', function(req, res) {
-  var project = mongoose.model('projects');
-  project.remove({
-    _id: req.params.project_id
-  }, function(err, project) {
+/* delete a task. */
+router.delete('/:task_id', function(req, res) {
+  var task = mongoose.model('tasks');
+  task.remove({
+    _id: req.params.task_id
+  }, function(err, task) {
     if (err)
       res.send(err);
 
