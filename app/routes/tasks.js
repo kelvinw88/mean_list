@@ -19,6 +19,17 @@ router.post('/', function(req, res) {
   task.name = req.body.name;
   task.description = req.body.description;
   task.project = req.body.project;
+  task.status = req.body.status;
+  task.due_date = req.body.due_date;
+  task.time_estimate = req.body.time_estimate;
+  task.sub_task = req.body.sub_task;
+  task.attachment = req.body.attachment;
+
+
+
+
+
+
   task.save(function(err) {
     if (err)
       res.send(err);
@@ -45,9 +56,11 @@ router.post('/:task_id', function(req, res) {
   task.findById(req.params.task_id, function(err, task) {
     if (err)
       res.send(err);
+    console.log(task);
     task.name = req.body.name;
     task.description = req.body.description;
     task.project = req.body.project;
+    console.log(task);
     task.save(function(err) {
       if (err)
         res.send(err);

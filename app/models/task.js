@@ -7,8 +7,21 @@ var tasksSchema = new Schema({
   description: { type: String, default: null },
   project: {
     type: Schema.Types.ObjectId,
-    ref: 'projects'
-  }
+    ref: 'projects',
+    required: true
+  },
+  done: {type: Boolean, deafult: false },
+  status: { type: String, default: null },
+  due_date: { type: Date, default: null },
+  time_estimate: { type: Number, default: null },
+  sub_task: {
+      type: Array,
+      default: []
+    },
+  attachment: {
+      type: Array,
+      default: []
+    }
 });
 
 mongoose.model('tasks', tasksSchema);
