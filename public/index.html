@@ -4,11 +4,11 @@
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-   <script src="/js/core.js"></script>
-   <script src="/js/controllers/main.js"></script>
-   <script src="/js/vendor/angular-route.js"></script>
     <!-- <script src="js/services/todos.js"></script> <!-- load our todo service -->
-
+    <script src="/js/vendor/angular-route.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/controllers/main.js"></script>
+    <script src="/js/services/todoData.js"></script>
     <style type="text/css">
       [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
       display: none !important;
@@ -16,9 +16,11 @@
     </style>
   
   </head>
-<!--   <body ng-controller="mainController" > -->
+  <body>
 
-  <div ng-view></div>
+    <div ng-view>
+      
+    </div>
 
 
   </body>
