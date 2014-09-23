@@ -1,4 +1,24 @@
-<section class="tasks" ng-controller="TasksCtrl">
+<section class="tasks col-xs-9">
 
-  <h1>Tasks</h1>
+  <h1>{{project.project_id}} Tasks</h1>
+
+  <div id="task-form" >
+    <div class="text-center">
+      <form>
+        <div class="form-group">
+
+          <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+          <input type="text" class="form-control input-sm text-center" placeholder="Create a task" ng-model="formData.name">
+        </div>
+
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTask()">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div ng-repeat="task in tasks">
+    <p>{{task.name}}</p>
+  </div>
 </section>
