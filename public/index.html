@@ -3,19 +3,52 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='css/xeditable.css' />
 
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
     <!-- <script src="js/services/todos.js"></script> <!-- load our todo service -->
     <script src="/js/vendor/angular-route.js"></script>
+    <script src="/js/vendor/xeditable.js"></script>
     <script src="/js/core.js"></script>
     <script src="/js/controllers/main.js"></script>
     <script src="/js/services/todoData.js"></script>
-    <style type="text/css">
-      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-      display: none !important;
+
+<script type="text/javascript">
+var app = angular.module("app", ["xeditable"]);
+
+todo.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
+
+app.controller('Ctrl', function($scope, $filter, $http) {
+  console.log(editableForm)
+ $scope.user = {
+    id: 1,
+    name: 'awesome user',
+    status: 2,
+    group: 4,
+    groupName: 'admin'
+  }; 
+
+
+  $scope.saveUser = function() {
+    // $scope.user already updated!
+    return $http.post('/saveUser', $scope.user).error(function(err) {
+      if(err.field && err.msg) {
+        // err like {field: "name", msg: "Server-side error for this username!"} 
+        $scope.editableForm.$setError(err.field, err.msg);
+      } else { 
+        // unknown error
+        $scope.editableForm.$setError('name', 'Unknown error!');
       }
-    </style>
+    });
+  };
+});
+ 
+
+</script>
 
   </head>
   <body>

@@ -1,7 +1,9 @@
 var todo = angular.module( 'todo',[
     // 'todoController',
     // 'todoService',
-     'ngRoute'
+     'ngRoute',
+     'app',
+     'xeditable'
      // 'ui.bootstrap'
   ]);
 

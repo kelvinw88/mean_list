@@ -7,7 +7,7 @@ todo.controller('TestController', function($scope, $rootScope) {
   $rootScope.hello = "HELLO FFFF";
 });
 
-todo.controller('GregController', function($scope, todoFactory) {
+todo.controller('GregController', function($scope, todoFactory, $filter, $http) {
 
   todoFactory.get()
     .success(function(data) {
@@ -51,4 +51,28 @@ todo.controller('GregController', function($scope, todoFactory) {
           $scope.names = data; // assign our new list of todos
         });
     };
+
+  $scope.saveUser = function() {
+      $scope.loading = true;
+      console.log("saving task");
+      debugger
+      // validate the formData to make sure that something is there
+      // if form is empty, nothing will happen
+      if ($scope.formData.name != undefined) {
+
+        // call the create function from our service (returns a promise object)
+        todoFactory.create($scope.formData)
+
+          // if successful creation, call our get function to get all the new todos
+          .success(function(data) {
+            console.log("create");
+            console.log(data);
+            $scope.loading = false;
+            $scope.formData = {}; // clear the form so our user is ready to enter another
+            $scope.names = data; // assign our new list of todos
+
+          });
+      }
+    };
+
 });
