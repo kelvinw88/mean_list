@@ -3,7 +3,7 @@ var todo = angular.module( 'todo',[
     'ProjectFactory',
      'ui.router',
      'ngRoute',
-     'app',
+     // 'app',
      'xeditable',
      'ui.bootstrap'
   ]);

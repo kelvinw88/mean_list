@@ -1,14 +1,37 @@
+mean_list.controller('ProjectName', function($scope, $stateParams, ProjectFactory, $filter, $http) {
+  $scope.beingEdited = false;
+
+  $scope.finishEditing = function() {
+    $scope.beingEdited = false;
+  };
+
+
+
+});
+
+
+
 mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFactory, $filter, $http) {
+  $scope.edit = true;
+
+  $scope.test = "hello";
+
 
   ProjectFactory.get()
     .success(function(data) {
       console.log("get");
       $scope.projects = data
       console.log(data);
-
+      //$scope.edit = false;
       // $scope.loading = false;
 
     });
+
+  $scope.hideEdit2 = function () {
+    alert("hiding now...");
+    $scope.edit = false;
+    // console.log($scope.edit);
+  };
 
   $scope.createProject = function() {
     $scope.loading = true;
