@@ -1,7 +1,7 @@
 // angular.module('todoService', [])
 
   // super simple service
-  // each function returns a promise object 
+  // each function returns a promise object
 todo.factory('todoFactory', ['$http',function($http) {
   return {
     get : function() {
@@ -19,4 +19,3 @@ todo.factory('todoFactory', ['$http',function($http) {
 // todo.factory('todoFactory', function($resource) {
 //   return $resource ('/projects');
 // });
-
