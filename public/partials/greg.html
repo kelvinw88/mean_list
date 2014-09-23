@@ -1,38 +1,12 @@
-
-
-
-
 <div id="todo-list" class="row">
   <div class="col-sm-4 col-sm-offset-4">
 
     <!-- LOOP OVER THE TODOS IN $scope.todos -->
     <div class="checkbox" ng-repeat="name in names">
       <label>
-        
+       
+        <input type="checkbox" ng-click="deleteTodo(name._id)">Tasks:{{ name.name }}
 
-    <form editable-form name="editableForm" onaftersave="saveUser()">
-      <div>
-        <!-- editable username (text with validation) -->
-        <input type="checkbox" ng-click="deleteTodo(name._id)"><span class="title">Tasks: </span>
-        <span editable-text="name.name" e-name="name" onbeforesave="checkName($data)" e-required>{{ name.name || 'empty' }}</span>
-      </div> 
-
-      <div>
-        <!-- button to show form -->
-        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-          Edit
-        </button>
-        <!-- buttons to submit / cancel form -->
-        <span ng-show="editableForm.$visible">
-          <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-            Save
-          </button>
-          <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-            Cancel
-          </button>
-        </span>
-      </div>
-  </form>  
       </label>
     </div>
 
@@ -46,7 +20,7 @@
       <div class="form-group">
 
         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.name">
+        <input type="text" class="form-control input-lg text-center" placeholder="Add your task" ng-model="formData.name">
       </div>
 
       <!-- createToDo() WILL CREATE NEW TODOS -->

@@ -43,7 +43,7 @@ todo.controller('GregController', function($scope, todoFactory, $filter, $http) 
     // delete a todo after checking it
     $scope.deleteTodo = function(id) {
       $scope.loading = true;
-
+      console.log("deleted");
       todoFactory.delete(id)
         // if successful creation, call our get function to get all the new todos
         .success(function(data) {
@@ -55,10 +55,12 @@ todo.controller('GregController', function($scope, todoFactory, $filter, $http) 
   $scope.saveUser = function() {
       $scope.loading = true;
       console.log("saving task");
+      console.log($scope.$$childHead.this.editableForm.$data.name);
       debugger
+      // $scope.$$childHead.$$childHead.$data //not sure if this is where i will grab the data that is entered in the text field
       // validate the formData to make sure that something is there
       // if form is empty, nothing will happen
-      if ($scope.formData.name != undefined) {
+      if ($scope.formData != undefined) {
 
         // call the create function from our service (returns a promise object)
         todoFactory.create($scope.formData)
