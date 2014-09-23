@@ -18,6 +18,8 @@ var tasks = require('./app/routes/tasks');
 
 var app = express();
 
+console.log("MEAN LIST!");
+
 //model setup
 var walk    = require('walk');
 var files   = [];
