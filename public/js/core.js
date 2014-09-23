@@ -1,7 +1,8 @@
 var todo = angular.module( 'todo',[
     // 'todoController',
     // 'todoService',
-     'ngRoute'
+     'ngRoute',
+     'ui.bootstrap'
   ]);
 
 todo.config(['$routeProvider', function ($routeProvider) {
