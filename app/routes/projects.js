@@ -37,8 +37,10 @@ router.get('/:project_id', function(req, res) {
 
 /* edit a project. */
 router.post('/:project_id', function(req, res) {
+  console.log("got into the backend");
   var project = mongoose.model('projects');
   project.findById(req.params.project_id, function(err, project) {
+
     if (err)
       res.send(err);
     project.name = req.body.name;
