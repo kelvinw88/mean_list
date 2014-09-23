@@ -2,12 +2,16 @@
 <html ng-app="todo">
   <head>
     <title>{{ title }}</title>
+    <link rel='stylesheet' href='/css/normalizecss'/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
     <link rel='stylesheet' href='css/xeditable.css' />
 
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <link rel='stylesheet' href='/css/bootstrap.min.css'/>
+    <script src="/js/vendor/jquery.min.js"></script>
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/ui-bootstrap-tpls.min.js"></script>
+    <script src="/js/vendor/ui-bootstrap.min.js"></script>
     <!-- <script src="js/services/todos.js"></script> <!-- load our todo service -->
     <script src="/js/vendor/angular-route.js"></script>
     <script src="/js/vendor/xeditable.js"></script>
@@ -53,8 +57,18 @@ app.controller('Ctrl', function($scope, $filter, $http) {
   </head>
   <body>
 
-    <div ng-view>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <p>side menu</p>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ">
+            <p>center page</p>
+            <div ng-view>
+            </div>
+          </div>
 
+      </div>
     </div>
 
 

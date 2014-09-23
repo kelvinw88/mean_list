@@ -3,8 +3,8 @@ var todo = angular.module( 'todo',[
     // 'todoService',
      'ngRoute',
      'app',
-     'xeditable'
-     // 'ui.bootstrap'
+     'xeditable',
+     'ui.bootstrap'
   ]);
 
 todo.config(['$routeProvider', function ($routeProvider) {
