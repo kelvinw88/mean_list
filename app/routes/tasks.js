@@ -45,9 +45,11 @@ router.post('/:task_id', function(req, res) {
   task.findById(req.params.task_id, function(err, task) {
     if (err)
       res.send(err);
+    console.log(task);
     task.name = req.body.name;
     task.description = req.body.description;
     task.project = req.body.project;
+    console.log(task);
     task.save(function(err) {
       if (err)
         res.send(err);
