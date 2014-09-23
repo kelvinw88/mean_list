@@ -5,18 +5,12 @@
   <!-- show all projects -->
 
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
-<<<<<<< HEAD
   <div class="checkbox" ng-repeat="project in projects">
     <label>
 
-
-
- 
-  
       <!-- editable username (text with validation) -->
       <!-- <input type="checkbox" ng-click="deleteProject(project._id)"> -->
   
-
       <div ng-controller="ProjectName">
         <span class="title">Project: </span>
         <div ng-hide = "beingEdited">
@@ -31,17 +25,9 @@
 
     </label>
 
-=======
-  <div ng-repeat="project in projects">
-    <div class="project">
-      <button class= "checkbox" type="checkbox" ng-click="deleteProject(project._id)"> Delete</button>
-      <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
-      <button class= "checkbox" type="checkbox" ng-click="editProject(project._id)"> Edit</button>
-      <div class='project_title'>{{ project.name || 'empty' }}</div>
-    </div>
-  </div>
->>>>>>> f12c06e8a28a5a7fd82492788a46eb4f51f1b2a6
 
+</div>
+</div>
 
 
 <div id="project-form" class="row">
