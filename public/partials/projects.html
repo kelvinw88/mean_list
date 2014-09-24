@@ -15,10 +15,10 @@
       <div ng-controller="ProjectNameCtrl">
         <span class="title">Project: </span>
         <div ng-hide = "beingEdited">
-          <span> {{ project.name || 'empty' }}</span><button type="button" ng-click="beingEdited = true">Edit</button>
+          <span> {{  project.name || 'empty' }}</span><button type="button" ng-click="beingEdited = true">Edit</button>
         </div>
         <div ng-show="beingEdited"><div>
-          <input ng-model="project.name" ><button ng-click="finishEditing(project._id) " type="button">Save</button><button type="button" ng-click="finishEditing()">Cancel</button>
+          <input ng-model="projectNameCopy" ><button ng-click="finishEditing(project._id) " type="button">Save</button><button type="button" ng-click="cancelEditing()">Cancel</button>
         </div>
       </div>
     
