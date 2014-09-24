@@ -44,10 +44,10 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $f
 
     // validate the formData to make sure that something is there
     // if form is empty, nothing will happen
-    if ($scope.formData.name != undefined) {
-      $scope.formData.project = $scope.project.project_id;
+    if ($scope.taskData.name != undefined) {
+      $scope.taskData.project = $scope.project.project_id;
       // call the create function from our service (returns a promise object)
-      TaskFactory.create($scope.formData)
+      TaskFactory.create($scope.taskData)
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
 
