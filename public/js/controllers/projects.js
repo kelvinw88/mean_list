@@ -49,10 +49,7 @@ mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFacto
 
   ProjectFactory.get()
     .success(function(data) {
-      console.log("get");
       $scope.projects = data
-      console.log(data);
-      // $scope.loading = false;
 
     });
 

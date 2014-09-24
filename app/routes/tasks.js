@@ -7,19 +7,35 @@ var router = express.Router();
 router.get('/', function(req, res) {
 
 
-  // if (req.param != undefined)
-  //   {mongoose.model('tasks').find({project: req.param('project')}).find(function(err,tasks){
-  //     mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
-  //       res.send(tasks);
-  //     })
-  //   });}
-  // else {
-  mongoose.model('tasks').find(function(err,tasks){
-    mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+  //get all tasks with time sort
+  mongoose.model('tasks').find().sort([
+    ['time', 'descending']
+  ]).find(function(err, tasks) {
+    mongoose.model('tasks').populate(tasks, {
+      path: 'project'
+    }, function(err, tasks) {
       res.send(tasks);
     })
   });
-  // }
+
+});
+
+
+router.get('/project/:project_id', function(req, res) {
+
+
+  var project_id = req.param('project_id')
+  mongoose.model('tasks').find().sort([
+    ['time', 'descending']
+  ]).find(function(err, tasks) {
+    mongoose.model('tasks').populate(tasks, {
+      path: 'project'
+    }, function(err, tasks) {
+      mongoose.model('tasks').where('project').equals(project_id).find(function(err, tasks) {
+        res.send(tasks);
+      })
+    })
+  });
 });
 
 
