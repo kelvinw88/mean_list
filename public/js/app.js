@@ -12,6 +12,11 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
         url: '/projects',
         templateUrl: 'partials/projects.html',
         controller: 'ProjectsCtrl'
+    })
+    .state('projects.tasks', {
+        url: '/:project_id/tasks',
+        templateUrl: 'partials/tasks.html',
+        controller: 'TasksCtrl'
     });
 
 }]);

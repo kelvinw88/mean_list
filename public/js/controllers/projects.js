@@ -41,6 +41,16 @@ mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFacto
     });
   };
 
+  $scope.editProject = function(project_id) {
+    $scope.loading = true;
+    ProjectFactory.edit(project_id)
+    // if successful creation, call our get function to get all the new todos
+    .success(function(data) {
+      $scope.loading = false;
+      $scope.projects = data; // assign our new list of todos
+    });
+  };
+
   $scope.saveProject = function() {
     $scope.loading = true;
     console.log("saving Project");

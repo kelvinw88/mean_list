@@ -8,6 +8,9 @@ mean_list.factory('ProjectFactory', ['$http',function($http) {
     },
     delete : function(id) {
       return $http.delete('/api/projects/' + id);
+    },
+    edit : function(id) {
+      return $http.post('/api/projects/' + id);
     }
   }
 }]);
