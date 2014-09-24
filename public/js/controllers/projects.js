@@ -1,4 +1,4 @@
-mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFactory, $filter, $http) {
+mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http) {
   $scope.edit = true;
 
   ProjectFactory.get()
@@ -30,12 +30,14 @@ mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFacto
   // DELETE ==================================================================
   // delete a todo after checking it
   $scope.deleteProject = function(project_id) {
+    console.log("delete project");
     $scope.loading = true;
     ProjectFactory.delete(project_id)
     // if successful creation, call our get function to get all the new todos
     .success(function(data) {
       $scope.loading = false;
       $scope.projects = data; // assign our new list of todos
+      $location.path('/projects');
     });
   };
 
@@ -51,22 +53,16 @@ mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFacto
 
   $scope.saveProject = function() {
     $scope.loading = true;
-    console.log("saving Project");
     // validate the formData to make sure that something is there
     // if form is empty, nothing will happen
     if ($scope.formData.projects != undefined) {
-
       // call the create function from our service (returns a promise object)
       ProjectFactory.create($scope.formData)
-
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
-        console.log("create");
-        console.log(data);
         $scope.loading = false;
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.projects = data; // assign our new list of todos
-
       });
     }
   };

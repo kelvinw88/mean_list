@@ -6,12 +6,10 @@
   <div id="project-form" class="row">
     <div class="text-center">
       <form>
-        <div class="form-group">
-
+        <div >
           <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
           <input type="text" class="form-control input-sm text-center" placeholder="Create a project" ng-model="formData.name">
         </div>
-
         <!-- createToDo() WILL CREATE NEW TODOS -->
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject() ">Add</button>
       </form>
@@ -22,26 +20,31 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="checkbox" ng-repeat="project in projects | orderBy:'time':'reverse'">
-    <label>
+    <div ui-sref-active="active_project" data-project_id="{{project._id}}">
 
       <!-- editable username (text with validation) -->
-      <input type="checkbox" ng-click="deleteProject(project._id)">
-      <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
+      <button type="checkbox" ng-click="deleteProject(project._id)">delete</button>
+      <a ui-sref="projects.tasks({project_id: project._id})">
+        <button class="checkbox" type="checkbox" ng-click="selectProject(project._id)">select</button>
+      </a>
 
       <div ng-controller="ProjectNameCtrl">
-        <span class="title">Project: </span>
-        <div ng-hide = "beingEdited">
-          <span> {{  project.name || 'empty' }}</span><button type="button" ng-click="beingEdited = true">Edit</button>
+        <div ng-hide="beingEdited">
+          <p>{{ project.name || 'empty' }}</p>
+          <button type="button" ng-click="beingEdited = true">Edit</button>
         </div>
-        <div ng-show="beingEdited"><div>
-          <input ng-model="projectNameCopy" ><button ng-click="finishEditing(project._id) " type="button">Save</button><button type="button" ng-click="cancelEditing()">Cancel</button>
+        <div ng-show="beingEdited">
+          <div>
+            <input ng-model="projectNameCopy">
+            <button ng-click="finishEditing(project._id) " type="button">Save</button>
+            <button type="button" ng-click="cancelEditing()">Cancel</button>
+          </div>
         </div>
+
       </div>
 
-    </label>
-
-</div>
-</div>
+    </div>
+  </div>
 
 
 
