@@ -1,23 +1,19 @@
 
 <section class="projects col-sm-3" ng-controller="ProjectsCtrl">
-  <p>adwa</p>
-  <h1>Projecasdts</h1>
-  {{names}}
-
-
+  <p>Projects</p>
 
   <!-- show all projects -->
 
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
-  <div class="checkbox" ng-repeat="name in names">
+  <div class="checkbox" ng-repeat="project in projects">
     <label>
 
 
   <form editable-form name="editableForm" onaftersave="saveUser()">
     <div>
       <!-- editable username (text with validation) -->
-      <input type="checkbox" ng-click="deleteTodo(name._id)"><span class="title">Tasks: </span>
-      <span editable-text="name.name" e-name="name" onbeforesave="checkName($data)" e-required>{{ name.name || 'empty' }}</span>
+      <input type="checkbox" ng-click="deleteProject(project._id)"><span class="title">Project: </span>
+      <span editable-text="project.name" e-name="name" onbeforesave="checkName($data)" e-required>{{ project.name || 'empty' }}</span>
     </div>
 
     <div>
@@ -43,17 +39,17 @@
 </div>
 
 
-<div id="todo-form" class="row">
-  <div class="col-sm-8 col-sm-offset-2 text-center">
+<div id="project-form" class="row">
+  <div class="text-center">
     <form>
       <div class="form-group">
 
         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.name">
+        <input type="text" class="form-control input-sm text-center" placeholder="Create a project" ng-model="formData.name">
       </div>
 
       <!-- createToDo() WILL CREATE NEW TODOS -->
-      <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject()">Add</button>
     </form>
   </div>
 </div>

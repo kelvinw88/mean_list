@@ -1,6 +1,6 @@
 var todo = angular.module( 'todo',[
-    // 'todoController',
-    // 'todoService',
+    'ProjectsCtrl',
+    'ProjectFactory',
      'ui.router',
      'ngRoute',
      'app',
