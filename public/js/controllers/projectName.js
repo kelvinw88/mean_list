@@ -14,7 +14,7 @@ mean_list.controller('ProjectNameCtrl', function($scope, $stateParams, ProjectFa
       console.log(data);
       $scope.loading = false;
       $scope.projects = data; // assign our new list of todos
-    }).fail(function(err) {
+    }).error(function(err) {
       console.error(err);
       $scope.project.name = oldProjectName;
     });

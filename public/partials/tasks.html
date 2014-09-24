@@ -23,10 +23,13 @@
 
   <div ng-repeat="task in tasks | orderBy:'time':'reverse'">
     <p>{{task.name}} / {{task.done }} /{{task.description}} </p>
-   
-    <button type="button" ng-click="doneTask()">DONE</button>
+    
+    <!-- <div ng-controller="TaskListCtrl"> -->
+    
+    <!-- </div> -->
 
     <div ng-controller='WindowController'>
+    <button type="button" ng-click="doneTask()">DONE</button>
     <button ng-click="startAdd()">Task Detail</button>
     <ul>
       <li ng-repeat="item in items">
