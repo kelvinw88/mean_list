@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
   });
 });
 
-/* get a project. */
+/* GET a project. */
 router.get('/:project_id', function(req, res) {
   var project = mongoose.model('projects');
   project.findById(req.params.project_id, function(err, project) {
@@ -33,6 +33,7 @@ router.get('/:project_id', function(req, res) {
     res.json(project);
   });
 });
+
 
 
 /* edit a project. */
@@ -71,7 +72,6 @@ project.remove({
       res.send(err);
     mongoose.model('tasks').find(function(err, tasks) {});
     });
-
   mongoose.model('projects').find(function(err, projects) {
     res.send(projects)
   });

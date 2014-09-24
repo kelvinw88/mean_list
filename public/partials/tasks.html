@@ -1,6 +1,7 @@
 <section class="tasks col-xs-9">
+  <p>tasks</p>
 
-  <h1>{{project.project_id}}</h1>
+  <h1>{{project.name}}</h1>
 
   <div id="task-form" >
     <div class="text-center">
@@ -19,8 +20,8 @@
 </div>
 
 
-  <div ng-repeat="task in tasks">
-<!--   {{task | json}} -->
+
+  <div ng-repeat="task in tasks | orderBy:'time':'reverse'">
     <p>{{task.name}} / {{task.done }} /{{task.description}} </p>
    
     <button type="button" ng-click="doneTask()">DONE</button>

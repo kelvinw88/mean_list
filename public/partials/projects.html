@@ -1,11 +1,27 @@
-
 <section class="projects col-sm-3">
   <p>Projects</p>
 
-  <!-- show all projects -->
 
+  <!-- CREATE PROJECTS -->
+  <div id="project-form" class="row">
+    <div class="text-center">
+      <form>
+        <div class="form-group">
+
+          <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+          <input type="text" class="form-control input-sm text-center" placeholder="Create a project" ng-model="formData.name">
+        </div>
+
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject() ">Add</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
-  <div class="checkbox" ng-repeat="project in projects">
+  <div class="checkbox" ng-repeat="project in projects | orderBy:'time':'reverse'">
     <label>
 
       <!-- editable username (text with validation) -->
@@ -28,20 +44,7 @@
 </div>
 
 
-<div id="project-form" class="row">
-  <div class="text-center">
-    <form>
-      <div class="form-group">
 
-        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-        <input type="text" class="form-control input-sm text-center" placeholder="Create a project" ng-model="formData.name">
-      </div>
-
-      <!-- createToDo() WILL CREATE NEW TODOS -->
-      <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject() ">Add</button>
-    </form>
-  </div>
-</div>
 
 
 </section>
