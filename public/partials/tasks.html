@@ -21,7 +21,7 @@
 
   <div ng-repeat="task in tasks">
     <p>{{task.name}}</p>
-
+    {{task.status}}
     <div ng-controller='WindowController'>
     <button ng-click="startAdd()">Task Detail</button>
     <ul>
