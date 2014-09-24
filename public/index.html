@@ -20,7 +20,38 @@
     <script src="/js/services/todoData.js"></script>
 
 <script type="text/javascript">
-var app = angular.module("app", ["xeditable"]); //must fix. should call only todo app 
+var app = angular.module("app", ["xeditable"]);
+
+todo.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
+
+app.controller('Ctrl', function($scope, $filter, $http) {
+  console.log(editableForm)
+ $scope.user = {
+    id: 1,
+    name: 'awesome user',
+    status: 2,
+    group: 4,
+    groupName: 'admin'
+  }; 
+
+
+  $scope.saveUser = function() {
+    // $scope.user already updated!
+    return $http.post('/saveUser', $scope.user).error(function(err) {
+      if(err.field && err.msg) {
+        // err like {field: "name", msg: "Server-side error for this username!"} 
+        $scope.editableForm.$setError(err.field, err.msg);
+      } else { 
+        // unknown error
+        $scope.editableForm.$setError('name', 'Unknown error!');
+      }
+    });
+  };
+});
+ 
+
 </script>
 
   </head>
