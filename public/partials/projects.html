@@ -10,6 +10,7 @@
 
       <!-- editable username (text with validation) -->
       <input type="checkbox" ng-click="deleteProject(project._id)">
+      <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
   
       <div ng-controller="ProjectName">
         <span class="title">Project: </span>
@@ -49,3 +50,37 @@
 
 
 <div ui-view></div>
+
+<div ng-controller='WindowController'>
+    <button ng-click="startAdd()">Task Detail</button>
+    <ul>
+      <li ng-repeat="item in items">
+        <a href='' ng-click="item.showing = !item.showing">
+          {{item.name}}, {{item.publisher}}
+        </a>
+        <div ng-show="item.showing" class='description'
+          ng-bind-html-unsafe="item.description"></div>
+      </li>
+    </ul>
+    <form ng-show="adding" class="add-window" ng-submit="addItem()">
+      <div class='header'>Task name</div>
+      <div class='inner'>
+        <div>
+          <label> Some field: </label>
+          <input type="text" ng-model="newItem.name" required>
+        </div>
+        <div>
+          <label>Some other field: </label>
+          <input type="text" ng-model="newItem.publisher" required>
+        </div>
+        <div>
+          <label>Description: </label>
+          <textarea ng-model="newItem.description"></textarea>
+        </div>
+        <div class='button-bar'>
+          <input type="submit" value="Add">
+          <button type="button" ng-click="cancelAdd()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
