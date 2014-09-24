@@ -8,14 +8,14 @@
     <!-- LOOP OVER THE TODOS IN $scope.todos -->
     <div class="checkbox" ng-repeat="name in names">
       <label>
-        
+
 
     <form editable-form name="editableForm" onaftersave="saveUser()">
       <div>
         <!-- editable username (text with validation) -->
         <input type="checkbox" ng-click="deleteTodo(name._id)"><span class="title">Tasks: </span>
         <span editable-text="name.name" e-name="name" onbeforesave="checkName($data)" e-required>{{ name.name || 'empty' }}</span>
-      </div> 
+      </div>
 
       <div>
         <!-- button to show form -->
@@ -32,7 +32,7 @@
           </button>
         </span>
       </div>
-  </form>  
+  </form>
       </label>
     </div>
 

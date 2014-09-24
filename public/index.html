@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="todo">
+<html ng-app="mean_list">
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/css/normalizecss'/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
     <link rel='stylesheet' href='css/xeditable.css' />
-
     <link rel='stylesheet' href='/css/bootstrap.min.css'/>
+
     <script src="/js/vendor/jquery.min.js"></script>
     <script src="/js/vendor/angular.min.js"></script>
     <script src="/js/vendor/ui-bootstrap-tpls.min.js"></script>
@@ -15,10 +14,17 @@
     <!-- <script src="js/services/todos.js"></script> <!-- load our todo service -->
     <script src="/js/vendor/angular-route.js"></script>
     <script src="/js/vendor/xeditable.js"></script>
-    <script src="/js/core.js"></script>
-    <script src="/js/controllers/main.js"></script>
-    <script src="/js/services/todoData.js"></script>
+    <script src="/js/vendor/angular-ui-router.min.js"></script>
+    <script src="/js/vendor/lodash.js"></script>
 
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/projects.js"></script>
+    <script src="/js/controllers/tasks.js"></script>
+    <script src="/js/services/projectData.js"></script>
+    <script src="/js/services/taskData.js"></script>
+
+
+<!--
 <script type="text/javascript">
 var app = angular.module("app", ["xeditable"]);
 
@@ -34,40 +40,36 @@ app.controller('Ctrl', function($scope, $filter, $http) {
     status: 2,
     group: 4,
     groupName: 'admin'
-  }; 
+  };
 
 
   $scope.saveUser = function() {
     // $scope.user already updated!
     return $http.post('/saveUser', $scope.user).error(function(err) {
       if(err.field && err.msg) {
-        // err like {field: "name", msg: "Server-side error for this username!"} 
+        // err like {field: "name", msg: "Server-side error for this username!"}
         $scope.editableForm.$setError(err.field, err.msg);
-      } else { 
+      } else {
         // unknown error
         $scope.editableForm.$setError('name', 'Unknown error!');
       }
     });
   };
 });
- 
 
-</script>
+
+</script> -->
 
   </head>
   <body>
 
     <div class="container-fluid">
       <div class="row">
-          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-            <p>side menu</p>
-          </div>
-          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ">
-            <p>center page</p>
-            <div ng-view>
+          <div class="col-xs-12">
+            <p>Projects</p>
+            <div ui-view>
             </div>
           </div>
-
       </div>
     </div>
 
