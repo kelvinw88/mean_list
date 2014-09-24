@@ -20,8 +20,11 @@
 
 
   <div ng-repeat="task in tasks">
-    <p>{{task.name}}</p>
-    {{task.status}}
+<!--   {{task | json}} -->
+    <p>{{task.name}} / {{task.done }} /{{task.description}} </p>
+   
+    <button type="button" ng-click="doneTask()">DONE</button>
+
     <div ng-controller='WindowController'>
     <button ng-click="startAdd()">Task Detail</button>
     <ul>
