@@ -53,3 +53,7 @@ textarea {
   width: 200px;
   height: 100px;
 }
+
+.active_project{
+  background-color:#964e2f;
+}
