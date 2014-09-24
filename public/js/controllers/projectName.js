@@ -1,4 +1,4 @@
-mean_list.controller('ProjectName', function($scope, $stateParams, ProjectFactory, $filter, $http) {
+mean_list.controller('ProjectNameCtrl', function($scope, $stateParams, ProjectFactory, $filter, $http) {
   $scope.beingEdited = false;
 
   $scope.finishEditing = function(project_id) { 

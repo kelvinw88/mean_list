@@ -12,7 +12,7 @@
       <input type="checkbox" ng-click="deleteProject(project._id)">
       <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
   
-      <div ng-controller="ProjectName">
+      <div ng-controller="ProjectNameCtrl">
         <span class="title">Project: </span>
         <div ng-hide = "beingEdited">
           <span> {{ project.name || 'empty' }}</span><button type="button" ng-click="beingEdited = true">Edit</button>
