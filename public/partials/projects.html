@@ -1,42 +1,19 @@
 
-<section class="projects col-sm-3" ng-controller="ProjectsCtrl">
+<section class="projects col-sm-3">
   <p>Projects</p>
 
   <!-- show all projects -->
 
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
-  <div class="checkbox" ng-repeat="project in projects">
-    <label>
-
-
-  <form editable-form name="editableForm" onaftersave="saveUser()">
-    <div>
-      <!-- editable username (text with validation) -->
-      <input type="checkbox" ng-click="deleteProject(project._id)"><span class="title">Project: </span>
-      <span editable-text="project.name" e-name="name" onbeforesave="checkName($data)" e-required>{{ project.name || 'empty' }}</span>
+  <div ng-repeat="project in projects">
+    <div class="project">
+      <button class= "checkbox" type="checkbox" ng-click="deleteProject(project._id)"> Delete</button>
+      <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
+      <button class= "checkbox" type="checkbox" ng-click="editProject(project._id)"> Edit</button>
+      <div class='project_title'>{{ project.name || 'empty' }}</div>
     </div>
-
-    <div>
-      <!-- button to show form -->
-      <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
-        Edit
-      </button>
-      <!-- buttons to submit / cancel form -->
-      <span ng-show="editableForm.$visible">
-        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-          Save
-        </button>
-        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-          Cancel
-        </button>
-      </span>
-    </div>
-</form>
-    </label>
   </div>
 
-</div>
-</div>
 
 
 <div id="project-form" class="row">

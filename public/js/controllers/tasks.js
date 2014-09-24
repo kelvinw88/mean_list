@@ -1,14 +1,14 @@
 mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $filter, $http) {
 
+  $scope.project = $stateParams;
+  console.log($scope.project);
+
   TaskFactory.get()
     .success(function(data) {
-      console.log("get");
       $scope.tasks = data
-      console.log(data);
-
       // $scope.loading = false;
-
     });
+
 
   $scope.createTask = function() {
     $scope.loading = true;
@@ -16,12 +16,12 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $f
     // validate the formData to make sure that something is there
     // if form is empty, nothing will happen
     if ($scope.formData.name != undefined) {
+      $scope.formData.project = $scope.project.project_id;
       // call the create function from our service (returns a promise object)
       TaskFactory.create($scope.formData)
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
-        console.log("create");
-        console.log(data);
+
         $scope.loading = false;
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.tasks = data; // assign our new list of todos
@@ -43,7 +43,6 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $f
 
   $scope.saveTask = function() {
     $scope.loading = true;
-    console.log("saving Task");
     // validate the formData to make sure that something is there
     // if form is empty, nothing will happen
     if ($scope.formData.tasks != undefined) {
@@ -53,8 +52,6 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $f
 
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
-        console.log("create");
-        console.log(data);
         $scope.loading = false;
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.tasks = data; // assign our new list of todos
