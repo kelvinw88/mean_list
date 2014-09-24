@@ -5,11 +5,21 @@ var router = express.Router();
 
 /* GET Tasks page. */
 router.get('/', function(req, res) {
+
+
+  // if (req.param != undefined)
+  //   {mongoose.model('tasks').find({project: req.param('project')}).find(function(err,tasks){
+  //     mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+  //       res.send(tasks);
+  //     })
+  //   });}
+  // else {
   mongoose.model('tasks').find(function(err,tasks){
     mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
       res.send(tasks);
     })
   });
+  // }
 });
 
 

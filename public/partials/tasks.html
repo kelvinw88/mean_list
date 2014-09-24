@@ -1,6 +1,6 @@
 <section class="tasks col-xs-9">
 
-  <h1>{{project.project_id}} Tasks</h1>
+  <h1 ng-model="find_project_id">{{project.project_id}}</h1>
 
   <div id="task-form" >
     <div class="text-center">
@@ -18,7 +18,8 @@
   </div>
 </div>
 
-  <div ng-repeat="task in tasks">
-    <p>{{task.name}}</p>
+
+  <div ng-repeat="task in tasks | filter:find_project_id">
+    <p>{{task.name}} {{task.project._id}} {{project.project_id}}</p>
   </div>
 </section>
