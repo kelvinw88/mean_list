@@ -1,5 +1,7 @@
 
-mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books) {
+mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
+  console.log('console log is:');
+  console.log($scope.task);
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
     $scope.adding = true;
@@ -14,9 +16,21 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
     $scope.items.push(newItem);
   };
 
-  $scope.cancelAdd = function() {
-    $scope.adding = false;
-  };
+$scope.cancelAdd = function() {
+  $scope.adding = false;
+};
+
+$scope.doneTask = function() {
+  console.log("doneTask called...");
+  console.log($scope.task._id);
+  $scope.task.done = true;
+  TaskFactory.edit($scope.tasks)
+  .success(function(data){
+    console.log(data);
+    console.log($scope.task.name);
+    $scope.tasks = data;
+  });
+  }
 });
 
 // Some starter data to make the window scroll when opened.
