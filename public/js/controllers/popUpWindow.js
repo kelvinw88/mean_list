@@ -5,8 +5,8 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
     $scope.adding = true;
-    $scope.openAlertWindow = false;
-    $scope.alertClass = "fa fa-circle-o";
+    $scope.openStatusWindow = false;
+
   };
 
   $scope.items = angular.copy(books);    // check what this does
@@ -38,11 +38,13 @@ $scope.descriptionAdd = function(id) {
   });
 }
 
-$scope.selectStatus = function(id) {
-  console.log("works...");
-  console.log($scope.task);
-  $scope.openAlertWindow = false
-  console.log($scope.adding);
+$scope.selectStatus = function() {
+  console.log($scope.task.status);
+  $scope.openStatusWindow = false;
+  TaskFactory.edit($scope.task)
+  .success(function(data){
+    $scope.tasks = data;
+  });
   }
 
 });
