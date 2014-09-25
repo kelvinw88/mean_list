@@ -5,20 +5,11 @@
   <!-- show all projects -->
 
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
-<<<<<<< Updated upstream
   <div ng-repeat="project in projects">
 
 
       <!-- editable username (text with validation) -->
       <!-- <input type="checkbox" ng-click="deleteProject(project._id)"> -->
-=======
-  <div class="checkbox" ng-repeat="project in projects | orderBy:'time':'reverse'">
-    <label ui-sref-active="active_project" data-project_id="{{project._id}}">
-
-      <!-- editable username (text with validation) -->
-      <input type="checkbox" ng-click="deleteProject(project._id)">
-      <a ui-sref="projects.tasks({project_id: project._id})" ><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
->>>>>>> Stashed changes
 
       <div class="project" ng-controller="ProjectName">
         <button class= "checkbox" type="checkbox" ng-click="deleteProject(project._id)"> Delete</button>
