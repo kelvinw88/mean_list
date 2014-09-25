@@ -11,7 +11,7 @@
       <!-- editable username (text with validation) -->
       <input type="checkbox" ng-click="deleteProject(project._id)">
       <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
-  
+
       <div ng-controller="ProjectNameCtrl">
         <span class="title">Project: </span>
         <div ng-hide = "beingEdited">
@@ -21,7 +21,7 @@
           <input ng-model="projectNameCopy" ><button ng-click="finishEditing(project._id) " type="button">Save</button><button type="button" ng-click="cancelEditing()">Cancel</button>
         </div>
       </div>
-    
+
     </label>
 
 </div>
@@ -44,10 +44,6 @@
 </div>
 
 
-
-<a href="#/projects/12/tasks">tester</a>
 </section>
 
-
 <div ui-view></div>
-
