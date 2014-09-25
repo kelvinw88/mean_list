@@ -5,8 +5,6 @@ var router = express.Router();
 
 /* GET Tasks page. */
 router.get('/', function(req, res) {
-
-
   //get all tasks with time sort
   mongoose.model('tasks').find().sort([
     ['time', 'descending']
@@ -17,7 +15,6 @@ router.get('/', function(req, res) {
       res.send(tasks);
     })
   });
-
 });
 
 
@@ -101,13 +98,13 @@ router.delete('/:task_id', function(req, res) {
   }, function(err, task) {
     if (err)
       res.send(err);
-
-    mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
+    mongoose.model('tasks').populate(tasks, {
+      path: 'project'
+    }, function(err, tasks) {
       res.send(tasks);
     })
   });
 });
-
 
 
 module.exports = router;

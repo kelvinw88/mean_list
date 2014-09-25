@@ -3,6 +3,9 @@ mean_list.factory('ProjectFactory', ['$http',function($http) {
     get : function() {
       return $http.get('/api/projects');
     },
+    get_a_project : function(id){
+      return $http.get('/api/projects/' + id);
+    },
     create : function(ProjectData) {
       return $http.post('/api/projects', ProjectData);
     },

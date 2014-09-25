@@ -1,43 +1,35 @@
-mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $filter, $http) {
+mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
   $scope.project = $stateParams;
-  console.log($scope.project.project_id);
-
-  // TaskFactory.get()
-  //   .success(function(data) {
-  //     $scope.tasks = data
-  //     // $scope.loading = false;
-  //   });
-  //
-  // //
-  // // TaskFactory.get_project_tasks($stateParams.project.project_id)
-  // //   .success(function(data) {
-  // //     // $scope.tasks = data
-  // //     console.log("getproject" data);
-  // //     // $scope.loading = false;
-  // //   });
 
 
 
+
+  // get tasks belongs to a project
   if ($stateParams.project_id != undefined)
     {
-    console.log("if");
-    console.log($stateParams.project_id);
+
+    //get project details
+    ProjectFactory.get_a_project($stateParams.project_id)
+    .success(function(data) {
+      $scope.project.name = data.name;
+    });
+
+    //get project tasks
     TaskFactory.get_project_tasks($stateParams.project_id)
     .success(function(data) {
       $scope.tasks = data
     });
+
     }
+  // get all tasks if no project is selected
   else
     {
-      console.log("else");
       TaskFactory.get()
       .success(function(data) {
         $scope.tasks = data
       });
     }
-
-
 
   $scope.createTask = function() {
     $scope.loading = true;
