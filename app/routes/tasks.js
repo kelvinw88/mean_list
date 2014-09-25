@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var express = require('express');
 var router = express.Router();
+var util = require('util');
+
+function inspect(o, depth)
+{
+  return console.log(util.inspect(o, { colors: true, depth: depth || 1 }));
+}
 
 
 /* GET Tasks page. */
@@ -73,11 +79,17 @@ router.get('/:task_id', function(req, res) {
 
 
 /* edit a task. */
-router.post('/:task_id', function(req, res) {
+router.post('/:task_id', function(req, res)
+{
   var task = mongoose.model('tasks');
-  task.findById(req.params.task_id, function(err, task) {
+  task.findById(req.params.task_id, function(err, task)
+  {
     if (err)
-      res.send(err);
+    {
+      console.error(err);
+      return res.send(err);
+    }
+
     task.name = req.body.name;
     task.description = req.body.description;
     task.done = req.body.done;
@@ -87,10 +99,14 @@ router.post('/:task_id', function(req, res) {
     task.time_estimate = req.body.time_estimate;
     task.sub_task = req.body.sub_task;
     task.attachment = req.body.attachment;
-    task.save(function(err) {
+    task.save(function(err)
+    {
       if (err)
-        res.send(err);
-      res.json(task);
+      {
+        console.log("Error: %s", err.message)
+        return res.send(err);
+      }
+      return res.json(task);
     });
   });
 });

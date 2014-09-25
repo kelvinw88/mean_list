@@ -12,8 +12,8 @@ mean_list.factory('TaskFactory', ['$http',function($http) {
     delete : function(id) {
       return $http.delete('/api/tasks/' + id);
     },
-    edit : function(id) {
-      return $http.post('/api/tasks/' + id);
+    edit : function(task) {
+      return $http.post('/api/tasks/' + task._id, task);
     }
   }
 }]);

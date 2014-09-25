@@ -1,6 +1,6 @@
 
 mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
-  console.log('console log is:');
+  console.log('Object is:');
   console.log($scope.task);
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
@@ -20,14 +20,15 @@ $scope.cancelAdd = function() {
   $scope.adding = false;
 };
 
-$scope.doneTask = function() {
+$scope.doneTask = function(id) {
   console.log("doneTask called...");
   console.log($scope.task._id);
-  $scope.task.done = true;
-  TaskFactory.edit($scope.tasks)
+  $scope.task.done = !$scope.task.done;
+  TaskFactory.edit($scope.task)
   .success(function(data){
+    console.log("id success...")
     console.log(data);
-    console.log($scope.task.name);
+    // console.log($scope.task);
     $scope.tasks = data;
   });
   }
