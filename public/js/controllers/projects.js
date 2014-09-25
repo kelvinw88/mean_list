@@ -1,24 +1,18 @@
 mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFactory, $filter, $http) {
   $scope.edit = true;
 
-  $scope.test = "hello";
-
-
   ProjectFactory.get()
     .success(function(data) {
       $scope.projects = data
-
     });
 
   $scope.hideEdit2 = function () {
     alert("hiding now...");
     $scope.edit = false;
-    // console.log($scope.edit);
   };
 
   $scope.createProject = function() {
     $scope.loading = true;
-
     // validate the formData to make sure that something is there
     // if form is empty, nothing will happen
     if ($scope.formData.name != undefined) {
@@ -26,8 +20,6 @@ mean_list.controller('ProjectsCtrl', function($scope, $stateParams, ProjectFacto
       ProjectFactory.create($scope.formData)
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
-        console.log("create");
-        console.log(data);
         $scope.loading = false;
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.projects = data; // assign our new list of todos

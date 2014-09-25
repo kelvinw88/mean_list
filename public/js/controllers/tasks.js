@@ -2,19 +2,14 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
 
   $scope.project = $stateParams;
 
-
-
-
   // get tasks belongs to a project
   if ($stateParams.project_id != undefined)
     {
-
     //get project details
     ProjectFactory.get_a_project($stateParams.project_id)
     .success(function(data) {
       $scope.project.name = data.name;
     });
-
     //get project tasks
     TaskFactory.get_project_tasks($stateParams.project_id)
     .success(function(data) {
@@ -43,7 +38,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
         $scope.loading = false;
-        $scope.formData = {}; // clear the form so our user is ready to enter another
+        $scope.taskData = {}; // clear the form so our user is ready to enter another
         $scope.tasks.push(data); // assign our new list of todos
       });
     }

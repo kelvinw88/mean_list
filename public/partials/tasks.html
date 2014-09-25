@@ -1,4 +1,5 @@
 <section class="tasks col-xs-9">
+  <p>tasks</p>
 
   <h1>{{project.name}}</h1>
 
@@ -19,7 +20,7 @@
 </div>
 
 
-  <div ng-repeat="task in tasks">
+  <div ng-repeat="task in tasks | orderBy:'time':'reverse'">
     <p>{{task.name}}</p>
     {{task.status}}
     <div ng-controller='WindowController'>
