@@ -46,14 +46,10 @@ label {
 }
 
 input[type=text] {
-  width: 200px;
+  width: 75%;
 }
 
 textarea {
   width: 200px;
   height: 100px;
-}
-
-.active_project{
-  background-color:#964e2f;
 }
