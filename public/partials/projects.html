@@ -1,9 +1,7 @@
 <div id="sidebar-wrapper">
 
-
   <!-- CREATE PROJECTS -->
   <div id="project-form" class="row">
-
     <h1 id="logo">Logo</h1>
     <div class="text-center">
 
@@ -13,7 +11,7 @@
           <input type="text" class="input-contorl input-sm text-center" placeholder="Create a project" ng-model="formData.name">
         </div>
         <!-- createToDo() WILL CREATE NEW TODOS -->
-        <button type="submit" class="input-button text-center" ng-click="createProject() ">+</button>
+        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-plus "></i></button>
       </form>
     </div>
   </div>
@@ -28,7 +26,7 @@
 
         <p class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
 
-
+      <div class="sidemenu_icon_group">
         <!-- DELETE -->
         <div class="sidemenu_button">
           <i class="fa fa-trash" ng-click="deleteProject(project._id)"></i>
@@ -47,7 +45,7 @@
             </div>
           </div>
         </div>
-
+      </div>
 
 
       </div>
