@@ -4,7 +4,7 @@ mean_list.factory('TaskFactory', ['$http',function($http) {
       return $http.get('/api/tasks');
     },
     get_project_tasks : function(project_id) {
-      return $http.get('/api/tasks/:project_id');
+      return $http.get('/api/tasks/project/' + project_id);
     },
     create : function(TaskData) {
       return $http.post('/api/tasks', TaskData);

@@ -8,13 +8,35 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $f
   //     $scope.tasks = data
   //     // $scope.loading = false;
   //   });
+  //
+  // //
+  // // TaskFactory.get_project_tasks($stateParams.project.project_id)
+  // //   .success(function(data) {
+  // //     // $scope.tasks = data
+  // //     console.log("getproject" data);
+  // //     // $scope.loading = false;
+  // //   });
 
-  TaskFactory.get_project_tasks($scope.project.project_id)
+
+
+  if ($stateParams.project_id != undefined)
+    {
+    console.log("if");
+    console.log($stateParams.project_id);
+    TaskFactory.get_project_tasks($stateParams.project_id)
     .success(function(data) {
-      // $scope.tasks = data
-      console.log("getproject" data);
-      // $scope.loading = false;
+      $scope.tasks = data
     });
+    }
+  else
+    {
+      console.log("else");
+      TaskFactory.get()
+      .success(function(data) {
+        $scope.tasks = data
+      });
+    }
+
 
 
   $scope.createTask = function() {
