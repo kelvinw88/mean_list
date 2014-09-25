@@ -25,25 +25,13 @@
       </div>
 
 
-
       <div ng-repeat="task in tasks | orderBy:'time':'reverse'">
         <p>{{task.name}} / {{task.done }} /{{task.description}}</p>
-
-        <!-- <div ng-controller="TaskListCtrl"> -->
-
-        <!-- </div> -->
 
         <div ng-controller='WindowController'>
           <button type="button" ng-click="doneTask()">DONE</button>
           <button ng-click="startAdd()">Task Detail</button>
- <!--          <ul>
-            <li ng-repeat="item in items">
-              <a href='' ng-click="item.showing = !item.showing">
-          {{item.name}}, {{item.publisher}}
-        </a>
-              <div ng-show="item.showing" class='description' ng-bind-html-unsafe="item.description"></div>
-            </li>
-          </ul> -->
+
           <form ng-show="adding" class="add-window" ng-submit="addItem()">
             <button type="button" ng-click="doneTask()">DONE</button><div class='header'>{{task.name}}</div>
             <div class='inner'>

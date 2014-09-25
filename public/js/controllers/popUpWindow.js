@@ -21,27 +21,17 @@ $scope.cancelAdd = function() {
 };
 
 $scope.doneTask = function(id) {
-  console.log("doneTask called...");
-  console.log($scope.task._id);
   $scope.task.done = !$scope.task.done;
   TaskFactory.edit($scope.task)
   .success(function(data){
-    console.log("id success...")
-    console.log(data);
-    // console.log($scope.task);
     $scope.tasks = data;
   });
   }
 
 $scope.descriptionAdd = function(id) {
-  console.log("in descriptionAdd");
-  console.log($scope.task.description);
   $scope.adding = false
     TaskFactory.edit($scope.task)
   .success(function(data){
-    console.log("description success...")
-    console.log(data);
-    // console.log($scope.task);
     $scope.tasks = data;
   });
 }
