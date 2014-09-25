@@ -97,9 +97,6 @@ router.delete('/:project_id', function(req, res) {
   var project = mongoose.model('projects');
   var tasks = mongoose.model('tasks');
 
-
-
-
 project.remove({
   _id: req.params.project_id
 }, function(err, project) {
@@ -111,9 +108,9 @@ project.remove({
   }, function(err, tasks) {
     if (err)
       res.send(err);
-    // mongoose.model('tasks').find(function(err, tasks) {});
-    // });
-  // send back the new projects file.
+    mongoose.model('tasks').find(function(err, tasks) {});
+    });
+
   mongoose.model('projects').find(function(err, projects) {
     res.send(projects)
   });
