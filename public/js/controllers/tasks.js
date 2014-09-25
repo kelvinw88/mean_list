@@ -1,11 +1,18 @@
 mean_list.controller('TasksCtrl', function($scope, $stateParams, TaskFactory, $filter, $http) {
 
   $scope.project = $stateParams;
+  console.log($scope.project.project_id);
 
+  // TaskFactory.get()
+  //   .success(function(data) {
+  //     $scope.tasks = data
+  //     // $scope.loading = false;
+  //   });
 
-  TaskFactory.get()
+  TaskFactory.get_project_tasks($scope.project.project_id)
     .success(function(data) {
-      $scope.tasks = data
+      // $scope.tasks = data
+      console.log("getproject" data);
       // $scope.loading = false;
     });
 

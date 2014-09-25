@@ -5,21 +5,27 @@ var router = express.Router();
 
 /* GET Tasks page. */
 router.get('/', function(req, res) {
+  var sort_type = "",
+  project_id = "";
 
-
-  // if (req.param != undefined)
-  //   {mongoose.model('tasks').find({project: req.param('project')}).find(function(err,tasks){
-  //     mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
-  //       res.send(tasks);
-  //     })
-  //   });}
-  // else {
-  mongoose.model('tasks').find(function(err,tasks){
+  if (req.param('project_id') != undefined)
+    {project_id = req.param('project_id');
+    mongoose.model('tasks').find().sort([['time', 'descending']]).find(function(err,tasks){
+      mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){  mongoose.model('tasks').where('project').equals(project_id).find(function(err,tasks){
+            res.send(tasks);
+        })
+      })
+    });
+    }
+  else{
+    //get all tasks with time sort
+  mongoose.model('tasks').find().sort([['time', 'descending']]).find(function(err,tasks){
     mongoose.model('tasks').populate(tasks,{path: 'project'},function(err,tasks){
       res.send(tasks);
     })
   });
-  // }
+  }
+
 });
 
 

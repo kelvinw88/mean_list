@@ -21,7 +21,8 @@ var tasksSchema = new Schema({
   attachment: {
       type: Array,
       default: []
-    }
+    },
+  time : { type : Date, default: Date.now }
 });
 
 mongoose.model('tasks', tasksSchema);
