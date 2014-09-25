@@ -32,6 +32,20 @@ $scope.doneTask = function(id) {
     $scope.tasks = data;
   });
   }
+
+$scope.descriptionAdd = function(id) {
+  console.log("in descriptionAdd");
+  console.log($scope.task.description);
+  $scope.adding = false
+    TaskFactory.edit($scope.task)
+  .success(function(data){
+    console.log("description success...")
+    console.log(data);
+    // console.log($scope.task);
+    $scope.tasks = data;
+  });
+}
+
 });
 
 // Some starter data to make the window scroll when opened.
