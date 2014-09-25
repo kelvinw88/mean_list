@@ -7,11 +7,9 @@
     <div class="text-center">
       <form>
         <div class="form-group">
-
           <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
           <input type="text" class="form-control input-sm text-center" placeholder="Create a project" ng-model="formData.name">
         </div>
-
         <!-- createToDo() WILL CREATE NEW TODOS -->
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject() ">Add</button>
       </form>
@@ -26,7 +24,7 @@
 
       <!-- editable username (text with validation) -->
       <input type="checkbox" ng-click="deleteProject(project._id)">
-      <a href="#/projects/{{project._id}}/tasks"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
+      <a ui-sref="projects.tasks({project_id: project._id})"><button class= "checkbox" type="checkbox" ng-click="selectProject(project._id)"></button></a>
 
       <div ng-controller="ProjectNameCtrl">
         <span class="title">Project: </span>
