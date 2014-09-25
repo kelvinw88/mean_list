@@ -49,6 +49,7 @@ router.post('/', function(req, res) {
 
   task.name = req.body.name;
   task.description = req.body.description;
+  task.done = req.body.done;
   task.project = req.body.project;
   task.status = req.body.status;
   task.due_date = req.body.due_date;

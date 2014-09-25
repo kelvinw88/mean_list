@@ -10,7 +10,7 @@ var tasksSchema = new Schema({
     ref: 'projects',
     required: true
   },
-  done: {type: Boolean, deafult: false },
+  done: {type: Boolean, default: false },
   status: { type: String, default: null },
   due_date: { type: Date, default: null },
   time_estimate: { type: Number, default: null },
