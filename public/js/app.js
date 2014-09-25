@@ -17,6 +17,11 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
         url: '/:project_id/tasks',
         templateUrl: 'partials/tasks.html',
         controller: 'TasksCtrl'
+    })
+    .state('projects.global_search',{
+      url: '/search/:input',
+      templateUrl: 'partials/global_search.html',
+      controller: 'SearchCtrl'
     });
 
 }]);

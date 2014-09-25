@@ -48,6 +48,7 @@ $scope.selectStatus = function() {
   }
 //datepicker starts
 $scope.today = function() {
+
     $scope.dt = new Date();
   };
   $scope.today();
