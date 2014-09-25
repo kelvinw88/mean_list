@@ -34,10 +34,25 @@
 
         <div ng-controller='WindowController'>
           <button type="button" ng-click="doneTask()">DONE</button>
+
           <button ng-click="startAdd()">Task Detail</button>
 
           <form ng-show="adding" class="add-window" ng-submit="addItem()">
-            <button type="button" ng-click="doneTask()">DONE</button><div class='header'>{{task.name}}</div>
+            <button type="button" ng-click="doneTask()">DONE</button>
+
+            <div ng-hide= "openAlertWindow">
+              <i ng-class="alertClass" ng-click="openAlertWindow = true"></i>
+            </div>
+            <div ng-show = "openAlertWindow">
+              <i class="fa fa-exclamation-circle" ng-click = "selectStatus()"></i>
+              <i class="fa fa-question-circle" ng-click = "selectStatus()"></i>
+              <i class="fa fa-minus-circle" ng-click = "selectStatus()"></i>
+
+            </div>
+
+            <div class='header'>{{task.status}}</div>
+            <div class='header'>{{task.name}}</div>
+
             <div class='inner'>
               <div>
                 <label>Some field:</label>
@@ -61,7 +76,7 @@
         </div>
       </div>
       <!-- date picker starts here -->
-      <div ng-controller="ModalDemoCtrl">
+      <!-- <div ng-controller="ModalDemoCtrl">
           <script type="text/ng-template" id="myModalContent.html"/>
               <div class="modal-header">
                   <h3>I'm a modal!</h3>
@@ -86,7 +101,7 @@
 
           <button class="btn" ng-click="open()">Open me!</button>
           <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-      </div>
+      </div> -->
     <!-- and ends here -->
 
     </div>
