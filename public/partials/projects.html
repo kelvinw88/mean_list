@@ -3,9 +3,12 @@
 
   <!-- CREATE PROJECTS -->
   <div id="project-form" class="row">
+
+    <h1 id="logo">Logo</h1>
     <div class="text-center">
+
       <form>
-        <div >
+        <div>
           <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
           <input type="text" class="input-contorl input-sm text-center" placeholder="Create a project" ng-model="formData.name">
         </div>
@@ -19,19 +22,22 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="checkbox" ng-repeat="project in projects | orderBy:'time':'reverse'">
-      <div ui-sref-active="sidemenu_active" data-project_id="{{project._id}}">
+    <div class="clearfix" ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
 
-        <!-- editable username (text with validation) -->
-        <button type="checkbox" ng-click="deleteProject(project._id)">delete</button>
-        <a ui-sref="projects.tasks({project_id: project._id})">
-          <button class="checkbox" type="checkbox" ng-click="selectProject(project._id)">select</button>
-        </a>
+      <div class="project_container"  data-project_id="{{project._id}}">
 
+        <p class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
+
+
+        <!-- DELETE -->
+        <div class="sidemenu_button">
+          <i class="fa fa-trash" ng-click="deleteProject(project._id)"></i>
+        </div>
+
+        <!-- EDIT -->
         <div ng-controller="ProjectNameCtrl">
-          <div ng-hide="beingEdited">
-            <p>{{ project.name || 'empty' }}</p>
-            <button type="button" ng-click="beingEdited = true">Edit</button>
+          <div ng-hide="beingEdited" class="sidemenu_button">
+            <i class="fa fa-pencil-square-o" ng-click="beingEdited = true"></i>
           </div>
           <div ng-show="beingEdited">
             <div>
@@ -40,12 +46,15 @@
               <button type="button" ng-click="cancelEditing()">Cancel</button>
             </div>
           </div>
-
         </div>
 
+
+
       </div>
+
     </div>
   </div>
+
 
 
 
