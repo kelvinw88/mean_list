@@ -6,10 +6,9 @@
   display:block;
   float:left;
   width:100%;
-
 }
 
-.input-contorl,input[type=text] {
+.input-contorl {
   width: 235px;
 }
 
@@ -77,6 +76,7 @@
 
 .sidemenu_icon_group{
   margin-right:15px;
+
 }
 
 /* Let's get this party started */
@@ -86,13 +86,10 @@
 
 /* Track */
 .side-container::-webkit-scrollbar-track {
-
 }
 
 /* Handle */
 .side-container::-webkit-scrollbar-thumb {
-
-
     background: rgba(255, 255, 255, 0.20);
 
 }
