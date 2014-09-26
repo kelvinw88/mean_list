@@ -24,8 +24,11 @@
           <p>{{task.name}} / {{task.done  }} / {{task.description}}</p>
           <!-- Task Window BEGINS-->
           <div ng-controller='WindowController'>
+
             <button type="button" ng-click="doneTask()">DONE</button>
+
             <button ng-click="startAdd()">Task Detail</button>
+
             <ul>
               <li ng-repeat="item in items">
                 <a href='' ng-click="item.showing = !item.showing">{{item.name}}, {{item.publisher}}</a>
@@ -37,22 +40,27 @@
               <div class='header'>Task name</div>
 
               <div class='inner'>
+
                 <div>
                   <label>Some field:</label>
                   <input type="text" ng-model="newItem.name" required>
                 </div>
+
                 <div>
                   <label>Some other field:</label>
                   <input type="text" ng-model="newItem.publisher" required>
                 </div>
+
                 <div>
                   <label>Description:</label>
                   <textarea ng-model="newItem.description"></textarea>
                 </div>
+
                 <div class='button-bar'>
                   <input type="submit" value="Add">
                   <button type="button" ng-click="cancelAdd()">Cancel</button>
                 </div>
+
               </div>
             </form>
 
