@@ -44,4 +44,22 @@
 
 .sidemenu_active{
   background-color:#3a4254;
+  color:white;
+}
+
+.sidemenu_button{
+  margin-right:10px;
+  float:right;
+  cursor: pointer;
+}
+
+.sidemenu_project_name{
+  display:block;
+  float:left;
+}
+
+.project_container{
+  clear:left;
+  cursor: pointer;
+  
 }
