@@ -1,11 +1,39 @@
-
-
-.task-create-input{
-    float:left;
-    width:100%; 
-}
-
 textarea {
   width: 200px;
   height: 100px;
+}
+#task-form{
+  display: inline-block;
+  width:100%;
+
+}
+
+#task-form .input-button{
+  display:table-cell;
+  vertical-align: top;
+  float:left;
+  width:30px;
+
+}
+
+
+#task-form .resize-form-input{
+  overflow: hidden;
+}
+#task-form .resize-form-input .task-create-input{
+  width:100%;
+}
+
+.side-container{
+  clear:both;
+}
+
+.tasks-container{
+  clear:both;
+}
+
+.task_h1{
+  font-size:2em;
+  padding-top:10px;
+  margin-bottom:8px;
 }

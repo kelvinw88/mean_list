@@ -6,20 +6,21 @@
 
         <h1 class="task_h1">{{project.name}}</h1>
         <!-- Create Task Form BEGIN-->
-        <div id="task-form" class="text-center">
 
-            <form>
-              <div >
+            <form id="task-form" class="text-center">
+
+              <button type="submit" class="input-button text-center" ng-click="createTask()"><i class="fa fa-plus "></i></button>
+              <div class="resize-form-input">
                 <input type="text" class="task-create-input input-sm text-center" placeholder="Create a task" ng-model="taskData.name">
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" ng-click="createTask()">Add</button>
             </form>
 
-        </div>
+
         <!-- Create Task Form ENDS-->
 
         <!-- Task list BEGINS-->
         <div ng-repeat="task in tasks | orderBy:'time':'reverse'">
+
 
           <p>{{task.name}} / {{task.done}} / {{task.description}}</p>
           <!-- Task Window BEGINS-->
@@ -28,6 +29,7 @@
             <button type="button" ng-click="doneTask()">DONE</button>
 
             <button ng-click="startAdd()">Task Detail</button>
+
 
             <ul>
               <li ng-repeat="item in items">
