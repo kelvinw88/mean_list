@@ -1,10 +1,12 @@
 
 mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
-  console.log('Object is:');
-  console.log($scope.task);
+  // console.log('Object is:');
+  // console.log($scope.task);
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
     $scope.adding = true;
+    $scope.openAlertWindow = false;
+    $scope.alertClass = "fa fa-circle-o";
   };
 
   $scope.items = angular.copy(books);    // check what this does
@@ -21,17 +23,28 @@ $scope.cancelAdd = function() {
 };
 
 $scope.doneTask = function(id) {
-  console.log("doneTask called...");
-  console.log($scope.task._id);
   $scope.task.done = !$scope.task.done;
   TaskFactory.edit($scope.task)
   .success(function(data){
-    console.log("id success...")
-    console.log(data);
-    // console.log($scope.task);
     $scope.tasks = data;
   });
   }
+
+$scope.descriptionAdd = function(id) {
+  $scope.adding = false
+    TaskFactory.edit($scope.task)
+  .success(function(data){
+    $scope.tasks = data;
+  });
+}
+
+$scope.selectStatus = function(id) {
+  console.log("works...");
+  console.log($scope.task);
+  $scope.openAlertWindow = false
+  console.log($scope.adding);
+  }
+
 });
 
 // Some starter data to make the window scroll when opened.
