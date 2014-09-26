@@ -1,4 +1,47 @@
-
 #sidebar-wrapper{
   color:#638093;
+}
+
+.input-contorl{
+  display:block;
+  float:left;
+  width:100%;
+
+}
+
+.input-contorl,input[type=text] {
+  width: 235px;
+}
+
+.input-button{
+  display:block;
+  height:30px;
+  width:30px;
+  top:0;
+  right:0;
+  float:left;
+}
+
+.input-sm{
+  border-radius: 0px;
+}
+
+.checkbox{
+  display:block;
+}
+
+.side-container{
+  padding: 0px;
+  margin: 0px;
+  width:100%;
+  height:100vh;
+  overflow: auto;
+}
+
+#sidebar-wrapper{
+  overflow: hidden;
+}
+
+.sidemenu_active{
+  background-color:#3a4254;
 }
