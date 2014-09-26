@@ -1,1 +1,13 @@
 hello world
+
+  
+  <ul>
+
+    <li ng-repeat="project in projects | filter: searchInput">
+      {{project.name}}
+    </li>
+    <li ng-repeat="task in tasks | filter: searchInput">
+      {{task.name}}
+    </li>
+  </ul>
+

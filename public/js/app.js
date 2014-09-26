@@ -19,7 +19,7 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
         controller: 'TasksCtrl'
     })
     .state('projects.global_search',{
-      url: '/search/:input',
+      url: '/search/:query',
       templateUrl: 'partials/global_search.html',
       controller: 'SearchCtrl'
     });

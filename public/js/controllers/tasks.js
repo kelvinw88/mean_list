@@ -1,7 +1,5 @@
 
 
-
-
 mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
   $scope.project = $stateParams;
