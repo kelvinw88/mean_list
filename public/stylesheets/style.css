@@ -44,12 +44,3 @@ label {
 .button-bar {
   text-align: right;
 }
-
-input[type=text] {
-  width: 75%;
-}
-
-textarea {
-  width: 200px;
-  height: 100px;
-}
