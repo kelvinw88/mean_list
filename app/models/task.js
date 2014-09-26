@@ -11,7 +11,7 @@ var tasksSchema = new Schema({
     required: true
   },
   done: {type: Boolean, default: false },
-  status: { type: String, default: null },
+  status: { type: String, default: "fa fa-circle-o" },
   due_date: { type: Date, default: null },
   time_estimate: { type: Number, default: null },
   sub_task: {
