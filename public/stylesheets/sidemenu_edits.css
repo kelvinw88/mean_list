@@ -1,98 +1,77 @@
-#sidebar-wrapper{
-  color:#638093;
+#sidebar-wrapper {
+  color: #638093;
 }
-
-.input-contorl{
-  display:block;
-  float:left;
-  width:100%;
+.input-contorl {
+  display: block;
+  float: left;
+  width: 100%;
 }
-
 .input-contorl {
   width: 235px;
 }
-
-.input-button{
-  display:block;
-  height:30px;
-  width:30px;
-  top:0;
-  right:0;
-  float:left;
+.input-button {
+  display: block;
+  height: 30px;
+  width: 30px;
+  top: 0;
+  right: 0;
+  float: left;
 }
-
-.sidemenu_button:hover{
-  color:#4db182;
+.sidemenu_button:hover {
+  color: #4db182;
 }
-.input-sm{
+.input-sm {
   border-radius: 0px;
 }
-
-.checkbox{
-  display:block;
+.checkbox {
+  display: block;
 }
-
-.side-container{
+.side-container {
   padding: 0px;
   margin: 0px;
-  height:100vh;
+  height: 100vh;
   overflow-y: scroll;
-
 }
-
-#sidebar-wrapper{
+#sidebar-wrapper {
   overflow: hidden;
 }
-
-.sidemenu_active{
-  background-color:#3a4254;
-  color:#d7d8f2;
+.sidemenu_active {
+  background-color: #3a4254;
+  color: #d7d8f2;
 }
-
-.sidemenu_button{
-  margin-left:10px;
-  float:right;
+.sidemenu_button {
+  margin-left: 10px;
+  float: right;
   cursor: pointer;
 }
-
-.sidemenu_project_name{
-  display:block;
-  float:left;
+.sidemenu_project_name {
+  display: block;
+  float: left;
 }
-
-.project_container{
-  clear:left;
+.project_container {
+  clear: left;
   cursor: pointer;
-  display:block;
+  display: block;
 }
-
-#logo{
-  margin:10px 30px 10px 30px;
+#logo {
+  margin: 10px 30px 10px 30px;
 }
-
-.task_h1{
-  margin-top:0px;
+.sidemenu_icon_group {
+  margin-right: 15px;
 }
-
-.sidemenu_icon_group{
-  margin-right:15px;
-
-}
-
 /* Let's get this party started */
+
 .side-container::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
-
 /* Track */
-.side-container::-webkit-scrollbar-track {
-}
 
+.side-container::-webkit-scrollbar-track {}
 /* Handle */
-.side-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.20);
 
+.side-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.20);
 }
 .side-container::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.20);
 }
