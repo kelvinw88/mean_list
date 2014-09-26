@@ -1,11 +1,21 @@
 hello world
 
-  
   <ul>
+  Projects:
+<!--     <li ng-repeat="project in projects | filter: searchInput" onclick="selectProject(project._id)">
+      {{project.name}}
+    </li> -->
 
-    <li ng-repeat="project in projects | filter: searchInput">
+        <li ng-repeat="project in projects | filter: searchInput" ui-sref="projects.tasks({project_id: project._id})">
       {{project.name}}
     </li>
+
+
+
+
+
+
+  Tasks:
     <li ng-repeat="task in tasks | filter: searchInput">
       {{task.name}}
     </li>
