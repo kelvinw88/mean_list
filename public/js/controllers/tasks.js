@@ -1,8 +1,10 @@
 
 
+
 mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
   $scope.project = $stateParams;
+  $scope.max = 100;
 
   // get tasks belongs to a project
   if ($stateParams.project_id != undefined)

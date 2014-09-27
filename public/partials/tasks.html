@@ -26,6 +26,10 @@
 
 
           <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
+
+          <h3>Progress Bar</h3>
+          <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span></progressbar>
+
           <!-- Task Window BEGINS-->
           <div class="window" ng-controller='WindowController'>
 
@@ -68,8 +72,8 @@
                 <input type="number" ng-model="task.time_estimate">
               </div>
               <div>
-                <label>Some other field:</label>
-                <input type="text" ng-model="newItem.publisher">
+                <label>Progress:</label>
+                <input type="number" ng-model="task.progress_bar">
               </div>
               <div>
                 <label>Description:</label>
@@ -84,11 +88,7 @@
           </form>
         </div>
       </div>
-      <!-- date picker starts here -->
 
-    
-
-    <!-- and ends here -->
 
     </div>
   </div>

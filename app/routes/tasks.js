@@ -56,6 +56,7 @@ router.post('/', function(req, res) {
   task.project = req.body.project;
   task.status = req.body.status;
   task.due_date = req.body.due_date;
+  task.progress_bar = req.body.progress_bar;
   task.time_estimate = req.body.time_estimate;
   task.sub_task = req.body.sub_task;
   task.attachment = req.body.attachment;
@@ -96,6 +97,7 @@ router.post('/:task_id', function(req, res)
     task.project = req.body.project;
     task.status = req.body.status;
     task.due_date = req.body.due_date;
+    task.progress_bar = req.body.progress_bar;
     task.time_estimate = req.body.time_estimate;
     task.sub_task = req.body.sub_task;
     task.attachment = req.body.attachment;

@@ -2,6 +2,9 @@
 mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
   // console.log('Object is:');
   // console.log($scope.task);
+
+
+
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
     $scope.adding = true;
@@ -35,6 +38,7 @@ $scope.descriptionAdd = function(id) {
     TaskFactory.edit($scope.task)
   .success(function(data){
     $scope.tasks = data;
+    console.log($scope.tasks);
   });
 }
 
