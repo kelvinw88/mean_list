@@ -1,10 +1,8 @@
-
-
-
 mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
   $scope.project = $stateParams;
   $scope.max = 100;
+
 
   // get tasks belongs to a project
   if ($stateParams.project_id != undefined)
@@ -60,6 +58,15 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     });
   };
 
+  $scope.saveProgress = function(task) {
+    console.log(task);
+    console.log(task._id);
+    TaskFactory.edit(task)
+    .success(function(data){
+      $scope.tasks = data;
+    });
+  }
+
   $scope.saveTask = function() {
     $scope.loading = true;
     // validate the formData to make sure that something is there
@@ -78,8 +85,5 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       });
     }
   };
-
-
-
 
 });

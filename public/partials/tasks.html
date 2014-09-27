@@ -29,7 +29,9 @@
 
           <h3>Progress Bar</h3>
           <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span></progressbar>
-
+          <!-- test slider -->
+        <input type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" />
+        <!-- end test slider -->
           <!-- Task Window BEGINS-->
           <div class="window" ng-controller='WindowController'>
 
@@ -88,7 +90,13 @@
           </form>
         </div>
       </div>
+<!--testing progress bar -->
 
+
+   
+ 
+
+  <!-- stop here -->
 
     </div>
   </div>
