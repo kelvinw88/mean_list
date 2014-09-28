@@ -20,6 +20,10 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       url: '/search/:query',
       templateUrl: 'partials/global_search.html',
       controller: 'SearchCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'partials/homepage.html'
     });
 
 }]);
