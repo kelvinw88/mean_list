@@ -1,6 +1,6 @@
 mean_list.controller('SearchCtrl', function($location, $scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
-$scope.query = $stateParams.query;
+$scope.searchInput = $stateParams.query;
 
 ProjectFactory.get()
   .success(function(data) {
@@ -13,6 +13,12 @@ TaskFactory.get()
     $scope.tasks = data;
     console.log(data);
   });
+
+  $scope.selectProject = function(projectId){
+  console.log(projectId);
+  // $scope.search = query;
+  // $location.path('/projects/search/' + query);
+  }
 
 });
 

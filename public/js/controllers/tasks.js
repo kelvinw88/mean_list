@@ -59,12 +59,11 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
   };
 
   $scope.saveProgress = function(task) {
-    // console.log(task);
+    console.log(task);
+    console.log(task._id);
     TaskFactory.edit(task)
     .success(function(data){
-      // console.log($scope.tasks);
-      // console.log(data);
-      // $scope.tasks = data;
+      $scope.tasks = data;
     });
   }
 
