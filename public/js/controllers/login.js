@@ -1,4 +1,4 @@
-mean_list.controller('homepageCtrl', function($scope, ProjectFactory, $filter, $http, TaskFactory) {
+mean_list.controller('LoginCtrl', function($scope, ProjectFactory, $filter, $http, TaskFactory) {
   $scope.hideLoginWindow = true;
   $scope.hideSignupWindow = true;
 
