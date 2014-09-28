@@ -4,12 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session      = require('express-session');
 
 //SET UP DATABASE
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost:27017/mean_list');
+
+var passport = require('passport');
+var flash    = require('connect-flash');
+var morgan       = require('morgan');
+
+var configDB = require('./config/database.js');
+
+// configuration ===============================================================
+
 
 var routes = require('./app/routes/index');
 var projects = require('./app/routes/projects');
