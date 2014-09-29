@@ -1,10 +1,20 @@
 mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http) {
+
+
+
   $scope.edit = true;
 
-  ProjectFactory.get()
-    .success(function(data) {
-      $scope.projects = data
-    });
+  var updateProjects = function() {
+    ProjectFactory.get()
+      .success(function(data) {
+        $scope.projects = data
+      });
+  };
+  updateProjects();
+  window.setInterval(function() {
+    console.log("Updating projects on interval!");
+    updateProjects();
+  }, 5000);
 
   $scope.hideEdit2 = function () {
     alert("hiding now...");
