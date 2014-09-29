@@ -21,9 +21,9 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       templateUrl: 'partials/global_search.html',
       controller: 'SearchCtrl'
     })
-    .state('homepage', {
+    .state('login', {
       url: '/',
-      templateUrl: 'partials/homepage.html',
-      controller: 'homepageCtrl'
+      templateUrl: 'partials/login.html',
+      controller: 'loginCtrl'
     });
 }]);
