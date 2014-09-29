@@ -1,11 +1,10 @@
 mean_list.factory('UserFactory', ['$http',function($http) {
   return {
-    get_a_user : function(UserData){
-      return $http.get('/api/users' , UserData);
+    get_user : function(UserData){
+      return $http.get('/api/users/login' , UserData);
     },
     create : function(UserData) {
-      console.log(" userData ...")
-      return $http.post('/api/users', UserData);
+      return $http.post('/api/users/create', UserData);
     },
     delete : function(UserData) {
       return $http.delete('/api/users', UserData);

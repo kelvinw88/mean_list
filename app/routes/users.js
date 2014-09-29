@@ -5,8 +5,8 @@ var router = express.Router();
 
 
 /* Login as a User. */
-router.post('/login', function(req, res) {
-
+router.get('/login', function(req, res) {
+  console.log("in user routes");
   var users = mongoose.model('users');
   var username = req.body.username;
   var password = req.body.password;
@@ -20,7 +20,7 @@ router.post('/login', function(req, res) {
 
 /* Create a User. */
 router.post('/create', function(req, res) {
-
+  console.log('in users routes...');
   var users = mongoose.model('users');
   var user = new users();
 
@@ -31,9 +31,15 @@ router.post('/create', function(req, res) {
   user.save(function(err){
     if (err)
       res.send(err);
-    res.send(user._id);
+    var user_info = {
+      _id: user._id,
+      username: user.username
+    };
+    res.send(user_info);
   })
 });
+
+
 
 
 module.exports = router;

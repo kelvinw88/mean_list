@@ -6,7 +6,7 @@
     <div class="text-center">
       
       <div ng-show="currentUser">
-        Logged in as: {{currentUser}}
+        Logged in as: {{currentUser.username}}
         <button ui-sref="login" ng-click="currentUser = null">Logout</button>
       </div>
 
