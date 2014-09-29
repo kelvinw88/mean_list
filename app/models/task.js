@@ -13,8 +13,7 @@ var tasksSchema = new Schema({
   users: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    default: [],
-    required: true
+    default: []
   },
   done: {type: Boolean, default: false },
   status: { type: String, default: "fa fa-circle-o" },

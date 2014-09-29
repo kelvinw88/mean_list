@@ -7,8 +7,7 @@ var projectsSchema = new Schema({
   users: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    default: [],
-    required: true
+    default: []
   },
 });
 
