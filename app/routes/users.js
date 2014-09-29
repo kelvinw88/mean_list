@@ -47,6 +47,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"name":"totleraf"}' http:/
 */
 /* post Task page. */
 router.post('/', function(req, res) {
+  console.log("in routes.js....")
   var users = mongoose.model('users');
   var user = new users();
 

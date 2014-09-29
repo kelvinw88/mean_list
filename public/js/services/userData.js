@@ -4,6 +4,7 @@ mean_list.factory('UserFactory', ['$http',function($http) {
       return $http.get('/api/users' , UserData);
     },
     create : function(UserData) {
+      console.log(" userData ...")
       return $http.post('/api/users', UserData);
     },
     delete : function(UserData) {

@@ -27,3 +27,10 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       controller: 'loginCtrl'
     });
 }]);
+
+mean_list.run(['$rootScope', function( $rootScope) {
+  $rootScope.$on('$locationChangeStart', function (event) {
+      // alert("HELLO");
+  });
+}]);
+
