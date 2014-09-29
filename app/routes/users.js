@@ -14,9 +14,9 @@ router.post('/login', function(req, res) {
   })
 });
 
+
 /* Create a User. */
 router.post('/create', function(req, res) {
-  console.log('in users routes...');
   var users = mongoose.model('users');
   var user = new users();
 
