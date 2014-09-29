@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var authController = require('./app/routes/auth');
 
 //SET UP DATABASE
 var mongo = require('mongodb');
