@@ -5,13 +5,11 @@ var router = express.Router();
 
 
 /* Login as a User. */
-router.get('/login', function(req, res) {
+router.post('/login', function(req, res) {
   var users = mongoose.model('users');
-  console.log(users);
   var username = req.body.username;
   var password = req.body.password;
   users.where('username').equals(username).where('password').equals(password).find(function(err, users) {
-      console.log(users);
       res.send(users);
   })
 });

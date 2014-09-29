@@ -22,7 +22,7 @@ $scope.loginUser = function(){
     console.log("going into UserFactory...");
     UserFactory.get_user($scope.userData)
     .success(function(data) {
-      $rootScope.currentUser = data;
+      $rootScope.currentUser = data[0];
       console.log($rootScope.currentUser);
       $location.path('/projects');
     });
