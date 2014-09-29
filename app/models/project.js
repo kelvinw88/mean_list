@@ -3,13 +3,7 @@ var Schema = mongoose.Schema;
 
 var projectsSchema = new Schema({
   name: {type: String, required: true},
-  time : { type : Date, default: Date.now },
-  users: {
-    type: Schema.Types.ObjectId,
-    ref: 'users',
-    default: [],
-    required: true
-  },
+  time : { type : Date, default: Date.now }
 });
 
 mongoose.model('projects', projectsSchema);

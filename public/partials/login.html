@@ -21,17 +21,17 @@
   <% } %>
 
   <!-- LOGIN FORM -->
-  <form id="task-form" class="text-center">
+  <form action="/login" method="post">
     <div class="form-group">
-      <label>Username</label>
-      <input ng-model="userData.username" type="text"  class="form-control" name="email">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email">
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input ng-model="userData.password" type="password" class="form-control" name="password">
+      <input type="password" class="form-control" name="password">
     </div>
 
-    <button type="submit" ng-click="createUser()" class="btn btn-warning btn-lg">Login</button>
+    <button type="submit" class="btn btn-warning btn-lg">Login</button>
   </form>
 
   <hr>

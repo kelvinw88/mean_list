@@ -25,5 +25,6 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       url: '/',
       templateUrl: 'partials/login.html',
       controller: 'LoginCtrl'
-    });
+    })
+
 }]);

@@ -1,19 +1,19 @@
 mean_list.factory('UserFactory', ['$http',function($http) {
   return {
     get : function() {
-      return $http.get('/api/users');
+      return $http.get('/api/projects');
     },
     get_a_project : function(id){
-      return $http.get('/api/users/' + id);
+      return $http.get('/api/projects/' + id);
     },
-    create : function(UserData) {
-      return $http.post('/api/users', UserData);
+    create : function(ProjectData) {
+      return $http.post('/api/projects', ProjectData);
     },
     delete : function(id) {
-      return $http.delete('/api/users/' + id);
+      return $http.delete('/api/projects/' + id);
     },
     edit : function(Project) {
-      return $http.post('/api/users/' + User._id, User);
+      return $http.post('/api/projects/' + Project._id, Project);
     }
   }
 }]);

@@ -10,12 +10,6 @@ var tasksSchema = new Schema({
     ref: 'projects',
     required: true
   },
-  users: {
-    type: Schema.Types.ObjectId,
-    ref: 'users',
-    default: [],
-    required: true
-  },
   done: {type: Boolean, default: false },
   status: { type: String, default: "fa fa-circle-o" },
   due_date: { type: Date, default: null },
