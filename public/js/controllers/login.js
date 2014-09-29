@@ -1,6 +1,7 @@
 mean_list.controller('loginCtrl', function($scope, $filter, $http, UserFactory, $rootScope, $location) {
   $scope.hideLoginWindow = true;
   $scope.hideSignupWindow = true;
+  console.log("In Login Ctrl");
 
 
 
@@ -11,7 +12,7 @@ $scope.createUser = function(){
     .success(function(data) {
       $rootScope.currentUser = data;
       console.log($rootScope.currentUser);
-      $location.path('/projects');
+      $location.path('/'+ $rootScope.currentUser.username + '/projects');
     });
   }
 }
@@ -24,7 +25,7 @@ $scope.loginUser = function(){
     .success(function(data) {
       $rootScope.currentUser = data[0];
       console.log($rootScope.currentUser);
-      $location.path('/projects');
+      $location.path('/'+ $rootScope.currentUser.username + '/projects');
     });
   }
 }

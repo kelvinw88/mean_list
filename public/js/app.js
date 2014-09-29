@@ -7,7 +7,7 @@ var mean_list = angular.module('mean_list', [
 mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('projects', {
-        url: '/projects',
+        url: '/:username/projects',
         templateUrl: 'partials/projects.html',
         controller: 'ProjectsCtrl'
     })
@@ -33,4 +33,3 @@ mean_list.run(['$rootScope', function( $rootScope) {
       // alert("HELLO");
   });
 }]);
-

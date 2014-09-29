@@ -2,7 +2,10 @@ mean_list.controller('SearchCtrl', function($location, $scope, $stateParams, Pro
 
 $scope.query = $stateParams.query;
 
-ProjectFactory.get()
+$scope.username = $stateParams.username;
+
+
+ProjectFactory.get($scope.username)
   .success(function(data) {
     $scope.projects = data;
   });
@@ -13,4 +16,3 @@ TaskFactory.get()
   });
 
 });
-
