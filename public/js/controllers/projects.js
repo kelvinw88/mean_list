@@ -6,7 +6,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
       $scope.projects = data
     });
 
-  console.log('project');
+
   $scope.createProject = function() {
     $scope.loading = true;
     // validate the formData to make sure that something is there

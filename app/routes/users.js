@@ -6,15 +6,13 @@ var router = express.Router();
 
 /* Login as a User. */
 router.get('/login', function(req, res) {
-  console.log("in user routes");
   var users = mongoose.model('users');
+  console.log(users);
   var username = req.body.username;
   var password = req.body.password;
-
-  users.where('username').equals(username).find(function(err, users) {
-    users.where('password').equals(password).find(function(err, users) {
+  users.where('username').equals(username).where('password').equals(password).find(function(err, users) {
+      console.log(users);
       res.send(users);
-    })
   })
 });
 

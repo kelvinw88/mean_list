@@ -19,6 +19,7 @@ $scope.createUser = function(){
 $scope.loginUser = function(){
 
   if ($scope.userData != undefined) {
+    console.log("going into UserFactory...");
     UserFactory.get_user($scope.userData)
     .success(function(data) {
       $rootScope.currentUser = data;
