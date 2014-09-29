@@ -47,24 +47,18 @@ curl -X POST -H "Content-Type: application/json" -d '{"name":"totleraf"}' http:/
 */
 /* post Task page. */
 router.post('/', function(req, res) {
-  var tasks = mongoose.model('tasks');
-  var task = new tasks();
+  var users = mongoose.model('users');
+  var user = new users();
 
-  task.name = req.body.name;
-  task.description = req.body.description;
-  task.done = req.body.done;
-  task.project = req.body.project;
-  task.status = req.body.status;
-  task.due_date = req.body.due_date;
-  task.progress_bar = req.body.progress_bar;
-  task.time_estimate = req.body.time_estimate;
-  task.sub_task = req.body.sub_task;
-  task.attachment = req.body.attachment;
+  user.name = req.body.name;
+  user.password = req.body.email;
+  user.email = req.body.email;
+  
 
   task.save(function(err) {
     if (err)
       res.send(err);
-    res.send(task);
+    res.send(user);
   });
 });
 

@@ -1,13 +1,33 @@
-mean_list.controller('loginCtrl', function($scope, ProjectFactory, $filter, $http, TaskFactory) {
+mean_list.controller('loginCtrl', function($scope, $filter, $http, UserFactory) {
   $scope.hideLoginWindow = true;
   $scope.hideSignupWindow = true;
 
 
 
 $scope.createUser = function(){
-  console.log("hello");
   if ($scope.userData != undefined) {
     console.log($scope.userData);
+    UserFactory.create($scope.userData)
+    // if successful creation, call our get function to get all the new todos
+    .success(function(data) {
+      console.log("data is:"  + data);
+      // $scope.taskData = {}; // clear the form so our user is ready to enter another
+      // $scope.tasks.push(data); // assign our new list of todos
+    });
+  }
+}
+
+$scope.loginUser = function(){
+  console.log("login in...");
+  if ($scope.userData != undefined) {
+    console.log($scope.userData);
+     TaskFactory.create($scope.userData)
+    // if successful creation, call our get function to get all the new todos
+    .success(function(data) {
+      console.log("data is:"  + data);
+      // $scope.taskData = {}; // clear the form so our user is ready to enter another
+      // $scope.tasks.push(data); // assign our new list of todos
+    });
   }
 }
 
