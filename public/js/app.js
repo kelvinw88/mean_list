@@ -23,7 +23,7 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
     })
     .state('homepage', {
       url: '/',
-      templateUrl: 'partials/login.html',
-      controller: 'LoginCtrl'
+      templateUrl: 'partials/homepage.html',
+      controller: 'homepageCtrl'
     });
 }]);
