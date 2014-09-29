@@ -45,7 +45,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
     .success(function(data) {
       $scope.loading = false;
       $scope.projects = data; // assign our new list of todos
-      $location.path('/projects');
+      $location.path($scope.username + '/projects');
     });
   };
 
