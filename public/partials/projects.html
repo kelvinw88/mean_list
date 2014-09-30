@@ -2,12 +2,12 @@
 
   <!-- CREATE PROJECTS -->
   <div id="project-form" class="row">
-    <h1 id="logo">Logo</h1>
+    <h1 id="logo">KanDo</h1>
     <div class="text-center">
 
-      <div ng-show="currentUser">
-        Logged in as: {{currentUser.username}}
-        <button ui-sref="login" ng-click="currentUser = null">Logout</button>
+      <div class= "username-contatiner text-center clearfix" ng-show="currentUser">
+        <span class="username ">{{currentUser.username}}</span>
+        <button class="text-right logout" ui-sref="login" ng-click="currentUser = null"><i class="fa fa-sign-out"></i></button>
       </div>
 
       <form ng-controller="SearchCtrl">
