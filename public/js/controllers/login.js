@@ -8,7 +8,10 @@ $scope.createUser = function(){
   if ($scope.userData != undefined) {
     UserFactory.create($scope.userData)
     .success(function(data) {
-      $rootScope.currentUser = data;
+       $rootScope.currentUser = {
+        _id: data._id,
+        username: data.username,
+      }
       document.cookie = "user_id =" + data._id;
       document.cookie = "user_name =" + data.username;
       $location.path('/'+ $rootScope.currentUser.username + '/projects');
@@ -25,7 +28,7 @@ $scope.loginUser = function(){
     UserFactory.get_user($scope.userData)
     .success(function(data) {
       $rootScope.currentUser = {
-        _id: data[0],
+        _id: data[0]._id,
         username: data[0].username,
       }
       document.cookie = "user_id =" + data[0]._id;
