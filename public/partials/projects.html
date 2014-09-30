@@ -2,16 +2,19 @@
 
   <!-- CREATE PROJECTS -->
   <div id="project-form" class="row">
-    <h1 id="logo">Logo</h1>
+    <h1 id="logo">KanDo</h1>
     <div class="text-center">
-      
-      <div ng-show="currentUser">
-        Logged in as: {{currentUser.username}}
-        <button ui-sref="login" ng-click="currentUser = null">Logout</button>
+
+      <div class= "username-contatiner text-center clearfix" ng-show="userNameCookie">
+        <span class="username ">{{userNameCookie}}</span>
+        <button class="text-right logout" ui-sref="login" ng-click="currentUser = null"><i class="fa fa-sign-out"></i></button>
       </div>
 
       <form ng-controller="SearchCtrl">
-        <input ng-model="query" value="Search" ng-keyup="globalSearch(query)" type='text'/> 
+        <div>
+          <input class="input-contorl input-sm text-center" ng-model="query" value="Search" ng-keyup="globalSearch(query)" placeholder="Search..." type='text'/>
+        </div>
+        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-search"></i></i></button>
       </form>
 
 
@@ -30,7 +33,7 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix" ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
+    <div class="clearfix " ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
 
       <div class="project_container"  data-project_id="{{project._id}}">
 
@@ -56,7 +59,7 @@
           </div>
         </div>
       </div>
-      
+
 
       </div>
 

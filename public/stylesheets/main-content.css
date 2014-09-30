@@ -13,9 +13,7 @@ textarea {
   vertical-align: top;
   float:left;
   width:30px;
-
 }
-
 
 #task-form .resize-form-input{
   overflow: hidden;
@@ -28,9 +26,6 @@ textarea {
   clear:both;
 }
 
-.tasks-container{
-  clear:both;
-}
 
 .task_h1{
   font-size:2em;

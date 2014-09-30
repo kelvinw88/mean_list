@@ -1,8 +1,8 @@
 mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies) {
   // $scope.currentUserName =
-  var userIdCookie = $cookies.user_id;
-  var userNameCookie = $cookies.user_name;
-  console.log(userIdCookie+" "+userNameCookie );
+  $scope.userIdCookie = $cookies.user_id;
+  $scope.userNameCookie = $cookies.user_name;
+  console.log($scope.userIdCookie+" "+$scope.userNameCookie );
   $scope.edit = true;
 
   $scope.projects = [];
@@ -47,7 +47,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
     .success(function(data) {
       $scope.loading = false;
       $scope.projects = data; // assign our new list of todos
-      $location.path($scope.username + '/projects');
+      $location.path( $scope.username + '/projects');
     });
   };
 

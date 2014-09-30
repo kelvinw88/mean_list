@@ -43,16 +43,20 @@
   margin-left: 10px;
   float: right;
   cursor: pointer;
+
 }
 .sidemenu_project_name {
   display: block;
   float: left;
+  margin-left:15px;
 }
 .project_container {
   clear: left;
   cursor: pointer;
   display: block;
+  margin-top: 5px;
 }
+
 #logo {
   margin: 10px 30px 10px 30px;
 }
@@ -74,4 +78,22 @@
 }
 .side-container::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(255, 255, 255, 0.20);
+}
+
+.username{
+  font-weight: 500;
+  float:left;
+  display:block;
+  font-size:20px;
+  margin-left:30px;
+  color: #eef1fc;
+}
+
+.logout{
+  float:right;
+  margin-right:15px;
+}
+
+.username-contatiner{
+  margin-bottom:5px;
 }
