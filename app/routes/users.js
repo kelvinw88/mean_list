@@ -26,14 +26,16 @@ router.post('/create', function(req, res) {
 
   user.save(function(err){
     if (err) {
+      console.log(err)
       res.send(err);
-    }
-    var user_info = {
-      _id: user._id,
-      username: user.username
+    }else{
+      var user_info = {
+        _id: user._id,
+        username: user.username
+      };
+      res.send(user_info);
     };
-    res.send(user_info);
-  })
+  });
 });
 
 
