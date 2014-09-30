@@ -8,11 +8,10 @@ router.get('/:username', function(req, res) {
   console.log("get project");
   console.log(req.params.username);
 
-  mongoose.model('users').where('username').equals(req.params.username).find(function(err, user) {
-    console.log(user);
-    mongoose.model('projects').find({'users' : user[0]._id}, function(err, projects) {
-      console.log(projects);
+  mongoose.model('users').findOne({'username' : req.params.username} , function(err, user) {
+    mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
         res.send(projects);
+        console.log(projects);
     });
   });
 

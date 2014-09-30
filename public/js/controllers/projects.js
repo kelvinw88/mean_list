@@ -6,6 +6,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
 
 
   $scope.username = $stateParams.username;
+  
   ProjectFactory.get($scope.username)
     .success(function(data) {
       console.log(data);

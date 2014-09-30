@@ -1,6 +1,8 @@
 mean_list.factory('ProjectFactory', ['$http',function($http) {
   return {
     get : function(userName) {
+      console.log("Project Facoty get check");
+      console.log(userName);
       return $http.get('/api/projects/' + userName );
     },
     create : function(ProjectData) {
