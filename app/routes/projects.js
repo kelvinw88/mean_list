@@ -5,9 +5,13 @@ var router = express.Router();
 
 /* GET Projects page. */
 router.get('/:username', function(req, res) {
+  console.log("get project");
+  console.log(req.params.username);
 
   mongoose.model('users').where('username').equals(req.params.username).find(function(err, user) {
+    console.log(user);
     mongoose.model('projects').find({'users' : user[0]._id}, function(err, projects) {
+      console.log(projects);
         res.send(projects);
     });
   });
@@ -22,15 +26,21 @@ router.post('/', function(req, res) {
   var project = new projects();
 
   project.name = req.body.name;
-  project.users.push(req.body.user_id);
-
-  project.save(function(err) {
-    if (err)
-      res.send(err);
-    mongoose.model('projects').find({'users' : req.body.user_id}, function(err, projects) {
-      res.send(projects);
+  mongoose.model('users').where('username').equals(req.body.username).find(function(err, user) {
+    project.users.push(user[0]._id);
+    project.save(function(err) {
+      if (err)
+        res.send(err);
+      mongoose.model('projects').find({'users' : req.body.user_id}, function(err, projects) {
+        console.log(project);
+        res.send(projects);
+      });
     });
   });
+
+
+
+
 });
 
 /* GET a project. */

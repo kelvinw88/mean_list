@@ -1,7 +1,7 @@
 mean_list.factory('ProjectFactory', ['$http',function($http) {
   return {
     get : function(userName) {
-      return $http.get('/api/projects' + userName );
+      return $http.get('/api/projects/' + userName );
     },
     create : function(ProjectData) {
       return $http.post('/api/projects', ProjectData);

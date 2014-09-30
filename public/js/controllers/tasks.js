@@ -1,5 +1,6 @@
 mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
+  console.log("In Task Ctrl");
   $scope.project = $stateParams;
   $scope.max = 100;
 
