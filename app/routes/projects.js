@@ -4,7 +4,10 @@ var router = express.Router();
 
 
 /* GET Projects page. */
-router.get('/', function(req, res) {
+router.get('/:username', function(req, res) {
+  mongoose.model('users').where('username').equals(req.params.username).find(function(err, users) {
+    console.log(users);
+  });
   mongoose.model('projects').find(function(err, projects) {
     res.send(projects)
   });
