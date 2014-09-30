@@ -4,7 +4,7 @@ var crypto = require('crypto');
 var router = express.Router();
 
 
-/* GET Projects page. */
+/* Login as a User. */
 router.post('/login', function(req, res) {
 
   var users = mongoose.model('users');
@@ -12,10 +12,13 @@ router.post('/login', function(req, res) {
   var password = req.body.password;
 
   users.where('username').equals(username).find(function(err, users) {
-    res.send(users);
+    users.where('password').equals(password).find(function(err, users) {
+      res.send(users);
+    })
   })
 });
 
+/* Create a User. */
 router.post('/create', function(req, res) {
   var users = mongoose.model('users');
   var user = new users();
