@@ -24,7 +24,10 @@ $scope.loginUser = function(){
     console.log("going into UserFactory...");
     UserFactory.get_user($scope.userData)
     .success(function(data) {
-      $rootScope.currentUser = data[0];
+      $rootScope.currentUser = {
+        _id: data[0],
+        username: data[0].username,
+      }
       document.cookie = "user_id =" + data[0]._id;
       document.cookie = "user_name =" + data[0].username;
       $location.path('/'+ $rootScope.currentUser.username + '/projects');
