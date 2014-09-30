@@ -12,6 +12,8 @@ $scope.createUser = function(){
       document.cookie = "user_id =" + data._id;
       document.cookie = "user_name =" + data.username;
       $location.path('/'+ $rootScope.currentUser.username + '/projects');
+    }).catch(function(err){
+      console.error(err);
     });
   }
 }
