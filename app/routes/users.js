@@ -25,8 +25,9 @@ router.post('/create', function(req, res) {
   user.email = req.body.email;
 
   user.save(function(err){
-    if (err)
+    if (err) {
       res.send(err);
+    }
     var user_info = {
       _id: user._id,
       username: user.username
