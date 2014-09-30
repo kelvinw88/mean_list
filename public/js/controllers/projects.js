@@ -77,7 +77,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
 
   $scope.globalSearch = function(query){
     // $scope.search = query;
-    $location.path('/projects/search/' + query);
+    $location.path( $scope.username + '/projects/search/' + query);
   }
 
 

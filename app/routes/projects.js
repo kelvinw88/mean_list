@@ -3,19 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 
-/* GET Projects page. */
-router.get('/:username', function(req, res) {
-  console.log("get project");
-  console.log(req.params.username);
-
-  mongoose.model('users').findOne({'username' : req.params.username} , function(err, user) {
-    mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
-        res.send(projects);
-        console.log(projects);
-    });
-  });
-
-});
 
 /* post Projects page. */
 router.post('/', function(req, res) {
@@ -42,15 +29,29 @@ router.post('/', function(req, res) {
 });
 
 /* GET a project. */
-// router.get('/:project_id', function(req, res) {
-//   var project = mongoose.model('projects');
-//   project.findById(req.params.project_id, function(err, project) {
-//     if (err)
-//       res.send(err);
-//     res.json(project);
-//   });
-// });
+router.get('/project/:project_id', function(req, res) {
+  var project = mongoose.model('projects');
+  project.findById(req.params.project_id, function(err, project) {
+    if (err)
+      res.send(err);
+    res.json(project);
+  });
+});
 
+
+/* GET Projects page. */
+router.get('/:username', function(req, res) {
+  console.log("get project");
+  console.log(req.params.username);
+
+  mongoose.model('users').findOne({'username' : req.params.username} , function(err, user) {
+    mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
+        res.send(projects);
+        console.log(projects);
+    });
+  });
+
+});
 
 
 /* edit a project. */
