@@ -18,6 +18,21 @@ var tasks = require('./app/routes/tasks');
 
 var app = express();
 
+var debug = require('debug')('mean_list');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = require('http').createServer(app);
+
+server.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+var io = require("socket.io").listen(server);
+
+
+
+
 console.log("MEAN LIST!");
 
 //model setup
@@ -42,7 +57,7 @@ walker.on('end', function() {
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
-app.set('view engine', 'html');
+//app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -67,16 +82,16 @@ app.use(function(req, res, next) {
 
 
 // error handlers
-
+// console.log("show up");
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+        // res.render('error', {
+        //     message: err.message,
+        //     error: err
+        // });
     });
 }
 
@@ -89,6 +104,12 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+io.on('connection',function(socket){
+  console.log('connected!');
+})
+
+
 
 
 module.exports = app;
