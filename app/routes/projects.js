@@ -8,7 +8,6 @@ router.get('/:username', function(req, res) {
 
   mongoose.model('users').where('username').equals(req.params.username).find(function(err, user) {
     mongoose.model('projects').find({'users' : user[0]._id}, function(err, projects) {
-
         res.send(projects);
     });
   });
@@ -24,7 +23,7 @@ router.post('/', function(req, res) {
 
   project.name = req.body.name;
   project.users.push(req.body.user_id);
-  
+
   project.save(function(err) {
     if (err)
       res.send(err);
@@ -35,14 +34,14 @@ router.post('/', function(req, res) {
 });
 
 /* GET a project. */
-router.get('/:project_id', function(req, res) {
-  var project = mongoose.model('projects');
-  project.findById(req.params.project_id, function(err, project) {
-    if (err)
-      res.send(err);
-    res.json(project);
-  });
-});
+// router.get('/:project_id', function(req, res) {
+//   var project = mongoose.model('projects');
+//   project.findById(req.params.project_id, function(err, project) {
+//     if (err)
+//       res.send(err);
+//     res.json(project);
+//   });
+// });
 
 
 

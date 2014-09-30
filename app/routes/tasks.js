@@ -26,7 +26,6 @@ router.get('/', function(req, res) {
 
 router.get('/project/:project_id', function(req, res) {
 
-
   var project_id = req.param('project_id')
   mongoose.model('tasks').find().sort([
     ['time', 'descending']
