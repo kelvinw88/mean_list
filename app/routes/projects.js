@@ -45,10 +45,14 @@ router.get('/:username', function(req, res) {
   console.log(req.params.username);
 
   mongoose.model('users').findOne({'username' : req.params.username} , function(err, user) {
-    mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
-        res.send(projects);
-        console.log(projects);
-    });
+    if (user != null) {
+      console.log('found user');
+      console.log(user);
+      mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
+          res.send(projects);
+          console.log(projects);
+      });
+    }
   });
 
 });
