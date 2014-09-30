@@ -17,9 +17,7 @@ router.post('/:user_id', function(req, res) {
   var project = new projects();
   project.name = req.body.name;
   project.users.push(req.params.user_id);
-  
-  router.use(session({secret:'somesecrettokenhere'}));
-
+    
   project.save(function(err) {
     if (err)
       res.send(err);

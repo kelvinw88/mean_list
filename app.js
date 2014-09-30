@@ -27,19 +27,18 @@ var tasks = require('./app/routes/tasks');
 
 passport.use(new LocalStrategy(
 function(username, password, done) {
-  users.findOne({ username: username }, function (err, user) {
+  users.findOne({ username: username}, function (err, user) {
     if (err) { return done(err); }
     if (!user) {
       return done(null, false, { message: 'Incorrect username.' });
     }
-    if (!user.validPassword(password)) {
+    if (user.password !== password) {
       return done(null, false, { message: 'Incorrect password.' });
     }
     return done(null, user);
   });
 }
 ));
-
 
 
 
@@ -78,6 +77,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 
