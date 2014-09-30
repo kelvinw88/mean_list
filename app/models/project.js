@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 var projectsSchema = new Schema({
   name: {type: String, required: true},
   time : { type : Date, default: Date.now },
-  users: {
+  users: [{
     type: Schema.Types.ObjectId,
-    ref: 'users',
-    default: []
-  },
+    ref: 'users'
+  }]
 });
+
 
 mongoose.model('projects', projectsSchema);
