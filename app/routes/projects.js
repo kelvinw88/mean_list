@@ -30,13 +30,12 @@ router.post('/', function(req, res) {
     project.save(function(err) {
       if (err)
         res.send(err);
-      mongoose.model('projects').find({'users' : req.body.user_id}, function(err, projects) {
+      mongoose.model('projects').where('users').equals(user[0]._id).find(function(err, projects) {
         console.log(project);
         res.send(projects);
       });
     });
   });
-
 
 
 
