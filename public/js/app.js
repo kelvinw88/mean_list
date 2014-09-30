@@ -1,5 +1,6 @@
 var mean_list = angular.module('mean_list', [
   'ui.router',
+  'ngCookies',
   'ui.bootstrap'
   ]);
 

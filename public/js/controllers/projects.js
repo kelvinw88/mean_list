@@ -1,5 +1,5 @@
 mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope) {
-
+  // $scope.currentUserName =
 
   $scope.edit = true;
 
