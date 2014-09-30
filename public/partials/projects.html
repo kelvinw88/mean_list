@@ -4,6 +4,16 @@
   <div id="project-form" class="row">
     <h1 id="logo">Logo</h1>
     <div class="text-center">
+      
+      <div ng-show="currentUser">
+        Logged in as: {{currentUser.username}}
+        <button ui-sref="login" ng-click="currentUser = null">Logout</button>
+      </div>
+
+      <form ng-controller="SearchCtrl">
+        <input ng-model="query" value="Search" ng-keyup="globalSearch(query)" type='text'/> 
+      </form>
+
 
       <form>
         <div>
@@ -46,7 +56,7 @@
           </div>
         </div>
       </div>
-
+      
 
       </div>
 

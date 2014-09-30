@@ -2,6 +2,9 @@
 mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
   // console.log('Object is:');
   // console.log($scope.task);
+
+
+
   $scope.startAdd = function() {
     $scope.newItem = { name: '', publisher: '', description: '' };
     $scope.adding = true;
@@ -35,6 +38,7 @@ $scope.descriptionAdd = function(id) {
     TaskFactory.edit($scope.task)
   .success(function(data){
     $scope.tasks = data;
+    console.log($scope.tasks);
   });
 }
 
@@ -46,6 +50,37 @@ $scope.selectStatus = function() {
     $scope.tasks = data;
   });
   }
+//datepicker starts
+$scope.today = function() {
+
+    $scope.dt = new Date();
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.formats = ['dd-MMMM-yyyy'];
+  $scope.format = $scope.formats[0];
+//datepicker ends
 
 });
 

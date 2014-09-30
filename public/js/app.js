@@ -1,7 +1,5 @@
 var mean_list = angular.module('mean_list', [
   'ui.router',
-  // 'app'
-  'xeditable',
   'ui.bootstrap'
   ]);
 
@@ -9,7 +7,7 @@ var mean_list = angular.module('mean_list', [
 mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('projects', {
-        url: '/projects',
+        url: '/:username/projects',
         templateUrl: 'partials/projects.html',
         controller: 'ProjectsCtrl'
     })
@@ -17,6 +15,21 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
         url: '/:project_id/tasks',
         templateUrl: 'partials/tasks.html',
         controller: 'TasksCtrl'
+    })
+    .state('projects.global_search',{
+      url: '/search/:query',
+      templateUrl: 'partials/global_search.html',
+      controller: 'SearchCtrl'
+    })
+    .state('login', {
+      url: '/',
+      templateUrl: 'partials/login.html',
+      controller: 'loginCtrl'
     });
+}]);
 
+mean_list.run(['$rootScope', function( $rootScope) {
+  $rootScope.$on('$locationChangeStart', function (event) {
+      // alert("HELLO");
+  });
 }]);

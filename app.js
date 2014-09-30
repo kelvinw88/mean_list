@@ -4,12 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+//
+// var passport = require('passport');
+// var authController = require('./app/routes/auth');
 
 //SET UP DATABASE
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost:27017/mean_list');
+
+// configuration ===============================================================
+
 
 var routes = require('./app/routes/index');
 var projects = require('./app/routes/projects');
@@ -54,7 +59,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //app.use('/', routes);
-app.use('/users', users);
+
+app.use('/api/users', users);
 app.use('/api/projects', projects);
 app.use('/api/tasks', tasks);
 
@@ -73,10 +79,10 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+        // res.render('error', {
+        //     message: err.message,
+        //     error: err
+        // });
     });
 }
 

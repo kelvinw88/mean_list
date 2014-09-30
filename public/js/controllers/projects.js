@@ -1,15 +1,19 @@
-mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http) {
+mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope) {
+
+
   $scope.edit = true;
 
-  ProjectFactory.get()
+  $scope.projects = [];
+
+
+  $scope.username = $stateParams.username;
+
+  ProjectFactory.get($scope.username)
     .success(function(data) {
-      $scope.projects = data
+      console.log(data);
+      $scope.projects = data;
     });
 
-  $scope.hideEdit2 = function () {
-    alert("hiding now...");
-    $scope.edit = false;
-  };
 
   $scope.createProject = function() {
     $scope.loading = true;
@@ -17,10 +21,14 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
     // if form is empty, nothing will happen
     if ($scope.formData.name != undefined) {
       // call the create function from our service (returns a promise object)
+      $scope.formData.username = $stateParams.username;
+      // console.log($scope.formData);
+
       ProjectFactory.create($scope.formData)
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
         $scope.loading = false;
+        // console.log(data);
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.projects = data; // assign our new list of todos
       });
@@ -37,7 +45,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
     .success(function(data) {
       $scope.loading = false;
       $scope.projects = data; // assign our new list of todos
-      $location.path('/projects');
+      $location.path( $scope.username + '/projects');
     });
   };
 
@@ -66,5 +74,11 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
       });
     }
   };
+
+  $scope.globalSearch = function(query){
+    // $scope.search = query;
+    $location.path( $scope.username + '/projects/search/' + query);
+  }
+
 
 });

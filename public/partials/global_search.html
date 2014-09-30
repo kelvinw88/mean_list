@@ -1,0 +1,17 @@
+
+  <ul ng-show="query.length">
+  Projects:
+
+    <li ng-repeat="project in projects | filter: query" ui-sref="projects.tasks({project_id: project._id})">
+      {{project.name}}
+    </li>
+
+  Tasks:
+    <li ng-repeat="task in tasks | filter: query"
+    ui-sref="projects.tasks({project_id: task.project._id})">
+      
+      {{task.name}}
+      
+    </li>
+  </ul>
+

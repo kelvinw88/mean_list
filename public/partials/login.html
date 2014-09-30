@@ -1,0 +1,79 @@
+<div ng-controller="loginCtrl">
+
+
+  <div ng-show="hideLoginWindow && hideSignupWindow" class="jumbotron text-center">
+    <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+
+    <p>Login or Register with:</p>
+
+    <div class="btn btn-default" ng-click="hideLoginWindow = false"><span class="fa fa-user"></span> Local Login</div>
+    <div ng-click="hideSignupWindow = false" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</div>
+  </div>
+
+<!-- login window starts -->
+<div ng-hide="hideLoginWindow" class="col-sm-6 col-sm-offset-3">
+
+  <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+  <!-- show any messages that come back with authentication -->
+  <% if (message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div>
+  <% } %>
+
+  <!-- LOGIN FORM -->
+  <form id="task-form" class="text-center">
+    <div class="form-group">
+      <label>Username</label>
+      <input ng-model="userData.username" type="text"  class="form-control" name="email">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input ng-model="userData.password" type="password" class="form-control" name="password">
+    </div>
+
+    <button type="submit" ng-click="loginUser()" class="btn btn-warning btn-lg">Login</button>
+  </form>
+
+  <hr>
+
+  <p>Need an account? <div ng-click="hideLoginWindow = true; hideSignupWindow = false">Signup</div>
+  <p>Or go <div ng-click="hideLoginWindow = true">home</div>.</p>
+
+</div>
+<!-- login window ends -->
+
+<!-- sign up window starts  -->
+
+<div ng-hide="hideSignupWindow" class="col-sm-6 col-sm-offset-3">
+
+  <h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+  <!-- show any messages that come back with authentication -->
+  <% if (message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div>
+  <% } %>
+
+  <!-- LOGIN FORM -->
+  <form id="task-form" class="text-center">
+    <div class="form-group">
+      <label>Username</label>
+      <input ng-model="userData.username" type="text" class="form-control" name="email">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input ng-model="userData.password" type="password" class="form-control" name="password">
+    </div>
+
+    <button ng-click="createUser()" type="submit" class="btn btn-warning btn-lg">Signup</button>
+  </form>
+
+  <hr>
+
+  <p>Already have an account? <div ng-click="hideLoginWindow = false; hideSignupWindow = true">Login</div></p>
+  <p>Or go <div ng-click="hideSignupWindow = true">home</div>.</p>
+
+</div>
+
+<!-- sign up window ends -->
+
+</div>
