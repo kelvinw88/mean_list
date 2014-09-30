@@ -1,7 +1,7 @@
 mean_list.factory('UserFactory', ['$http',function($http) {
   return {
     get_user : function(UserData){
-      return $http.get('/api/users/login' , UserData);
+      return $http.post('/api/users/login' , UserData);
     },
     create : function(UserData) {
       return $http.post('/api/users/create', UserData);
