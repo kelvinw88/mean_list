@@ -25,6 +25,24 @@
    <div ng-controller='WindowController'>
     <accordion-group heading="{{task.name}}" ng-repeat="task in tasks">
       {{task.description}}
+
+                      <div class="row">
+                  <div class="col-md-6">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                      />
+                      <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+                    </p>
+                  </div>
+                </div>
+
+
+
+
+
+      
     </accordion-group>
  </div>
  </accordion>
