@@ -32,9 +32,22 @@
           <!--  SNOW UNCOMPLETE TASK ONLY BEGINS-->
           <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
 
+            <div class="task-inner-block clearfix">
+              <div>
+              <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
+              <h4 class='header'>{{task.name}}</h4>
+              </div>
 
-            <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
-            <h2 class='header'>{{task.name}}</h2>
+              <div class="pull-right">
+                {{task}}
+                {{task.status}}
+    
+
+
+              </div>
+            </div>
+
+
             <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
             </progressbar>
             <!-- test slider -->
@@ -60,6 +73,7 @@
                     </p>
                   </div>
                 </div>
+
                 <!--datepicker end -->
                 <div ng-hide="openStatusWindow">
                   <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
