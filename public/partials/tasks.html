@@ -37,7 +37,7 @@
             <label for="checkboxG4" class="css-label"></label> -->
             <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
             <h2 class='header'>{{task.name}}</h2>
-
+            {{task}}
             <h3>Progress Bar</h3>
             <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
             </progressbar>
@@ -47,7 +47,7 @@
             <!-- Task Window BEGINS-->
             <div class="window" ng-controller='WindowController'>
 
-            
+
 
 
               <button ng-click="startAdd()">Task Detail</button>

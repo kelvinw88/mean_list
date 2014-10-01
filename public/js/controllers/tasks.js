@@ -40,6 +40,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     if ($scope.taskData.name != undefined) {
       $scope.taskData.project = $scope.project.project_id;
       $scope.taskData.done = false;
+      $scope.taskData.progress_bar = 0;
       // call the create function from our service (returns a promise object)
       TaskFactory.create($scope.taskData)
       // if successful creation, call our get function to get all the new todos

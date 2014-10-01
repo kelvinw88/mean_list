@@ -19,7 +19,7 @@ var tasksSchema = new Schema({
   status: { type: String, default: "fa fa-circle-o" },
   due_date: { type: Date, default: null },
   time_estimate: { type: Number, default: null },
-  progress_bar: { type: Number, default: null},
+  progress_bar: { type: Number, default: 0},
   sub_task: {
       type: Array,
       default: []
