@@ -39,6 +39,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     // if form is empty, nothing will happen
     if ($scope.taskData.name != undefined) {
       $scope.taskData.project = $scope.project.project_id;
+      $scope.taskData.done = false;
       // call the create function from our service (returns a promise object)
       TaskFactory.create($scope.taskData)
       // if successful creation, call our get function to get all the new todos
@@ -47,16 +48,6 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
         $scope.taskData = {}; // clear the form so our user is ready to enter another
         $scope.tasks.push(data); // assign our new list of todos
 
-        //get project details
-        ProjectFactory.get_a_project($stateParams.project_id)
-        .success(function(data) {
-          $scope.project.name = data.name;
-        });
-        //get project tasks
-        TaskFactory.get_project_tasks($stateParams.project_id)
-        .success(function(data) {
-          $scope.tasks = data
-        });
 
       });
     }
