@@ -32,6 +32,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       });
     }
 
+
   $scope.createTask = function() {
     $scope.loading = true;
 
@@ -41,6 +42,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       $scope.taskData.project = $scope.project.project_id;
       $scope.taskData.done = false;
       $scope.taskData.progress_bar = 0;
+      $scope.taskData.status = 'fa fa-circle-o';
       // call the create function from our service (returns a promise object)
       TaskFactory.create($scope.taskData)
       // if successful creation, call our get function to get all the new todos

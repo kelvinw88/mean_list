@@ -1,7 +1,10 @@
 
 mean_list.controller('WindowController', function($scope, $stateParams, ProjectFactory, $filter, $http, books, TaskFactory) {
-  // console.log('Object is:');
+  console.log('Window Controller:');
+  console.log($scope.have_status);
   // console.log($scope.task);
+
+
 
 
 
@@ -44,6 +47,7 @@ $scope.descriptionAdd = function(id) {
 }
 
 $scope.selectStatus = function() {
+  console.log($scope.have_status);
   console.log($scope.task.status);
   $scope.openStatusWindow = false;
   TaskFactory.edit($scope.task)

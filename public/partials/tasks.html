@@ -39,13 +39,17 @@
               </div>
 
               <div class="pull-right">
-                {{task}}
-                {{task.status}}
-    
+
+
+                  <div ng-if="task.status !== 'fa fa-circle-o'">
+                    <i class="{{task.status}}"></i>
+                  </div>
+
+
+                </div>
 
 
               </div>
-            </div>
 
 
             <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
