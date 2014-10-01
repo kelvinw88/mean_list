@@ -27,7 +27,7 @@
         <div class="tasks-wrapper">
 
           <!--  SNOW UNCOMPLETE TASK ONLY BEGINS-->
-          <div ng-show="show-completed-task" class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
+          <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
 
             <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
 
@@ -98,9 +98,9 @@
           </div>
           <!--  SNOW UNCOMPLETE TASK ONLY END-->
 
-          <button> SHOW COMPLETEED TASKS</button>
+          <button ng-click="showCompletedTasks = !showCompletedTasks"> SHOW COMPLETEED TASKS</button>
           <!--  SNOW COMPLETED TASK ONLY BEGIN-->
-          <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
+          <div ng-show="showCompletedTasks" class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
 
             <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
 

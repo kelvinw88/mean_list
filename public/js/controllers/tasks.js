@@ -5,6 +5,9 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
   $scope.max = 100;
 
 
+
+  $scope.showCompletedTasks = false;
+
   // get tasks belongs to a project
   if ($stateParams.project_id != undefined)
     {
