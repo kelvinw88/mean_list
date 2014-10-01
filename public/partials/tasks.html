@@ -9,99 +9,180 @@
         <!-- Create Task Form BEGIN-->
 
 
-          <form id="task-form" class="text-center">
+        <form id="task-form" class="text-center">
 
-            <button type="submit" class="input-button text-center" ng-click="createTask()">
-              <i class="fa fa-plus "></i>
-            </button>
-            <div class="resize-form-input">
-              <input type="text" class="task-create-input input-sm text-center" placeholder="Create a task" ng-model="taskData.name">
-            </div>
-          </form>
+          <button type="submit" class="input-button text-center" ng-click="createTask()">
+            <i class="fa fa-plus "></i>
+          </button>
+          <div class="resize-form-input">
+            <input type="text" class="task-create-input input-sm text-center" placeholder="Create a task" ng-model="taskData.name">
+          </div>
+        </form>
 
         <!-- Create Task Form ENDS-->
 
         <!-- Task list BEGINS-->
 
-        <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse'">
+
+        <div class="tasks-wrapper">
+
+          <!--  SNOW UNCOMPLETE TASK ONLY BEGINS-->
+          <div ng-show="show-completed-task" class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
+
+            <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
+
+            <h3>Progress Bar</h3>
+            <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
+            </progressbar>
+            <!-- test slider -->
+            <input type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" />
+            <!-- end test slider -->
+            <!-- Task Window BEGINS-->
+            <div class="window" ng-controller='WindowController'>
+
+              <button type="button" ng-click="doneTask()">DONE</button>
 
 
-          <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
+              <button ng-click="startAdd()">Task Detail</button>
 
-          <h3>Progress Bar</h3>
-          <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span></progressbar>
-          <!-- test slider -->
-        <input type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" />
-        <!-- end test slider -->
-          <!-- Task Window BEGINS-->
-          <div class="window" ng-controller='WindowController'>
+              <form ng-show="adding" class="add-window" ng-submit="addItem()">
+                <button type="button" ng-click="doneTask()">DONE</button>
 
-            <button type="button" ng-click="doneTask()">DONE</button>
-
-
-          <button ng-click="startAdd()">Task Detail</button>
-
-          <form ng-show="adding" class="add-window" ng-submit="addItem()">
-            <button type="button" ng-click="doneTask()">DONE</button>
-
-          <!-- datepicker start-->
-          <div class="row">
-            <div class="col-md-6">
-              <p class="input-group">
-                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                <span class="input-group-btn">
+                <!-- datepicker start-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                      />
+                      <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
-              </p>
+                    </p>
+                  </div>
+                </div>
+                <!--datepicker end -->
+                <div ng-hide="openStatusWindow">
+                  <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+                </div>
+                <div ng-show="openStatusWindow">
+                  <i class="fa fa-exclamation-circle" ng-click="task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
+                  <i class="fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                  <i class="fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+
+                </div>
+
+
+                <div class='header'>{{task.name}}</div>
+
+                <div class='inner'>
+                  <div>
+                    <label>Hours estimate:</label>
+                    <input type="number" ng-model="task.time_estimate">
+                  </div>
+                  <div>
+                    <label>Progress:</label>
+                    <input type="number" ng-model="task.progress_bar">
+                  </div>
+                  <div>
+                    <label>Description:</label>
+                    <textarea ng-model="task.description"></textarea>
+                  </div>
+                  <div class='button-bar'>
+                    <!-- <input type="submit" value="Add"> -->
+                    <button type="button" ng-click="descriptionAdd(task._id)">Done</button>
+                    <button type="button" ng-click="cancelAdd()">Cancel</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-          <!--datepicker end -->
-            <div ng-hide= "openStatusWindow">
-              <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+          <!--  SNOW UNCOMPLETE TASK ONLY END-->
+
+          <button> SHOW COMPLETEED TASKS</button>
+          <!--  SNOW COMPLETED TASK ONLY BEGIN-->
+          <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
+
+            <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
+
+            <h3>Progress Bar</h3>
+            <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
+            </progressbar>
+            <!-- test slider -->
+            <input type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" />
+            <!-- end test slider -->
+            <!-- Task Window BEGINS-->
+            <div class="window" ng-controller='WindowController'>
+
+              <button type="button" ng-click="doneTask()">DONE</button>
+
+
+              <button ng-click="startAdd()">Task Detail</button>
+
+              <form ng-show="adding" class="add-window" ng-submit="addItem()">
+                <button type="button" ng-click="doneTask()">DONE</button>
+
+                <!-- datepicker start-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                      />
+                      <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+                    </p>
+                  </div>
+                </div>
+                <!--datepicker end -->
+                <div ng-hide="openStatusWindow">
+                  <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+                </div>
+                <div ng-show="openStatusWindow">
+                  <i class="fa fa-exclamation-circle" ng-click="task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
+                  <i class="fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                  <i class="fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+
+                </div>
+
+
+                <div class='header'>{{task.name}}</div>
+
+                <div class='inner'>
+                  <div>
+                    <label>Hours estimate:</label>
+                    <input type="number" ng-model="task.time_estimate">
+                  </div>
+                  <div>
+                    <label>Progress:</label>
+                    <input type="number" ng-model="task.progress_bar">
+                  </div>
+                  <div>
+                    <label>Description:</label>
+                    <textarea ng-model="task.description"></textarea>
+                  </div>
+                  <div class='button-bar'>
+                    <!-- <input type="submit" value="Add"> -->
+                    <button type="button" ng-click="descriptionAdd(task._id)">Done</button>
+                    <button type="button" ng-click="cancelAdd()">Cancel</button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div ng-show = "openStatusWindow">
-              <i class="fa fa-exclamation-circle" ng-click = "task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
-              <i class="fa fa-question-circle" ng-click = "task.status = 'fa fa-question-circle'; selectStatus()"></i>
-              <i class="fa fa-minus-circle" ng-click ="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
-
-            </div>
+          </div>
 
 
-            <div class='header'>{{task.name}}</div>
-
-            <div class='inner'>
-              <div>
-                <label>Hours estimate:</label>
-                <input type="number" ng-model="task.time_estimate">
-              </div>
-              <div>
-                <label>Progress:</label>
-                <input type="number" ng-model="task.progress_bar">
-              </div>
-              <div>
-                <label>Description:</label>
-                <textarea ng-model="task.description"></textarea>
-              </div>
-              <div class='button-bar'>
-                <!-- <input type="submit" value="Add"> -->
-                <button type="button" ng-click="descriptionAdd(task._id)">Done</button>
-                <button type="button" ng-click="cancelAdd()">Cancel</button>
-              </div>
-            </div>
-          </form>
         </div>
+        <!--Task List ends -->
+
+
+
+
+
+
+
       </div>
-<!--testing progress bar -->
-
-
-
-
-
-  <!-- stop here -->
-
     </div>
   </div>
-</div>
 
 </div>
 <!-- Bootstrap Formating ENDS-->

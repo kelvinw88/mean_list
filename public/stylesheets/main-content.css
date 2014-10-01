@@ -5,7 +5,6 @@ textarea {
 #task-form{
   display: inline-block;
   width:100%;
-
 }
 
 #task-form .input-button{
@@ -26,9 +25,21 @@ textarea {
   clear:both;
 }
 
-
 .task_h1{
   font-size:2em;
-  padding-top:10px;
-  margin-bottom:8px;
+  margin-bottom:10px;
+  margin-top:8px;
+}
+
+.tasks-wrapper{
+  margin-top: 15px;
+}
+
+.task-bar{
+  border-radius: 2px;
+  border-style:solid;
+  border-width:1px;
+  border-color:#638093;
+  padding:10px;
+  margin-bottom:10px; 
 }

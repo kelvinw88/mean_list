@@ -38,8 +38,8 @@
 .sidemenu_active {
   background-color: #3a4254;
   color: #d7d8f2;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
   position: relative;
   right:5px !important;
 
