@@ -10,7 +10,16 @@ router.post('/login', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
   users.where('username').equals(username).where('password').equals(password).find(function(err, users) {
-      res.send(users);
+      if (users && users.length > 0) {
+        console.log('found USERS');
+        console.log(users);
+        res.send(users);
+      } else {
+        console.log('failed finding users');
+        console.log(users);
+        res.send(401, 'beat it.');
+      }
+      
   })
 });
 
@@ -27,8 +36,8 @@ router.post('/create', function(req, res) {
   user.save(function(err){
     if (err) {
       console.log(err)
-      res.send(err);
-    }else{
+      res.send(401, err);
+    }else {
       var user_info = {
         _id: user._id,
         username: user.username

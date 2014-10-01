@@ -1,0 +1,21 @@
+{
+  "name": "mean_list",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kelvinw88/mean_list",
+  "authors": [
+    "Greg Moiras <gregmoiras@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-notify": "~2.0.2"
+  }
+}
