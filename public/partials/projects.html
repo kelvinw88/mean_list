@@ -33,13 +33,14 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix " ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
+    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})"  ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
 
       <div class="project_container"  data-project_id="{{project._id}}">
 
         <p class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
 
       <div class="sidemenu_icon_group">
+
         <!-- DELETE -->
         <div class="sidemenu_button">
           <i class="fa fa-trash" ng-click="deleteProject(project._id)"></i>
@@ -58,10 +59,13 @@
             </div>
           </div>
         </div>
+
       </div>
 
 
+
       </div>
+
 
     </div>
   </div>

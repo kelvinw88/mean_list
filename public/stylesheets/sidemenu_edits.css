@@ -38,7 +38,18 @@
 .sidemenu_active {
   background-color: #3a4254;
   color: #d7d8f2;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
+  right:5px !important;
+
 }
+
+.project-wrapper{
+  position: relative;
+  right: 10px;
+}
+
 .sidemenu_button {
   margin-left: 10px;
   float: right;
@@ -48,13 +59,14 @@
 .sidemenu_project_name {
   display: block;
   float: left;
-  margin-left:15px;
+  margin-left:25px;
 }
 .project_container {
   clear: left;
   cursor: pointer;
   display: block;
   margin-top: 5px;
+
 }
 
 #logo {
@@ -70,7 +82,9 @@
 }
 /* Track */
 
-.side-container::-webkit-scrollbar-track {}
+.side-container::-webkit-scrollbar-track {
+
+}
 /* Handle */
 
 .side-container::-webkit-scrollbar-thumb {
