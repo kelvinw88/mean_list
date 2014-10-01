@@ -1,12 +1,5 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-/*TEST*/
-.cdbl-slider {
-    width: 200px;
-    margin: 10px;    
-    display: block;
-}
-/*TEST ENDS*/
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

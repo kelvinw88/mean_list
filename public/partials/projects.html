@@ -5,8 +5,8 @@
     <h1 id="logo">KanDo</h1>
     <div class="text-center">
 
-      <div class= "username-contatiner text-center clearfix" ng-show="currentUser">
-        <span class="username ">{{currentUser.username}}</span>
+      <div class= "username-contatiner text-center clearfix" ng-show="userNameCookie">
+        <span class="username ">{{userNameCookie}}</span>
         <button class="text-right logout" ui-sref="login" ng-click="currentUser = null"><i class="fa fa-sign-out"></i></button>
       </div>
 
