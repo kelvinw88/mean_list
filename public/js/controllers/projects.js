@@ -1,7 +1,11 @@
 mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies, $cookieStore) {
-  // $scope.currentUserName =
-  $scope.userIdCookie = $cookies.user_id;
-  $scope.userNameCookie = $cookies.user_name;
+
+  if($rootScope.currentUser == undefined) {
+    $rootScope.currentUser = {
+      username: $cookies.user_name,
+      _id: $cookies.user_id,
+    }
+  }
 
   $scope.edit = true;
 
