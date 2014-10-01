@@ -82,11 +82,11 @@ $scope.today = function() {
   };
   $scope.toggleMin();
 
-  $scope.open = function($event) {
+  $scope.open = function($event, task) {
     $event.preventDefault();
     $event.stopPropagation();
 
-    $scope.opened = true;
+    task.opened = true;
   };
 
   $scope.dateOptions = {
@@ -97,6 +97,7 @@ $scope.today = function() {
   $scope.formats = ['dd-MMMM-yyyy'];
   $scope.format = $scope.formats[0];
 //datepicker ends
+
 
 });
 
