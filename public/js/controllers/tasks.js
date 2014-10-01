@@ -94,4 +94,9 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     }
   };
 
+  $scope.checkboxToggle = function(task) {
+    task.done = !task.done;
+    TaskFactory.edit(task)
+  };
+
 });

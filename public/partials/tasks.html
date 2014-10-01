@@ -25,10 +25,18 @@
 
         <div class="tasks-wrapper">
 
+
+
+
+
           <!--  SNOW UNCOMPLETE TASK ONLY BEGINS-->
           <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
 
-            <p>{{task.name}} / {{task.done}} / {{task.description}} / {{task.due_date}}</p>
+
+            <!-- <input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox" ng-click="checkboxToggle(task)">
+            <label for="checkboxG4" class="css-label"></label> -->
+            <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
+            <h2 class='header'>{{task.name}}</h2>
 
             <h3>Progress Bar</h3>
             <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;">{{task.progress_bar}} / {{max}}</span>
@@ -39,7 +47,7 @@
             <!-- Task Window BEGINS-->
             <div class="window" ng-controller='WindowController'>
 
-              <button type="button" ng-click="doneTask()">DONE</button>
+            
 
 
               <button ng-click="startAdd()">Task Detail</button>
@@ -97,6 +105,13 @@
           </div>
 
           <!--  SNOW UNCOMPLETE TASK ONLY END-->
+
+
+
+
+
+
+
 
           <button ng-click="showCompletedTasks = !showCompletedTasks"> SHOW COMPLETEED TASKS</button>
           <!--  SNOW COMPLETED TASK ONLY BEGIN-->

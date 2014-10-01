@@ -26,6 +26,7 @@ $scope.cancelAdd = function() {
 };
 
 $scope.doneTask = function(id) {
+  console.log($scope.task);
   $scope.task.done = !$scope.task.done;
   TaskFactory.edit($scope.task)
   .success(function(data){
