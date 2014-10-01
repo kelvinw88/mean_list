@@ -1,0 +1,84 @@
+body
+{
+  background:#000;
+  margin:0;
+	color:#fff;
+	font:18px bold "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+h2
+{
+  text-align:center;
+}
+
+#drag-wrapper
+{
+  text-align:center;
+  margin-top:20px;
+}
+
+.drag-border
+{
+	border:solid 1px #fff;
+	width:450px;
+	border-radius:5px;
+	overflow:hidden;
+	position:relative;
+	left:50%;
+	margin-left:-225px;
+}
+
+#drag-container
+{
+  width:450px;
+	background:#eee;
+}
+
+.drag-elem
+{
+	position:relative;
+	background:#00f;
+	height:20px;
+	width:20px;
+	z-index:10;
+	border-radius:5px;
+}
+.drag-bar
+{
+	height:20px;
+	background:#f0f;
+	width:0;
+	position:absolute;
+	z-index:5;
+	border-radius:5px;
+}
+
+#div1
+{
+  width:100px;
+  height:100px;
+  position:relative;
+  background:green;
+  border:solid 1px;
+  border-radius:10px;
+  margin:20px;
+}
+
+#footer
+{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+	text-align:right;
+}
+
+a
+{
+	color:#71b200;
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover
+{
+	text-decoration:underline;
+}

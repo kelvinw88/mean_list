@@ -47,10 +47,24 @@ textarea {
 .task-checkbox{
   float:left;
   font-size:200%;
-  margin-top :1px !important;
+  margin-top :3px !important;
   margin-right:13px !important;
 }
 
 .task-right-element{
   margin-left:10px;
+}
+
+.task-header{
+  margin:0;
+  padding:0;
+  border:0;
+  position: relative;
+  display:block;
+  float:left;
+}
+
+.task-header:hover{
+  color:#4db182;
+  transition: all 1s;
 }
