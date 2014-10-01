@@ -26,6 +26,7 @@
 
         <accordion-group is-open="status.open" ng-repeat="task in tasks">
         <accordion-heading>
+           {{status.open}} 
           {{task.name}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </accordion-heading>
 
@@ -67,7 +68,7 @@
             </div>
             <div class='button-bar'>
               <!-- <input type="submit" value="Add"> -->
-              <button type="button" ng-click="descriptionAdd(task._id); task.open = !task.open">Done
+              <button type="button" ng-click="descriptionAdd(task._id); status.open = !status.open">Done  {{task.status.open}}
 
               </button>
               <button type="button" ng-click="cancelAdd()">Cancel</button>

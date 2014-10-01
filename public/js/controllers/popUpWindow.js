@@ -10,10 +10,10 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
     $scope.items.push('Item ' + newItemNo);
   };
 
-  $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
+  // $scope.status = {
+  //   isFirstOpen: true,
+  //   isFirstDisabled: false
+  // };
 
 // stop test
 
