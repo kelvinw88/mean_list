@@ -33,7 +33,7 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix" ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
+    <div class="clearfix " ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
 
       <div class="project_container"  data-project_id="{{project._id}}">
 
