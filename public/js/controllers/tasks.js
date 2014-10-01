@@ -46,6 +46,18 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
         $scope.loading = false;
         $scope.taskData = {}; // clear the form so our user is ready to enter another
         $scope.tasks.push(data); // assign our new list of todos
+
+        //get project details
+        ProjectFactory.get_a_project($stateParams.project_id)
+        .success(function(data) {
+          $scope.project.name = data.name;
+        });
+        //get project tasks
+        TaskFactory.get_project_tasks($stateParams.project_id)
+        .success(function(data) {
+          $scope.tasks = data
+        });
+
       });
     }
   };
