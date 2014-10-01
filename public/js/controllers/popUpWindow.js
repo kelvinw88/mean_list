@@ -4,7 +4,6 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
   console.log($scope.have_status);
   // console.log($scope.task);
   // test
-  $scope.oneAtATime = true;
 
   $scope.addItem = function() {
     var newItemNo = $scope.items.length + 1;
@@ -49,6 +48,8 @@ $scope.doneTask = function(id) {
   }
 
 $scope.descriptionAdd = function(id) {
+// $scope.task.status.open = !$scope.task.status.open;
+  console.log($scope.task);
   $scope.adding = false
     TaskFactory.edit($scope.task)
   .success(function(data){
