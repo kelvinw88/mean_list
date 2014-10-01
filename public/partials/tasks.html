@@ -20,6 +20,15 @@
         </form>
 
         <!-- Create Task Form ENDS-->
+        <!-- test -->
+        <accordion close-others="oneAtATime">
+   <div ng-controller='WindowController'>
+    <accordion-group heading="{{task.name}}" ng-repeat="task in tasks">
+      {{task.description}}
+    </accordion-group>
+ </div>
+ </accordion>
+          <!--end test  -->
 
         <!-- Task list BEGINS-->
 

@@ -3,9 +3,20 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
   console.log('Window Controller:');
   console.log($scope.have_status);
   // console.log($scope.task);
+  // test
+  $scope.oneAtATime = true;
 
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
 
+  $scope.status = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
 
+// stop test
 
 
   $scope.startAdd = function() {
