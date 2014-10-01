@@ -1,5 +1,5 @@
 
-<div ng-controller="loginCtrl">
+<div  ng-controller="loginCtrl">
 
 
   <div ng-show="hideLoginWindow && hideSignupWindow" class="jumbotron text-center">
@@ -13,11 +13,11 @@
 
 <!-- login window starts -->
 <div ng-hide="hideLoginWindow" id="login">
-        
+
         <form action="javascript:void(0);" method="get">
-            
+
             <fieldset class="clearfix">
-                
+
                 <p><span class="fontawesome-user"></span><input ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
                 <p><span class="fontawesome-lock"></span><input ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
                 <p><input ng-click="loginUser()" type="submit" value="Login"></p>
@@ -25,9 +25,9 @@
             </fieldset>
 
         </form>
-        
+
         <p>Not a member? <div ng-click="hideLoginWindow = true; hideSignupWindow = false">Sign up</div><span class="fontawesome-arrow-right"></span></p>
-        <div ng-click="hideLoginWindow = true">home</div> 
+        <div ng-click="hideLoginWindow = true">home</div>
     </div> <!-- end login -->
 
 <!-- login window ends -->
@@ -35,11 +35,11 @@
 <!-- sign up window starts  -->
 
 <div ng-hide="hideSignupWindow" id="login">
-        
+
         <form action="javascript:void(0);" method="get">
-            
+
             <fieldset class="clearfix">
-                
+
                 <p><span class="fontawesome-user"></span><input ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
                 <p><span class="fontawesome-lock"></span><input ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
                 <p><input ng-click="createUser()" type="submit" value="Sign Up"></p>
@@ -47,7 +47,7 @@
             </fieldset>
 
         </form>
-        
+
         <p>Already a member? <div ng-click="hideLoginWindow = false; hideSignupWindow = true">Login</div><span class="fontawesome-arrow-right"></span></p>
         <div ng-click="hideSignupWindow = true">home</div>
 

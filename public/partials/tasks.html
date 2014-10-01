@@ -41,12 +41,15 @@
               <div class="pull-right">
 
 
-                  <div ng-if="task.status !== 'fa fa-circle-o'">
+                  <div class="pull-right task-right-element" ng-if="task.status !== 'fa fa-circle-o'">
                     <i class="{{task.status}}"></i>
                   </div>
+                    <p class="pull-right task-right-element" >{{task.due_date | date:"d-MMMM-yyyy"}}</p>
+
 
 
                 </div>
+
 
 
               </div>
