@@ -7,7 +7,7 @@
 
       <div class= "username-contatiner text-center clearfix" ng-show="userNameCookie">
         <span class="username ">{{userNameCookie}}</span>
-        <button class="text-right logout" ui-sref="login" ng-click="currentUser = null"><i class="fa fa-sign-out"></i></button>
+        <button class="text-right logout"  ng-click="logoutCurrentUser()"><i class="fa fa-sign-out"></i></button>
       </div>
 
       <form ng-controller="SearchCtrl">

@@ -1,12 +1,11 @@
-mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies) {
+mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies, $cookieStore) {
   // $scope.currentUserName =
   $scope.userIdCookie = $cookies.user_id;
   $scope.userNameCookie = $cookies.user_name;
-  console.log($scope.userIdCookie+" "+$scope.userNameCookie );
+
   $scope.edit = true;
 
   $scope.projects = [];
-
 
   $scope.username = $stateParams.username;
 
@@ -16,6 +15,11 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
       $scope.projects = data;
     });
 
+  $scope.logoutCurrentUser = function() {
+    $cookieStore.remove('user_name');
+    $cookieStore.remove('user_id');
+    $location.path('/');
+  }
 
   $scope.createProject = function() {
     $scope.loading = true;
