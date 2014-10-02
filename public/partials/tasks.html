@@ -21,6 +21,65 @@
 
         <!-- Create Task Form ENDS-->
 
+        <!-- test -->
+        <accordion close-others="oneAtATime">
+
+        <accordion-group is-open="status.open" ng-repeat="task in tasks">
+        <accordion-heading>
+          {{task.name}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </accordion-heading>
+
+        <div ng-controller='WindowController'>
+
+          <div class="row">
+          <button type="button" ng-click="doneTask()">DONE</button>
+
+              <label>Hours estimate:</label>
+              <input type="number" ng-model="task.time_estimate">
+
+            <div class="col-md-6">
+              <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="task.opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event, task)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+
+                      <div ng-hide="openStatusWindow">
+            <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+          </div>
+          <div ng-show="openStatusWindow">
+            <i class="fa fa-exclamation-circle" ng-click="task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
+            <i class="fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+            <i class="fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+          </div>
+
+          </div>
+
+
+          <div class='inner'>
+    
+            <div>
+              <label>Description:</label>
+              <textarea ng-model="task.description"></textarea>
+            </div>
+            <div class='button-bar'>
+              <!-- <input type="submit" value="Add"> -->
+              <button type="button" ng-click="descriptionAdd(task._id); task.open = !task.open">Done
+
+              </button>
+              <button type="button" ng-click="cancelAdd()">Cancel</button>
+            </div>
+          </div>
+          </div>
+          </accordion-group>
+
+          </accordion>
+
+          <!--end test  -->
+
         <!-- Task list BEGINS-->
 
         <div class="tasks-wrapper">
@@ -225,9 +284,6 @@
 
         </div>
         <!--Task List ends -->
-
-
-
 
 
 

@@ -3,9 +3,19 @@ mean_list.controller('WindowController', function($scope, $stateParams, ProjectF
   console.log('Window Controller:');
   console.log($scope.have_status);
   // console.log($scope.task);
+  // test
 
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
 
+  $scope.status = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
 
+// stop test
 
 
   $scope.startAdd = function() {
@@ -38,6 +48,8 @@ $scope.doneTask = function(id) {
   }
 
 $scope.descriptionAdd = function(id) {
+// $scope.task.status.open = !$scope.task.status.open;
+  console.log($scope.task);
   $scope.adding = false
     TaskFactory.edit($scope.task)
   .success(function(data){
@@ -71,11 +83,11 @@ $scope.today = function() {
   };
   $scope.toggleMin();
 
-  $scope.open = function($event) {
+  $scope.open = function($event, task) {
     $event.preventDefault();
     $event.stopPropagation();
 
-    $scope.opened = true;
+    task.opened = true;
   };
 
   $scope.dateOptions = {
@@ -86,6 +98,7 @@ $scope.today = function() {
   $scope.formats = ['dd-MMMM-yyyy'];
   $scope.format = $scope.formats[0];
 //datepicker ends
+
 
 });
 
