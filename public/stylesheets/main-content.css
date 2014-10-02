@@ -117,3 +117,11 @@ textarea {
   float:right;
   width:40%;
 }
+
+.form-control{
+  border-radius:2px !important;
+}
+
+.btn{
+  border-radius:2px !important;
+}
