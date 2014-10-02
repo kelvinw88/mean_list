@@ -1,8 +1,10 @@
-mean_list.controller('SearchCtrl', function($location, $scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
+mean_list.controller('SearchCtrl', function($location,$rootScope, $scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
 $scope.query = $stateParams.query;
 
 $scope.username = $stateParams.username;
+
+console.log($rootScope.currentUser._id);
 
 
 ProjectFactory.get($scope.username)
@@ -10,7 +12,7 @@ ProjectFactory.get($scope.username)
     $scope.projects = data;
   });
 
-TaskFactory.get()
+TaskFactory.get_user_tasks($rootScope.currentUser._id)
   .success(function(data) {
     $scope.tasks = data;
   });

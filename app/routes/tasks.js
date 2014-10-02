@@ -23,6 +23,17 @@ router.get('/', function(req, res) {
 });
 
 
+/* GET users Task. */
+router.get('/user/:user_id', function(req, res) {
+  //get all tasks with time sort
+  mongoose.model('tasks').where('admin').equals(req.param('user_id')).find(function(err,tasks){
+    res.send(tasks);
+  })
+});
+
+
+
+
 router.get('/project/:project_id', function(req, res) {
 
   var project_id = req.param('project_id')
@@ -58,6 +69,7 @@ router.post('/', function(req, res) {
   task.time_estimate = req.body.time_estimate;
   task.sub_task = req.body.sub_task;
   task.attachment = req.body.attachment;
+  task.admin = req.body.admin;
 
   task.save(function(err) {
     if (err)

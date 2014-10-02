@@ -29,7 +29,7 @@ mean_list.controller('ProjectsCtrl', function($timeout, $location, $scope, $stat
   var getProjects = function(){
     ProjectFactory.get($scope.username)
     .success(function(data) {
-      console.log(data);
+      
       $scope.projects = data;
 
     });

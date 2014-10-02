@@ -8,18 +8,18 @@
 
           <div class="clearfix">
             <i class="fa fa-folder-open task-checkbox"></i>
-            <h4 class="search-header pull-left"> 
+            <h4 class="search-header pull-left">
               {{project.name}}
               </h4>
               <div class="pull-right" id="project_details">
-              average progress: {{averageProgress()}}% {{averageProgress()*totalTimeEstimate()/100}}/{{totalTimeEstimate()}} hours left
+                average progress: {{averageProgress() || 0}}% Total time: {{totalTimeEstimate() || 0}} 
               </div>
           </div>
 
         </div>
 
         <!-- Create Task Form BEGIN-->
-    
+
 
 
         <form id="task-form" class="text-center">
@@ -81,7 +81,7 @@
 
                     <div>
 
-                      <textarea class="form-control task-textarea" ng-model="task.description" placeholder="Describtion"></textarea>
+                      <textarea class="form-control task-textarea" ng-model="task.description" placeholder="Description"></textarea>
                     </div>
 
                   </div>
