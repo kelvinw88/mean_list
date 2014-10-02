@@ -1,4 +1,4 @@
-
+<!-- 
   <ul ng-show="query.length">
   Projects:
 
@@ -7,11 +7,43 @@
     </li>
 
   Tasks:
-    <li ng-repeat="task in tasks | filter: query"
-    ui-sref="projects.tasks({project_id: task.project._id})">
+    <li ng-repeat="task in tasks | filter: query" ui-sref="projects.tasks({project_id: task.project._id})">
       
       {{task.name}}
       
     </li>
-  </ul>
+  </ul> -->
 
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <h1> Seach Results: </h1>
+        <div ng-show = "query.length" class="tasks-wrapper">
+
+        <div class="task-bar clearfix" ng-repeat="project in projects | filter: query" ui-sref="projects.tasks({project_id: project._id})">
+
+          <div class="clearfix">
+            <i class="fa fa-folder-open task-checkbox"></i>
+            <h4 class="serach-header pull-left"> {{project.name}}</p>
+          </div>
+
+        </div>
+
+        <div class="task-bar clearfix" ng-repeat="task in tasks | filter: query" ui-sref="projects.tasks({project_id: task.project._id})">
+
+          <div class="clearfix">
+            <i class="fa fa-tasks task-checkbox"></i>
+            <h4 class="serach-header pull-left"> {{task.name}}</p>
+          </div>
+          
+        </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

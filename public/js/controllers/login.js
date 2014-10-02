@@ -1,6 +1,7 @@
 mean_list.controller('loginCtrl', function($scope, $filter, $http, UserFactory, $rootScope, $location, notify) {
   $scope.hideLoginWindow = true;
   $scope.hideSignupWindow = true;
+  $scope.background_color = "loginBackground";
 
   console.log("In Login Ctrl");
 
