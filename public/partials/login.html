@@ -1,9 +1,10 @@
 
-<div  ng-controller="loginCtrl">
+<div ng-controller="loginCtrl" id="login_page">
 
 
-  <div ng-show="hideLoginWindow && hideSignupWindow" class="jumbotron text-center">
-    <h1>CanDo</h1>
+
+  <div ng-show="hideLoginWindow && hideSignupWindow" class="jumbotron text-center" id="jumbotron-landing-page">
+    <h1 class="title_landingpage">CanDo</h1>
 
 
     <div class="btn btn-default" ng-click="hideLoginWindow = false"><span class="fa fa-user"></span> Login</div>
@@ -18,16 +19,22 @@
 
             <fieldset class="clearfix">
 
-                <p><span class="fontawesome-user"></span><input ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-                <p><span class="fontawesome-lock"></span><input ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
-                <p><input ng-click="loginUser()" type="submit" value="Login"></p>
+
+                <p><span class="fontawesome-user"></span><input class="input_login" ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><span class="fontawesome-lock"></span><input class="input_login" ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                <p><input class="input_login" ng-click="loginUser()" type="submit" value="Login"></p>
+
 
             </fieldset>
 
         </form>
 
-        <p>Not a member? <div ng-click="hideLoginWindow = true; hideSignupWindow = false">Sign up</div><span class="fontawesome-arrow-right"></span></p>
-        <div ng-click="hideLoginWindow = true">home</div>
+
+        <p>Not a member? <div class="btn btn-primary pull-left landing-page-buttons" ng-click="hideLoginWindow = true; hideSignupWindow = false">Sign up</div></p>
+        <div class="btn btn-primary pull-right landing-page-buttons" ng-click="hideLoginWindow = true">home</div>
+
+
+
     </div> <!-- end login -->
 
 <!-- login window ends -->
@@ -40,16 +47,20 @@
 
             <fieldset class="clearfix">
 
-                <p><span class="fontawesome-user"></span><input ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-                <p><span class="fontawesome-lock"></span><input ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
-                <p><input ng-click="createUser()" type="submit" value="Sign Up"></p>
+
+                <p><span class="fontawesome-user"></span><input class="input_login" ng-model="userData.username" type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><span class="fontawesome-lock"></span><input class="input_login" ng-model="userData.password" type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                <p><input class="input_login" ng-click="createUser()" type="submit" value="Sign Up"></p>
+
 
             </fieldset>
 
         </form>
 
-        <p>Already a member? <div ng-click="hideLoginWindow = false; hideSignupWindow = true">Login</div><span class="fontawesome-arrow-right"></span></p>
-        <div ng-click="hideSignupWindow = true">home</div>
+
+        <p>Already a member? <div class="btn btn-primary pull-left landing-page-buttons" ng-click="hideLoginWindow = false; hideSignupWindow = true">Login</div></p>
+        <div class="btn btn-primary pull-right landing-page-buttons" ng-click="hideSignupWindow = true">home</div>
+
 
     </div> <!-- end login -->
 
