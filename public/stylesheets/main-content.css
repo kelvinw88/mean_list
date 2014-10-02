@@ -41,12 +41,18 @@ textarea {
 }
 
 .task-bar{
-  border-radius: 2px;
+  border-radius: 2px !important;
   border-style:solid;
   border-width:1px;
   border-color:#638093;
   padding:10px;
-  margin-bottom:10px;
+  margin-bottom:10px !important;
+  background-color:white;;
+}
+
+.panel-heading{
+  background-color:white !important;
+  border-color:white !important;
 }
 
 .task-checkbox{

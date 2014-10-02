@@ -22,13 +22,40 @@
         <!-- Create Task Form ENDS-->
 
         <!-- test -->
-        <accordion close-others="oneAtATime">
+        <accordion class="tasks-wrapper" close-others="oneAtATime">
 
-        <accordion-group is-open="status.open" ng-repeat="task in tasks">
-        <accordion-heading>
-           {{status.open}} 
-          {{task.name}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        <accordion-group class="task-bar"  is-open="status.open"  ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
+        <accordion-heading class="task-inner-block clearfix">
+          <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
+           <h4 ng-click="startAdd()" class='task-header'>{{task.name}}</h4>
+
+           <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+           <div class="pull-right">
+
+
+             <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-exclamation-triangle'">
+               <i class="text_yellow {{task.status}}"></i>
+             </div>
+             <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-question-circle'">
+               <i class="text_blue {{task.status}}"></i>
+             </div>
+             <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-minus-circle'">
+               <i class="text_red {{task.status}}"></i>
+             </div>
+
+             <p class="pull-right task-right-element">{{task.due_date | date:"d-MMMM-yyyy"}}</p>
+             <p class="pull-right task-right-element">{{(task.progress_bar/max)*100 | number: 0}} %</p>
+
+           </div>
+           <div class="progress-box" ng-app>
+             <div class="progress-bar progress-bar-slider">
+               <input class="progress-slider" type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)">
+               <div class="inner" ng-style="{ width: task.progress_bar + '%' || '0%' }"></div>
+             </div>
+           </div>
+
         </accordion-heading>
+
 
         <div ng-controller='WindowController'>
 
@@ -61,7 +88,7 @@
 
 
           <div class='inner'>
-    
+
             <div>
               <label>Description:</label>
               <textarea ng-model="task.description"></textarea>
@@ -83,7 +110,7 @@
 
         <!-- Task list BEGINS-->
 
-        <div class="tasks-wrapper">
+        <div >
 
           <!--  SNOW UNCOMPLETE TASK ONLY BEGINS-->
           <div class="task-bar" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
@@ -93,35 +120,14 @@
               <div class="task-inner-block clearfix">
                 <div>
                   <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
-                  <h4 ng-click="startAdd()" class='task-header'>{{task.name}}</h4>
-                </div>
-
-                <div class="pull-right">
-
-
-                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-exclamation-triangle'">
-                    <i class="text_yellow {{task.status}}"></i>
-                  </div>
-                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-question-circle'">
-                    <i class="text_blue {{task.status}}"></i>
-                  </div>
-                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-minus-circle'">
-                    <i class="text_red {{task.status}}"></i>
-                  </div>
-
-                  <p class="pull-right task-right-element">{{task.due_date | date:"d-MMMM-yyyy"}}</p>
-                  <p class="pull-right task-right-element">{{(task.progress_bar/max)*100 | number: 0}} %</p>
 
                 </div>
+
+
 
               </div>
 
-              <div class="progress-box" ng-app>
-                <div class="progress-bar progress-bar-slider">
-                  <input class="progress-slider" type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)">
-                  <div class="inner" ng-style="{ width: task.progress_bar + '%' || '0%' }"></div>
-                </div>
-              </div>
+
 
               <!-- end test slider -->
               <!-- Task Window BEGINS-->
