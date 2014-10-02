@@ -2,6 +2,11 @@ textarea {
   width: 200px;
   height: 100px;
 }
+
+#page-content-wrapper h4, #page-content-wrapper p{
+  color:#3A4254;
+}
+
 #task-form{
   display: inline-block;
   width:100%;
@@ -64,7 +69,20 @@ textarea {
   float:left;
 }
 
-.task-header:hover{
+#page-content-wrapper .task-header:hover{
   color:#4db182;
   transition: all 1s;
+}
+
+.text_yellow{
+  color:#ffcc33;
+
+}
+
+.text_red{
+  color:#ea3b3b;
+}
+
+.text_blue{
+  color:#23c2ee;
 }

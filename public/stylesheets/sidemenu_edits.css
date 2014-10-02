@@ -70,7 +70,9 @@
 }
 
 #logo {
+  font-family: 'Titillium Web', sans-serif;
   margin: 10px 30px 10px 30px;
+
 }
 .sidemenu_icon_group {
   margin-right: 15px;

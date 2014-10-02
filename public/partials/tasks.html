@@ -43,9 +43,16 @@
                 <div class="pull-right">
 
 
-                  <div class="pull-right task-right-element" ng-if="task.status !== 'fa fa-circle-o'">
-                    <i class="{{task.status}}"></i>
+                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-exclamation-triangle'">
+                    <i class="text_yellow {{task.status}}"></i>
                   </div>
+                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-question-circle'">
+                    <i class="text_blue {{task.status}}"></i>
+                  </div>
+                  <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-minus-circle'">
+                    <i class="text_red {{task.status}}"></i>
+                  </div>
+
                   <p class="pull-right task-right-element">{{task.due_date | date:"d-MMMM-yyyy"}}</p>
                   <p class="pull-right task-right-element">{{(task.progress_bar/max)*100 | number: 0}} %</p>
 
@@ -55,13 +62,6 @@
 
 
               </div>
-
-<!--
-              <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;"></span>
-              </progressbar>
-              <input class='progress_bar_input' type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" /> -->
-              <!-- test slider -->
-
 
               <div class="progress-box" ng-app>
                 <div class="progress-bar progress-bar-slider">
@@ -90,12 +90,19 @@
 
                 <!--datepicker end -->
                 <div ng-hide="openStatusWindow">
-                  <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+
+    
+                    <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+
+
                 </div>
+
+
                 <div ng-show="openStatusWindow">
-                  <i class="fa fa-exclamation-circle" ng-click="task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
-                  <i class="fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
-                  <i class="fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+
+                  <i class="text_yellow fa fa-exclamation-triangle" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
+                  <i class="text_blue fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                  <i class="text_red fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
 
                 </div>
 
@@ -154,19 +161,8 @@
                 </div>
                 <p class="pull-right task-right-element">{{task.due_date | date:"d-MMMM-yyyy"}}</p>
                 <p class="pull-right task-right-element">{{(task.progress_bar/max)*100 | number: 0}} %</p>
-
-
               </div>
-
-
-
             </div>
-
-<!--
-            <progressbar max="max" value="task.progress_bar"><span style="color:black; white-space:nowrap;"></span>
-            </progressbar>
-            <input class='progress_bar_input' type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)" /> -->
-            <!-- test slider -->
 
 
             <div class="progress-box" ng-app>
@@ -199,7 +195,8 @@
                 <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
               </div>
               <div ng-show="openStatusWindow">
-                <i class="fa fa-exclamation-circle" ng-click="task.status = 'fa fa-exclamation-circle'; selectStatus()"></i>
+
+                <i class="fa fa-exclamation-triangle" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
                 <i class="fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
                 <i class="fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
 
