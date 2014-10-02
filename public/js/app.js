@@ -23,12 +23,19 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       templateUrl: 'partials/global_search.html',
       controller: 'SearchCtrl'
     })
+    .state('projects.share_project',{
+      url: '/share_project/:project_id',
+      templateUrl: 'partials/share_project.html',
+      controller: 'ShareProjectCtrl'
+    })
     .state('login', {
       url: '/',
       templateUrl: 'partials/login.html',
       controller: 'loginCtrl'
     });
-}]);
+}]).run(function($rootScope, $state) {
+      $rootScope.$state = $state;
+    });
 
 // mean_list.run(['$rootScope', function( $rootScope) {
 //   $rootScope.$on('$locationChangeStart', function (event) {

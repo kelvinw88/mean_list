@@ -54,6 +54,10 @@
   margin-left: 10px;
   float: right;
   cursor: pointer;
+  position: relative;
+  display:block;
+
+
 
 }
 .sidemenu_project_name {

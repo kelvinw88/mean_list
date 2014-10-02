@@ -2,7 +2,7 @@
 
   <!-- CREATE PROJECTS -->
   <div id="project-form" class="row">
-    <h1 id="logo">KanDo</h1>
+    <h1 id="logo">CanDo</h1>
     <div class="text-center">
 
       <div class= "username-contatiner text-center clearfix" ng-show="$root.currentUser">
@@ -33,11 +33,12 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)"  ui-sref="projects.tasks({project_id: project._id})"  ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
+    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)"    ui-sref-active="sidemenu_active"  ng-repeat="project in projects | orderBy:'time':'reverse'">
+      <!-- ng-class="{sidemenu_active: $state.includes('projects.share_project')}"  -->
 
       <div class="project_container"  data-project_id="{{project._id}}">
 
-        <p class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
+        <p ui-sref="projects.tasks({project_id: project._id})" class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
 
       <div class="sidemenu_icon_group">
 
@@ -59,6 +60,12 @@
             </div>
           </div>
         </div>
+        <!-- SHARE PROJECT -->
+        <div class="sidemenu_button" >
+          <i ui-sref="projects.share_project({project_id: project._id})" class="fa fa-users"></i>
+        </div>
+
+
 
       </div>
 
@@ -66,6 +73,8 @@
 
       </div>
 
+      <div ui-sref="projects.tasks({project_id: project._id})" class="clearfix">
+      </div>
 
     </div>
   </div>
