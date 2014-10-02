@@ -7,8 +7,7 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
 
   ProjectFactory.get_a_project($stateParams.project_id)
   .success(function(data) {
-
-    $scope.project_name = data.name;
+    $scope.project = data;
   });
 
   UserFactory.get_all_username()
@@ -16,5 +15,15 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
       console.log(data);
       $scope.users = data;
     });
+
+
+  $scope.addMember = function(user, project){
+    project.users.push(user._id);
+    ProjectFactory.edit(project)
+      .success(function(data){
+        console.log(data);
+    });
+  };
+
 
 });

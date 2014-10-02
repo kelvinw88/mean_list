@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-12">
 
-        <h1 class="task_h1">Add Members to project: {{project_name}}</h1>
+        <h1 class="task_h1">Add Members to project: {{project.name}}</h1>
 
         <form id="task-form" class="text-center">
 
@@ -15,11 +15,9 @@
 
 
         <div class="tasks-wrapper">
-        <div class="task-bar clearfix" ng-hide="searchText == '' " ng-repeat="user in users | filter: searchText | limitTo: '5' ">
+        <div class="task-bar clearfix" ng-hide="searchText == '' " ng-repeat="user in users | filter: searchText | limitTo: '5' " >
 
-
-
-            <div class="clearfix">
+            <div class="clearfix" ng-click="addMember(user,project)">
               <i class="fa fa-plus task-checkbox"></i>
               <h4 class="serach-header pull-left"> {{user.username}}</p>
             </div>

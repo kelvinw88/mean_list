@@ -66,7 +66,9 @@ router.post('/:project_id', function(req, res) {
 
     if (err)
       res.send(err);
+    
     project.name = req.body.name;
+    project.users = req.body.users;
     project.save(function(err) {
       if (err)
         res.send(err);
