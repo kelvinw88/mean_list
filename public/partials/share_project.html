@@ -11,15 +11,15 @@
 
 
           <div class="resize-form-input">
-            <input type="text" class="task-create-input input-sm text-center" placeholder="Search for a user" ng-model="searchText" ng-init= "searchText = ''" >
+            <input type="text" class="task-create-input input-sm text-center" placeholder="Search for a user" ng-model="searchText" ng-init="searchText = ''">
           </div>
         </form>
 
 
         <div class="tasks-wrapper">
-        <div class="task-bar clearfix search_results" ng-hide="searchText == '' " ng-repeat="user in users | filter: searchText | limitTo: '5' " >
 
 
+          <div class="task-bar clearfix" ng-hide="searchText == ''" ng-repeat="user in users | filter: searchText | limitTo: '5'" >
             <div class="clearfix" ng-click="addMember(user,project)">
               <i class="fa fa-user task-checkbox"></i>
 

@@ -1,4 +1,4 @@
-mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies, $cookieStore) {
+mean_list.controller('ProjectsCtrl', function($timeout, $location, $scope, $stateParams, ProjectFactory, $filter, $http, $rootScope, $cookies, $cookieStore) {
 
   if($rootScope.currentUser == undefined) {
     $rootScope.currentUser = {
@@ -13,11 +13,32 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
 
   $scope.username = $stateParams.username;
 
-  ProjectFactory.get($scope.username)
+  console.log($scope.username)
+
+
+    //   $scope.timeInMs = 0;
+    //
+    // var countUp = function() {
+    //     $scope.timeInMs+= 500;
+    //     $timeout(countUp, 500);
+    //
+    // }
+    //
+    // $timeout(countUp, 500);
+
+  var getProjects = function(){
+    ProjectFactory.get($scope.username)
     .success(function(data) {
       console.log(data);
       $scope.projects = data;
+
     });
+    $timeout(getProjects, 1000);
+  }
+  $timeout(getProjects, 500);
+
+
+
 
   $scope.logoutCurrentUser = function() {
     $cookieStore.remove('user_name');
