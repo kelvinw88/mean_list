@@ -32,7 +32,6 @@
               <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
               <div class="pull-right">
 
-
                 <div class="pull-right task-right-element" ng-if="task.status == 'fa fa-exclamation-triangle'">
                   <i class="text_yellow {{task.status}}"></i>
                 </div>
@@ -59,52 +58,70 @@
             </accordion-heading>
 
 
-            <div ng-controller='WindowController'>
+            <div class="task-deatils" ng-controller='WindowController'>
 
               <div class="row">
-                <button type="button" ng-click="doneTask()">DONE</button>
 
-                <label>Hours estimate:</label>
-                <input type="number" ng-model="task.time_estimate">
+                <div class="col-md-8">
 
-                <div class="col-md-6">
-                  <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="task.opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
-                    />
-                    <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event, task)"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-                  </p>
+                  <div class='inner'>
+
+                    <div>
+
+                      <textarea class="task-textarea" ng-model="task.description" placeholder="Describtion"></textarea>
+                    </div>
+
+                  </div>
+
+
                 </div>
 
-                <div ng-hide="openStatusWindow">
-                  <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+                <div class="col-md-4">
+
+                  <div class="clearfix">
+                    <div ng-hide="openStatusWindow">
+                      <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
+                    </div>
+                    <div ng-show="openStatusWindow">
+                      <i class="text_yellow fa fa-exclamation-triangle" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
+                      <i class="text_blue fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                      <i class="text_red fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+                    </div>
+                  </div>
+
+                  <div class="clearfix">
+                    <label>Hours estimate:</label>
+                    <input type="number" ng-model="task.time_estimate">
+                  </div>
+
+                  <div class="clearfix">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model='task.due_date' is-open="task.opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                      />
+                      <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event, task)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                    </p>
+                  </div>
+
+
+                  <div class='button-bar'>
+                    <!-- <input type="submit" value="Add"> -->
+                    <button type="button" ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button" ng-click="cancelAdd()">Cancel</button>
+                  </div>
+
                 </div>
-                <div ng-show="openStatusWindow">
-                  <i class="text_yellow fa fa-exclamation-triangle" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
-                  <i class="text_blue fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
-                  <i class="text_red fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
-                </div>
+
+
+
 
               </div>
 
 
 
 
-              <div class='inner'>
 
-                <div>
-                  <label>Description:</label>
-                  <textarea ng-model="task.description"></textarea>
-                </div>
-                <div class='button-bar'>
-                  <!-- <input type="submit" value="Add"> -->
-                  <button type="button" ng-click="descriptionAdd(task._id); status.open = !status.open">Done {{task.status.open}}
-
-                  </button>
-                  <button type="button" ng-click="cancelAdd()">Cancel</button>
-                </div>
-              </div>
             </div>
           </accordion-group>
 

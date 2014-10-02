@@ -104,4 +104,6 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     TaskFactory.edit(task)
   };
 
+  
+
 });

@@ -93,3 +93,22 @@ textarea {
 .text_blue{
   color:#23c2ee;
 }
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body{
+  border-top-color: white !important;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body{
+  border-top: 0px !important;
+}
+
+.task-deatils{
+  padding-top:15px;
+}
+
+.task-textarea{
+  width:100%;
+  height:159px;
+  padding:15px;
+  resize: none;
+}
