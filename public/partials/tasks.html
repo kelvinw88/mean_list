@@ -68,7 +68,7 @@
 
                     <div>
 
-                      <textarea class="task-textarea" ng-model="task.description" placeholder="Describtion"></textarea>
+                      <textarea class="form-control task-textarea" ng-model="task.description" placeholder="Describtion"></textarea>
                     </div>
 
                   </div>
@@ -78,20 +78,26 @@
 
                 <div class="col-md-4">
 
+                  <!--  Status  -->
                   <div class="clearfix">
+                    <h4 class="pull-left">Status: </h4>
+                    <div class = "pull-right">
                     <div ng-hide="openStatusWindow">
                       <i class="{{task.status}}" ng-click="openStatusWindow = true"></i>
                     </div>
+
                     <div ng-show="openStatusWindow">
                       <i class="text_yellow fa fa-exclamation-triangle" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
                       <i class="text_blue fa fa-question-circle" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
                       <i class="text_red fa fa-minus-circle" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
                     </div>
                   </div>
+                  </div>
 
+                  <!--  Hours estimate  -->
                   <div class="clearfix">
-                    <label>Hours estimate:</label>
-                    <input type="number" ng-model="task.time_estimate">
+                    <h4 class="pull-left"> Hours estimate: </h4>
+                    <input class="hour-estimate-input form-control" type="number" ng-model="task.time_estimate">
                   </div>
 
                   <div class="clearfix">
@@ -107,8 +113,8 @@
 
                   <div class='button-bar'>
                     <!-- <input type="submit" value="Add"> -->
-                    <button type="button" ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
-                    <button type="button" ng-click="cancelAdd()">Cancel</button>
+                    <button type="button"  class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button"  class="btn btn-default btn-md" ng-click="cancelAdd()">Cancel</button>
                   </div>
 
                 </div>
