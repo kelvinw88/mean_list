@@ -8,7 +8,6 @@ function inspect(o, depth)
   return console.log(util.inspect(o, { colors: true, depth: depth || 1 }));
 }
 
-
 /* GET Tasks page. */
 router.get('/', function(req, res) {
   //get all tasks with time sort
