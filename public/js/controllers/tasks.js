@@ -106,12 +106,9 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
   };
 
   $scope.averageProgress = function() {
-
     var sumProgress = 0;
     for (i=0; i < $scope.tasks.length; i++ ) {
-
       sumProgress += parseInt($scope.tasks[i].progress_bar);
-  
     }
     if (!sumProgress) return 0;
     return (sumProgress / $scope.tasks.length) ; 
@@ -119,13 +116,9 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
 
 
   $scope.totalTimeEstimate = function() {
-
     var sumTime = 0;
     for (i=0; i < $scope.tasks.length; i++ ) {
-      console.log($scope.tasks[i].time_estimate);
       sumTime += $scope.tasks[i].time_estimate;
-  
-      console.log(sumTime);
     }
     if (!sumTime) return 0;
     return (sumTime) ; 
