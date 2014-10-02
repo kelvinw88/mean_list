@@ -39,18 +39,44 @@ router.get('/project/:project_id', function(req, res) {
 });
 
 
+
+
+/* GET a project wih username. */
+// router.get('/project_with_username/:project_id', function(req, res) {
+//     var project = mongoose.model('projects');
+//     project.findById(req.params.project_id, function(err, project) {
+//       mongoose.model('projects').populate(project, {
+//         path: 'users'
+//       }, function(err, project) {
+//         console.log(project);
+//
+//       project.find({}, 'username',function(err, project) {
+//         console.log(project);
+//         if (err)
+//           {res.send(err)}
+//         else{
+//           res.send(project)
+//         }
+//       })
+//
+//
+//         // if (err)
+//         //   res.send(err);
+//         // res.json(project);
+//       })
+//     })
+//   });
+
+
+
+
+
 /* GET Projects page. */
 router.get('/:username', function(req, res) {
-  console.log("get project");
-  console.log(req.params.username);
-
   mongoose.model('users').findOne({'username' : req.params.username} , function(err, user) {
     if (user != null) {
-      console.log('found user');
-      console.log(user);
       mongoose.model('projects').find({'users' : user._id}, function(err, projects) {
           res.send(projects);
-          console.log(projects);
       });
     }
   });
@@ -60,13 +86,12 @@ router.get('/:username', function(req, res) {
 
 /* edit a project. */
 router.post('/:project_id', function(req, res) {
-  console.log("got into the backend");
   var project = mongoose.model('projects');
   project.findById(req.params.project_id, function(err, project) {
 
     if (err)
       res.send(err);
-    
+
     project.name = req.body.name;
     project.users = req.body.users;
     project.save(function(err) {

@@ -139,7 +139,18 @@ textarea {
 }
 
 .done-task{
+  position: relative;
+}
+.done-task:before{
 
-  text-decoration: line-through;
+  border-bottom: 2px solid #1c1d27;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
 
+}
+
+.highlight-text{
+  color:#4db182 !important;
 }

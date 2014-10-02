@@ -19,13 +19,14 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
 
   $scope.addMember = function(user, project){
     project.users.push(user._id);
+
     ProjectFactory.edit(project)
       .success(function(data){
-        console.log(data);
+        notify( user.username + ", is now one of your project members!");
     });
   };
 
-  
+
 
 
 });

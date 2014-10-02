@@ -48,19 +48,19 @@ $scope.doneTask = function(id) {
   }
 
 $scope.descriptionAdd = function(id) {
-// $scope.task.status.open = !$scope.task.status.open;
-  console.log($scope.task);
+
+
   $scope.adding = false
     TaskFactory.edit($scope.task)
   .success(function(data){
     $scope.tasks = data;
-    console.log($scope.tasks);
+
   });
 }
 
 $scope.selectStatus = function() {
-  console.log($scope.have_status);
-  console.log($scope.task.status);
+
+
   $scope.openStatusWindow = false;
   TaskFactory.edit($scope.task)
   .success(function(data){
