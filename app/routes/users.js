@@ -19,7 +19,7 @@ router.post('/login', function(req, res) {
         console.log(users);
         res.send(401, 'beat it.');
       }
-      
+
   })
 });
 
@@ -47,6 +47,19 @@ router.post('/create', function(req, res) {
   });
 });
 
+
+/* Get All Username. */
+router.get('/', function(req, res) {
+  var users = mongoose.model('users');
+  users.find({}, 'username',function(err, users) {
+    console.log(users);
+    if (err)
+      {res.send(err)}
+    else{
+      res.send(users)
+    }
+  })
+});
 
 
 
