@@ -1,84 +1,62 @@
-body
-{
-  background:#000;
-  margin:0;
-	color:#fff;
-	font:18px bold "Trebuchet MS", Arial, Helvetica, sans-serif;
+.progress-box {
+	width: 103 %;
+  margin-bottom:-8px;
+  margin-left:-11px;
+  margin-right:-10px;
+
 }
 
-h2
-{
-  text-align:center;
+.progress-box .percentage-cur .num {
+	margin-right: 5px;
 }
 
-#drag-wrapper
-{
-  text-align:center;
-  margin-top:20px;
+.progress-box .progress-bar {
+	width: 100%;
+	height: 5px;
+	background: rgba(255, 255, 255, 0);
+	margin-bottom: 3px;
+	box-shadow: 0 0 2px #D5D4D4 inset;
+  position: relative;
 }
 
-.drag-border
-{
-	border:solid 1px #fff;
-	width:450px;
-	border-radius:5px;
-	overflow:hidden;
-	position:relative;
-	left:50%;
-	margin-left:-225px;
+.progress-box .progress-bar .inner {
+  position: relative;
+	width: 0;
+	height:100%;
+	background: #3f556e;
 }
 
-#drag-container
-{
-  width:450px;
-	background:#eee;
+.progress-bar .inner {
+	height: 0;
+	width: 0;
+	transition: all 1s ease-out;
 }
 
-.drag-elem
-{
-	position:relative;
-	background:#00f;
-	height:20px;
-	width:20px;
-	z-index:10;
-	border-radius:5px;
-}
-.drag-bar
-{
-	height:20px;
-	background:#f0f;
-	width:0;
-	position:absolute;
-	z-index:5;
-	border-radius:5px;
+.progress-bar-slider .inner {
+  transition: none;
 }
 
-#div1
-{
-  width:100px;
-  height:100px;
-  position:relative;
-  background:green;
-  border:solid 1px;
-  border-radius:10px;
-  margin:20px;
+.progress-bar-slider .inner:after {
+  content: " ";
+  width: 5px;
+  height: 10px;;
+  background-color:#ccc;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.7);
+  margin: 0px;
 }
 
-#footer
-{
-  position:absolute;
-  bottom:20px;
-  right:20px;
-	text-align:right;
-}
-
-a
-{
-	color:#71b200;
-	text-decoration:none;
-	font-weight:bold;
-}
-a:hover
-{
-	text-decoration:underline;
+.progress-slider {
+  opacity: 0;
+  width: 100%;
+  height: 15px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
+  z-index: 1;
 }
