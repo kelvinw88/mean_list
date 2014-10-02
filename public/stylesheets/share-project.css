@@ -1,0 +1,29 @@
+#search-form{
+  display: inline-block;
+  width:100%;
+}
+
+.task-bar{
+  border-radius: 2px;
+  border-style:solid;
+  border-width:1px;
+  border-color:#638093;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+
+.task-bar:hover{
+  color:#4db182;
+  transition: all 1s;
+}
+
+.serach-header{
+  margin:0;
+  padding:5px 0px 0px 0px;
+  border:0;
+  position: relative;
+  display:block;
+  float:left;
+  transition: all 1s;
+}

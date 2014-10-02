@@ -67,11 +67,12 @@ textarea {
   position: relative;
   display:block;
   float:left;
+  transition: all 1s;
 }
 
 #page-content-wrapper .task-header:hover{
   color:#4db182;
-  transition: all 1s;
+
 }
 
 .text_yellow{
