@@ -1,5 +1,6 @@
 
+  <p>testing</p>
 
-  <div ng-repeat="user in users | filter: searchInput" >
-    <p> {{user}}</p>
+  <div ng-repeat="user in users | filter: searchInput | limitTo: '5'" >
+    <p> {{user.username}}</p>
   </div>

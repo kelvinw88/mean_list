@@ -11,6 +11,10 @@ mean_list.factory('UserFactory', ['$http',function($http) {
     },
     edit : function(UserData) {
       return $http.post('/api/users/', UserData);
+    },
+    get_all_username : function() {
+      return $http.get('/api/users/');
     }
+
   }
 }]);
