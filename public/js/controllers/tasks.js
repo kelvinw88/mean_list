@@ -3,6 +3,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
   console.log("In Task Ctrl");
   $scope.project = $stateParams;
   $scope.max = 100;
+  $scope.oneAtATime = true;
 
 
 
@@ -102,5 +103,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     task.done = !task.done;
     TaskFactory.edit(task)
   };
+
+  
 
 });

@@ -5,16 +5,18 @@
     <h1 id="logo">CanDo</h1>
     <div class="text-center">
 
-      <div class= "username-contatiner text-center clearfix" ng-show="$root.currentUser">
+      <div class="username-contatiner text-center clearfix" ng-show="$root.currentUser">
         <span class="username ">{{$root.currentUser.username}}</span>
-        <button class="text-right logout"  ng-click="logoutCurrentUser()"><i class="fa fa-sign-out"></i></button>
+        <button class="text-right logout" ng-click="logoutCurrentUser()"><i class="fa fa-sign-out"></i>
+        </button>
       </div>
 
       <form ng-controller="SearchCtrl">
         <div>
-          <input class="input-contorl input-sm text-center" ng-model="query" value="Search" ng-keyup="globalSearch(query)" placeholder="Search..." type='text'/>
+          <input class="input-contorl input-sm text-center" ng-model="query" value="Search" ng-keyup="globalSearch(query)" placeholder="Search..." type='text' />
         </div>
-        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-search"></i></i></button>
+        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-search"></i></i>
+        </button>
       </form>
 
 
@@ -24,7 +26,8 @@
           <input type="text" class="input-contorl input-sm text-center" placeholder="Create a project" ng-model="formData.name">
         </div>
         <!-- createToDo() WILL CREATE NEW TODOS -->
-        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-plus "></i></button>
+        <button type="submit" class="input-button text-center" ng-click="createProject() "><i class="fa fa-plus "></i>
+        </button>
       </form>
     </div>
   </div>
@@ -33,41 +36,41 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)"    ui-sref-active="sidemenu_active"  ng-repeat="project in projects | orderBy:'time':'reverse'">
+    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)" ng-class="{sidemenu_active: shareProjectActive() }" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
       <!-- ng-class="{sidemenu_active: $state.includes('projects.share_project')}"  -->
 
-      <div class="project_container"  data-project_id="{{project._id}}">
+      <div class="project_container" data-project_id="{{project._id}}">
 
-        <p ui-sref="projects.tasks({project_id: project._id})" class="sidemenu_project_name" >{{ project.name || 'empty' }}</p>
+        <p ui-sref="projects.tasks({project_id: project._id})" class="sidemenu_project_name">{{ project.name || 'empty' }}</p>
 
-      <div class="sidemenu_icon_group">
+        <div class="sidemenu_icon_group">
 
-        <!-- DELETE -->
-        <div class="sidemenu_button">
-          <i class="fa fa-trash" ng-click="deleteProject(project._id)"></i>
-        </div>
-
-        <!-- EDIT -->
-        <div ng-controller="ProjectNameCtrl">
-          <div ng-hide="beingEdited" class="sidemenu_button">
-            <i class="fa fa-pencil-square-o" ng-click="beingEdited = true"></i>
+          <!-- DELETE -->
+          <div class="sidemenu_button">
+            <i class="fa fa-trash" ng-click="deleteProject(project._id)"></i>
           </div>
-          <div ng-show="beingEdited">
-            <div>
-              <input ng-model="projectNameCopy">
-              <button ng-click="finishEditing(project._id) " type="button">Save</button>
-              <button type="button" ng-click="cancelEditing()">Cancel</button>
+
+          <!-- EDIT -->
+          <div ng-controller="ProjectNameCtrl">
+            <div ng-hide="beingEdited" class="sidemenu_button">
+              <i class="fa fa-pencil-square-o" ng-click="beingEdited = true"></i>
+            </div>
+            <div ng-show="beingEdited">
+              <div>
+                <input ng-model="projectNameCopy">
+                <button ng-click="finishEditing(project._id) " type="button">Save</button>
+                <button type="button" ng-click="cancelEditing()">Cancel</button>
+              </div>
             </div>
           </div>
+          <!-- SHARE PROJECT -->
+          <div class="sidemenu_button">
+            <i ui-sref="projects.share_project({project_id: project._id})" class="fa fa-users"></i>
+          </div>
+
+
+
         </div>
-        <!-- SHARE PROJECT -->
-        <div class="sidemenu_button" >
-          <i ui-sref="projects.share_project({project_id: project._id})" class="fa fa-users"></i>
-        </div>
-
-
-
-      </div>
 
 
 

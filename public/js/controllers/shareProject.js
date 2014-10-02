@@ -25,5 +25,7 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
     });
   };
 
+  
+
 
 });

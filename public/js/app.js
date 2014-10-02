@@ -37,16 +37,8 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
       $rootScope.$state = $state;
     });
 
-
-mean_list.run(function($rootScope) {
-   $rootScope.$on('$routeChangeSuccess', function(ev,data) {   
-     if (data.$route && data.$route.controller)
-       $rootScope.controller = data.$route.controller;
-   })
-});
 // mean_list.run(['$rootScope', function( $rootScope) {
 //   $rootScope.$on('$locationChangeStart', function (event) {
 //       // alert("HELLO");
 //   });
 // }]);
-

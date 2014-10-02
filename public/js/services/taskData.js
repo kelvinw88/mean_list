@@ -13,6 +13,7 @@ mean_list.factory('TaskFactory', ['$http',function($http) {
       return $http.delete('/api/tasks/' + id);
     },
     edit : function(task) {
+      console.log(task._id);
       return $http.post('/api/tasks/' + task._id, task);
     }
   }
