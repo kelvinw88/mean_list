@@ -1,4 +1,4 @@
-mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
+mean_list.controller('TasksCtrl', function($scope, $timeout, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
 
   console.log("In Task Ctrl");
   $scope.project = $stateParams;
@@ -9,7 +9,10 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
 
   $scope.showCompletedTasks = false;
 
-  // get tasks belongs to a project
+
+
+// var getTasks = function(){
+
   if ($stateParams.project_id != undefined)
     {
     //get project details
@@ -32,6 +35,36 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
         $scope.tasks = data
       });
     }
+//   $timeout(getTask, 1000);
+// }
+// $timeout(getTasks, 00);
+
+
+
+if ($stateParams.project_id != undefined)
+  {
+  //get project details
+  ProjectFactory.get_a_project($stateParams.project_id)
+  .success(function(data) {
+    $scope.project.name = data.name;
+  });
+  //get project tasks
+  TaskFactory.get_project_tasks($stateParams.project_id)
+  .success(function(data) {
+    $scope.tasks = data
+  });
+
+  }
+// get all tasks if no project is selected
+else
+  {
+    TaskFactory.get()
+    .success(function(data) {
+      $scope.tasks = data
+    });
+  }
+
+
 
 
   $scope.createTask = function() {
@@ -104,6 +137,6 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
     TaskFactory.edit(task)
   };
 
-  
+
 
 });

@@ -4,21 +4,19 @@
       <div class="col-lg-12">
 
         <h1 class="task_h1">Add Members to project: {{project.name}}</h1>
-        {{project.users}}
 
 
         <form id="task-form" class="text-center">
 
 
           <div class="resize-form-input">
-            <input type="text" class="task-create-input input-sm text-center" placeholder="Search for a user" ng-model="searchText" ng-init= "searchText = ''" >
+            <input type="text" class="task-create-input input-sm text-center" placeholder="Search for a user" ng-model="searchText" ng-init="searchText = ''">
           </div>
         </form>
 
 
         <div class="tasks-wrapper">
-        <div class="task-bar clearfix" ng-hide="searchText == '' " ng-repeat="user in users | filter: searchText | limitTo: '5' " >
-
+          <div class="task-bar clearfix" ng-hide="searchText == ''" ng-repeat="user in users | filter: searchText | limitTo: '5'" >
             <div class="clearfix" ng-click="addMember(user,project)">
               <i class="fa fa-plus task-checkbox"></i>
               <h4 class="serach-header pull-left"> {{user.username}}</p>

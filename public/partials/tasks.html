@@ -83,13 +83,14 @@
                     <h4 class="pull-left">Status: </h4>
                     <div class="pull-right">
                       <div ng-hide="openStatusWindow">
-                        <i class="{{task.status}} fa-lg" ng-click="openStatusWindow = true"></i>
+            
+                        <i class="{{task.status}} fa-lg status_icon"  ng-click="openStatusWindow = true"></i>
                       </div>
 
                       <div ng-show="openStatusWindow">
-                        <i class="text_yellow fa fa-exclamation-triangle fa-lg" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
-                        <i class="text_blue fa fa-question-circle fa-lg" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
-                        <i class="text_red fa fa-minus-circle fa-lg" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+                        <i class="text_yellow fa fa-exclamation-triangle fa-lg status_icon" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
+                        <i class="text_blue fa fa-question-circle fa-lg status_icon" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                        <i class="text_red fa fa-minus-circle fa-lg status_icon" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
                       </div>
                     </div>
                   </div>
@@ -113,7 +114,9 @@
 
                   <div class='button-bar'>
                     <!-- <input type="submit" value="Add"> -->
-                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button" class="btn btn-default btn-md pull-left" style ="width:83.5%;"ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open"><i class="fa fa-trash"></i></button>
+
                   </div>
 
                 </div>
@@ -214,13 +217,13 @@
                     <h4 class="pull-left">Status: </h4>
                     <div class="pull-right">
                       <div ng-hide="openStatusWindow">
-                        <i class="{{task.status}} fa-lg" ng-click="openStatusWindow = true"></i>
+                        <i class="{{task.status}} fa-lg status_icon" ng-click="openStatusWindow = true"></i>
                       </div>
 
                       <div ng-show="openStatusWindow">
-                        <i class="text_yellow fa fa-exclamation-triangle fa-lg" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
-                        <i class="text_blue fa fa-question-circle fa-lg" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
-                        <i class="text_red fa fa-minus-circle fa-lg" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
+                        <i class="text_yellow fa fa-exclamation-triangle fa-lg status_icon" ng-click="task.status = 'fa fa-exclamation-triangle'; selectStatus()"></i>
+                        <i class="text_blue fa fa-question-circle fa-lg status_icon" ng-click="task.status = 'fa fa-question-circle'; selectStatus()"></i>
+                        <i class="text_red fa fa-minus-circle fa-lg status_icon" ng-click="task.status = 'fa fa-minus-circle'; selectStatus()"></i>
                       </div>
                     </div>
                   </div>
@@ -243,8 +246,11 @@
 
 
                   <div class='button-bar'>
+
                     <!-- <input type="submit" value="Add"> -->
-                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button" class="btn btn-default btn-md pull-left" style ="width:83.5%;"ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
+                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open"><i class="fa fa-trash"></i></button>
+
 
                   </div>
 
