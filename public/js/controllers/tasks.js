@@ -1,9 +1,10 @@
-mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory, TaskFactory, $filter, $http) {
+mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,$rootScope, TaskFactory, $filter, $http) {
 
   console.log("In Task Ctrl");
   $scope.project = $stateParams;
   $scope.max = 100;
   $scope.oneAtATime = true;
+
 
 
 
@@ -43,12 +44,15 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       $scope.taskData.project = $scope.project.project_id;
       $scope.taskData.done = false;
       $scope.taskData.progress_bar = 0;
+      $scope.taskData.admin = $rootScope.currentUser._id;
       $scope.taskData.status = 'fa fa-circle-o';
       $scope.taskData.due_date =  null;
       // call the create function from our service (returns a promise object)
+      console.log($scope.taskData);
       TaskFactory.create($scope.taskData)
       // if successful creation, call our get function to get all the new todos
       .success(function(data) {
+        console.log(data);
         $scope.loading = false;
         $scope.taskData = {}; // clear the form so our user is ready to enter another
         $scope.tasks.push(data); // assign our new list of todos
@@ -102,7 +106,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
   $scope.checkboxToggle = function(task) {
     task.done = !task.done;
     TaskFactory.edit(task)
-    
+
   };
 
   $scope.averageProgress = function() {
@@ -111,7 +115,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       sumProgress += parseInt($scope.tasks[i].progress_bar);
     }
     if (!sumProgress) return 0;
-    return (sumProgress / $scope.tasks.length) ; 
+    return (sumProgress / $scope.tasks.length) ;
   }
 
 
@@ -121,7 +125,7 @@ mean_list.controller('TasksCtrl', function($scope, $stateParams, ProjectFactory,
       sumTime += $scope.tasks[i].time_estimate;
     }
     if (!sumTime) return 0;
-    return (sumTime) ; 
+    return (sumTime) ;
   }
 
 

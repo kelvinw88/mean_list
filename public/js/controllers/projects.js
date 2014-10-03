@@ -15,7 +15,7 @@ mean_list.controller('ProjectsCtrl', function($location, $scope, $stateParams, P
 
   ProjectFactory.get($scope.username)
     .success(function(data) {
-      console.log(data);
+      
       $scope.projects = data;
     });
 

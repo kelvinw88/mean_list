@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var tasksSchema = new Schema({
   name: {type: String, required: true},
   description: { type: String, default: null },
+  admin: {type: Schema.Types.ObjectId, ref: 'users'},
   project: {
     type: Schema.Types.ObjectId,
     ref: 'projects',
