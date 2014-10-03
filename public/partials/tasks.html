@@ -143,16 +143,18 @@
 
 
 
-        <button ng-click="showCompletedTasks = !showCompletedTasks">SHOW COMPLETEED TASKS</button>
+        <button class="show-completed-task-btn" ng-click="showCompletedTasks = !showCompletedTasks"><i class="fa fa-check-square-o fa-lg "></i> SHOW COMPLETED TASKS</button>
 
 
         <!--  SNOW COMPLETED TASK ONLY BEGIN-->
 
-        
-<accordion class="tasks-wrapper" close-others="oneAtATime">
 
-          <accordion-group ng-show="showCompletedTasks" class="task-bar" is-open="status.open" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
-            <accordion-heading class="task-inner-block clearfix">
+<accordion class="tasks-wrapper" close-others="oneAtATime"  >
+
+          <accordion-group ng-show="showCompletedTasks" class="task-bar" is-open="status.open"  ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
+
+            <accordion-heading class="task-inner-block clearfix" >
+
               <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
               <h4 ng-click="startAdd()" class='task-header'>{{task.name}}</h4>
 
@@ -175,6 +177,8 @@
               </div>
 
 
+
+
               <div class="progress-box" ng-click="$event.stopPropagation();">
                 <div class="progress-bar progress-bar-slider">
                   <input class="progress-slider" type="range" min="0" max="100" ng-model="task.progress_bar" ng-mouseup="saveProgress(task)">
@@ -183,6 +187,7 @@
               </div>
 
             </accordion-heading>
+
 
 
             <div class="task-deatils" ng-controller='WindowController'>

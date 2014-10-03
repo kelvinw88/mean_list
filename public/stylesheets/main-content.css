@@ -125,3 +125,17 @@ textarea {
 .btn{
   border-radius:2px !important;
 }
+
+.panel-group{
+  margin:0px !important;
+}
+
+.show-completed-task-btn{
+  margin-bottom:10px;
+}
+
+
+
+.glyphicon{
+  margin-left:10px;
+}
