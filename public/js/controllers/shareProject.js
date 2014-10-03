@@ -22,7 +22,7 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
 
     ProjectFactory.edit(project)
       .success(function(data){
-        notify("You have added " + user.username + " to your project!");
+        notify( user.username + ", is now one of your project members!");
     });
   };
 

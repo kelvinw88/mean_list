@@ -42,7 +42,30 @@ router.get('/project/:project_id', function(req, res) {
 
 
 /* GET a project wih username. */
-
+// router.get('/project_with_username/:project_id', function(req, res) {
+//     var project = mongoose.model('projects');
+//     project.findById(req.params.project_id, function(err, project) {
+//       mongoose.model('projects').populate(project, {
+//         path: 'users'
+//       }, function(err, project) {
+//         console.log(project);
+//
+//       project.find({}, 'username',function(err, project) {
+//         console.log(project);
+//         if (err)
+//           {res.send(err)}
+//         else{
+//           res.send(project)
+//         }
+//       })
+//
+//
+//         // if (err)
+//         //   res.send(err);
+//         // res.json(project);
+//       })
+//     })
+//   });
 
 
 

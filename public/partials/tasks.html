@@ -25,9 +25,9 @@
         <accordion class="tasks-wrapper" close-others="oneAtATime">
 
           <accordion-group class="task-bar" is-open="status.open" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'false'">
-            <accordion-heading class="task-inner-block clearfix">
+            <accordion-heading class="task-inner-block clearfix" ng-click="status.open = !status.open">
               <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
-              <h4 ng-click="startAdd()" ng-class="{'highlight-text': status.open}"class='task-header'>{{task.name}}</h4>
+              <h4 ng-click="startAdd()" ng-class="{'highlight-text': status.open}" class='task-header'>{{task.name}}</h4>
 
               <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
               <div class="pull-right">
@@ -148,11 +148,11 @@
         <!--  SNOW COMPLETED TASK ONLY BEGIN-->
 
 
-<accordion class="tasks-wrapper" close-others="oneAtATime"  >
+        <accordion class="tasks-wrapper" close-others="oneAtATime">
 
-          <accordion-group ng-show="showCompletedTasks" class="task-bar" is-open="status.open"  ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
+          <accordion-group ng-show="showCompletedTasks" class="task-bar" is-open="status.open" ng-repeat="task in tasks | orderBy:'time':'reverse' | filter: 'true'">
 
-            <accordion-heading class="task-inner-block clearfix" >
+            <accordion-heading class="task-inner-block clearfix">
 
               <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
               <h4 ng-click="startAdd()" class='task-header'><span class="done-task">{{task.name}}</span></h4>

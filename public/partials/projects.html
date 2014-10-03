@@ -36,8 +36,9 @@
   <!-- show all projects -->
   <!-- LOOP OVER THE TODOS IN $scope.todos -->
   <div class="side-container">
-    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)" ng-class="{sidemenu_active: shareProjectActive() }" ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
-      <!-- ng-class="{sidemenu_active: $state.includes('projects.share_project')}"  -->
+    <div class="clearfix project-wrapper" ng-click="selectProject(project._id)"  ui-sref-active="sidemenu_active" ng-repeat="project in projects | orderBy:'time':'reverse'">
+
+      <!-- ng-class="{sidemenu_active: shareProjectActive() }" -->
 
       <div class="project_container" data-project_id="{{project._id}}">
 
@@ -67,15 +68,8 @@
           <div class="sidemenu_button">
             <i ui-sref="projects.share_project({project_id: project._id})" class="fa fa-users"></i>
           </div>
-
-
-
         </div>
-
-
-
       </div>
-
       <div ui-sref="projects.tasks({project_id: project._id})" class="clearfix">
       </div>
 
