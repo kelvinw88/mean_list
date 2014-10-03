@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
       if (err)
         res.send(err);
       mongoose.model('projects').where('users').equals(user[0]._id).find(function(err, projects) {
-        console.log(project);
+        
         res.send(projects);
       });
     });

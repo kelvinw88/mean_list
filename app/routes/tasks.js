@@ -3,10 +3,7 @@ var express = require('express');
 var router = express.Router();
 var util = require('util');
 
-function inspect(o, depth)
-{
-  return console.log(util.inspect(o, { colors: true, depth: depth || 1 }));
-}
+
 
 /* GET Tasks page. */
 router.get('/', function(req, res) {
@@ -115,7 +112,7 @@ router.post('/:task_id', function(req, res)
     {
       if (err)
       {
-        console.log("Error: %s", err.message)
+        
         return res.send(err);
       }
       return res.json(task);
@@ -134,7 +131,7 @@ router.delete('/:task_id', function(req, res) {
       {res.send(err);}
     else{
       res.send(task);
-      
+
     }
 
     })

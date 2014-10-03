@@ -12,7 +12,7 @@
               {{project.name}}
               </h4>
               <div class="pull-right" id="project_details">
-                average progress: {{averageProgress() || 0}}% Total time: {{totalTimeEstimate() || 0}}
+                average progress: {{averageProgress() || 0 | number: 0}}% Total time: {{totalTimeEstimate() || 0 | number: 0}}
               </div>
           </div>
 
