@@ -5,9 +5,11 @@ mean_list.controller('ShareProjectCtrl', function($scope,$stateParams, $filter, 
 
   $scope.project_name = "";
 
+
   ProjectFactory.get_a_project($stateParams.project_id)
   .success(function(data) {
     $scope.project = data;
+    
   });
 
   UserFactory.get_all_username()
