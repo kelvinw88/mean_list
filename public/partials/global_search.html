@@ -16,13 +16,13 @@
 
         </div>
 
-        <div class="task-bar clearfix search_results" ng-repeat="task in tasks | filter: query" ui-sref="projects.tasks({project_id: task.project._id})">
+        <div class="task-bar clearfix search_results" ng-repeat="task in tasks | filter: query" ui-sref="projects.tasks({project_id: task.project})">
 
           <div class="clearfix">
             <i class="fa fa-tasks task-checkbox"></i>
             <h4 class="search-header pull-left"> {{task.name}}</h4>
           </div>
-          
+
         </div>
 
         </div>
