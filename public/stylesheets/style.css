@@ -52,3 +52,7 @@ label {
 .button-bar {
   text-align: right;
 }
+
+.input-sm{
+  margin-bottom:10px;
+}
