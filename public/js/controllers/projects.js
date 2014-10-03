@@ -29,7 +29,7 @@ mean_list.controller('ProjectsCtrl', function($timeout, $location, $scope, $stat
   var getProjects = function(){
     ProjectFactory.get($scope.username)
     .success(function(data) {
-      
+
       $scope.projects = data;
 
     });
@@ -75,7 +75,7 @@ mean_list.controller('ProjectsCtrl', function($timeout, $location, $scope, $stat
     // if successful creation, call our get function to get all the new todos
     .success(function(data) {
       $scope.loading = false;
-      $scope.projects = data; // assign our new list of todos
+      // $scope.projects = data; // assign our new list of todos
       $location.path( $scope.username + '/projects');
 
     });

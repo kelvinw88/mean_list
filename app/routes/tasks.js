@@ -33,7 +33,7 @@ router.get('/user/:user_id', function(req, res) {
 
 
 
-
+//get project's task
 router.get('/project/:project_id', function(req, res) {
 
   var project_id = req.param('project_id')
@@ -131,14 +131,15 @@ router.delete('/:task_id', function(req, res) {
     _id: req.params.task_id
   }, function(err, task) {
     if (err)
-      res.send(err);
-    mongoose.model('tasks').populate(tasks, {
-      path: 'project'
-    }, function(err, tasks) {
-      res.send(tasks);
+      {res.send(err);}
+    else{
+      res.send(task);
+      
+    }
+
     })
   });
-});
+
 
 
 module.exports = router;

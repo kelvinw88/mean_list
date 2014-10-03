@@ -163,22 +163,20 @@ else
     return (sumTime) ;
   }
 
-  $scope.deleteTask = function(task) {
-    console.log("delete task");
-    $scope.loading = true;
-    ProjectFactory.delete(task._id)
-    // if successful creation, call our get function to get all the new todos
-    .success(function(data) {
-      $scope.loading = false;
-      $scope.tasks = data; // assign our new list of todos
+
+  // $scope.deleteTask = function(task) {
+  //   console.log("delete task");
+  //   $scope.loading = true;
+  //   ProjectFactory.delete(task._id)
+  //   // if successful creation, call our get function to get all the new todos
+  //   .success(function(data) {
+  //     $scope.loading = false;
+  //     $scope.tasks = data; // assign our new list of todos
+  //
+  //
+  //   });
+  // };
 
 
-    });
-  };
-
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 });

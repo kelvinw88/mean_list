@@ -2,7 +2,7 @@ mean_list.controller('ProjectNameCtrl', function($scope, $stateParams, ProjectFa
   $scope.beingEdited = false;
   $scope.projectNameCopy = $scope.project.name
 
-  $scope.finishEditing = function(project_id) { 
+  $scope.finishEditing = function(project_id) {
     $scope.beingEdited = false;
     $scope.loading = true;
     var oldProjectName = $scope.project.name;
@@ -20,7 +20,7 @@ mean_list.controller('ProjectNameCtrl', function($scope, $stateParams, ProjectFa
     });
   };
 
-  $scope.cancelEditing = function() { 
+  $scope.cancelEditing = function() {
     $scope.beingEdited = false;
     $scope.loading = true;
     $scope.projectNameCopy = $scope.project.name;
