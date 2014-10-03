@@ -36,3 +36,9 @@ mean_list.config(['$stateProvider', '$urlRouterProvider', function($stateProvide
 }]).run(function($rootScope, $state) {
       $rootScope.$state = $state;
     });
+
+// mean_list.run(['$rootScope', function( $rootScope) {
+//   $rootScope.$on('$locationChangeStart', function (event) {
+//       // alert("HELLO");
+//   });
+// }]);
