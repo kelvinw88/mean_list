@@ -5,7 +5,7 @@
 
         <h1 class="task_h1">Add Members to project: {{project.name}}</h1>
 
-        {{project.users}}
+        
 
         <form id="task-form" class="text-center">
 
@@ -17,6 +17,7 @@
 
 
         <div class="tasks-wrapper">
+
 
           <div class="task-bar clearfix" ng-hide="searchText == ''" ng-repeat="user in users | filter: searchText | limitTo: '5'" >
 

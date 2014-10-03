@@ -144,17 +144,23 @@ else
 
   };
 
+
   $scope.averageProgress = function() {
+    if(!$scope.tasks)
+      return 0;
+
     var sumProgress = 0;
     for (i=0; i < $scope.tasks.length; i++ ) {
       sumProgress += parseInt($scope.tasks[i].progress_bar);
     }
-    if (!sumProgress) return 0;
+    if (!sumProgress || $scope.tasks.length == 0) return 0;
     return (sumProgress / $scope.tasks.length) ;
   }
 
 
   $scope.totalTimeEstimate = function() {
+    if(!$scope.tasks)
+      return 0;
     var sumTime = 0;
     for (i=0; i < $scope.tasks.length; i++ ) {
       sumTime += $scope.tasks[i].time_estimate;
@@ -164,18 +170,19 @@ else
   }
 
 
-  // $scope.deleteTask = function(task) {
-  //   console.log("delete task");
-  //   $scope.loading = true;
-  //   ProjectFactory.delete(task._id)
-  //   // if successful creation, call our get function to get all the new todos
-  //   .success(function(data) {
-  //     $scope.loading = false;
-  //     $scope.tasks = data; // assign our new list of todos
-  //
-  //
-  //   });
-  // };
+
+  $scope.deleteTask = function(task) {
+    console.log("delete task");
+    $scope.loading = true;
+    TaskFactory.delete(task._id)
+    // if successful creation, call our get function to get all the new todos
+    .success(function(data) {
+      $scope.loading = false;
+      // $scope.tasks = data; 
+
+
+    });
+  };
 
 
 

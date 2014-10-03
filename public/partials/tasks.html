@@ -12,7 +12,7 @@
               {{project.name}}
               </h4>
               <div class="pull-right" id="project_details">
-              average progress: {{averageProgress()  | number: 0 }}% {{averageProgress()*totalTimeEstimate()/100  | number: 0}}/{{totalTimeEstimate() | number: 0}} hours left
+                average progress: {{averageProgress() || 0}}% Total time: {{totalTimeEstimate() || 0}}
               </div>
           </div>
 
@@ -81,7 +81,7 @@
 
                     <div>
 
-                      <textarea class="form-control task-textarea" ng-model="task.description" placeholder="Describtion"></textarea>
+                      <textarea class="form-control task-textarea" ng-model="task.description" placeholder="Description"></textarea>
                     </div>
 
                   </div>
@@ -128,7 +128,7 @@
                   <div class='button-bar'>
                     <!-- <input type="submit" value="Add"> -->
                     <button type="button" class="btn btn-default btn-md pull-left" style ="width:83.5%;"ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
-                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-default btn-md" ng-click="deleteTask(task); status.open = !status.open"><i class="fa fa-trash"></i></button>
 
                   </div>
 
@@ -262,7 +262,8 @@
 
                     <!-- <input type="submit" value="Add"> -->
                     <button type="button" class="btn btn-default btn-md pull-left" style ="width:83.5%;"ng-click="descriptionAdd(task._id); status.open = !status.open">Save</button>
-                    <button type="button" class="btn btn-default btn-md" ng-click="descriptionAdd(task._id); status.open = !status.open"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-default btn-md" ng-click="deleteTask(task); status.open = !status.open"><i class="fa fa-trash"></i></button>
+
 
 
                   </div>
