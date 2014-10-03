@@ -134,8 +134,12 @@ textarea {
   margin-bottom:10px;
 }
 
-
-
 .glyphicon{
   margin-left:10px;
+}
+
+.done-task{
+
+  text-decoration: line-through;
+
 }

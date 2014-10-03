@@ -156,7 +156,7 @@
             <accordion-heading class="task-inner-block clearfix" >
 
               <input class="task-checkbox" type="checkbox" ng-click="checkboxToggle(task)">
-              <h4 ng-click="startAdd()" class='task-header'>{{task.name}}</h4>
+              <h4 ng-click="startAdd()" class='task-header'><span class="done-task">{{task.name}}</span></h4>
 
               <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
               <div class="pull-right">
